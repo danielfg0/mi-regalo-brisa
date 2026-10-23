@@ -187,12 +187,8 @@
         <h1 id="hero-title">Feliz cumpleaños,<br><em>mi Brisa.</em></h1>
         <p class="hero-copy" id="hero-subtitle">Preparé este pequeño rincón para recordarte lo muchísimo que te amo, mi fresita hermosa.</p>
         <p class="signature-line" id="hero-signature">Con todo mi amor, Daniel ♡</p>
-        <div class="actions">
-          <button class="button primary" id="open-letter-button" type="button">Abrir tu sorpresa <span aria-hidden="true">♡</span></button>
-          <a class="button" href="#recuerdos">Nuestros recuerdos <span aria-hidden="true">↘</span></a>
-        </div>
       </div>
-      <div class="scroll-cue" aria-hidden="true">Hay más para ti <span>⌄</span></div>
+      <div class="scroll-cue" aria-hidden="true">Hay más para ti <span>⌄⌄⌄</span></div>
     </section>
 
     <section class="section wrap reveal" aria-label="Un deseo para tu cumpleaños">
@@ -341,11 +337,6 @@ Te mereces un cumpleaños precioso y una vida llena de amor. Y yo espero poder s
       letterCard.classList.add("visible");
     }
     envelope.addEventListener("click", openLetter);
-    $("#open-letter-button").addEventListener("click", () => {
-      openLetter();
-      $("#carta").scrollIntoView({ behavior: "smooth", block: "start" });
-      window.setTimeout(() => letterCard.scrollIntoView({ behavior: "smooth", block: "center" }), 450);
-    });
     $("#back-to-top").addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
 
     // Fotos: muestra el marcador romántico si todavía no se agregó la imagen.
