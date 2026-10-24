@@ -121,6 +121,16 @@
     .counter-caption { position: relative; z-index: 1; margin: 0; opacity: .95; }
     .counter-seconds { position: relative; z-index: 1; margin: 8px 0 0; font: clamp(1.25rem, 4vw, 2rem)/1.2 var(--serif); opacity: .96; }
     .counter-seconds strong { font-weight: 400; }
+    .love-question-box { max-width: 780px; margin: 0 auto; padding: clamp(28px, 6vw, 48px) 20px; text-align: center; border: 1px solid rgba(196,93,123,.18); background: linear-gradient(145deg,rgba(255,255,255,.84),rgba(255,239,241,.82)); border-radius: 25px; box-shadow: 0 16px 45px rgba(108,52,76,.07); overflow: hidden; }
+    .love-question-buttons { position: relative; min-height: 150px; }
+    .love-choice { position: absolute; min-width: 130px; transition: left .28s ease, top .28s ease, transform .28s cubic-bezier(.2,.8,.2,1), min-width .28s ease, padding .28s ease, opacity .28s ease; }
+    .brisa-choice { left: calc(50% - 150px); top: 48px; background: #e7a3b4; border-color: #e7a3b4; color: white; }
+    .brisa-choice:hover { background: #d9879d; }
+    .daniel-choice { left: calc(50% + 20px); top: 48px; background: #c45d7b; border-color: #c45d7b; color: white; }
+    .love-answer { margin: 24px auto 0; color: var(--rose-deep); font: italic clamp(1.5rem, 4vw, 2rem)/1.4 var(--serif); animation: fade-up .6s both; }
+    .love-answer[hidden] { display: none; }
+    .love-heart { position: fixed; z-index: 90; top: -35px; pointer-events: none; color: var(--rose); animation: love-heart-fall var(--fall-time, 3s) ease-in forwards; }
+    @keyframes love-heart-fall { 0% { transform: translate3d(0,-5vh,0) rotate(0) scale(.7); opacity: 0; } 12% { opacity: 1; } 100% { transform: translate3d(var(--drift,0px),110vh,0) rotate(360deg) scale(1.2); opacity: 0; } }
     .surprise-box { max-width: 780px; margin: 0 auto; border: 1px solid rgba(196,93,123,.18); background: linear-gradient(145deg,rgba(255,255,255,.84),rgba(255,239,241,.82)); border-radius: 25px; box-shadow: 0 16px 45px rgba(108,52,76,.07); padding: clamp(25px, 5vw, 45px); text-align: center; }
     .gift-icon { display: grid; place-items: center; margin: 0 auto 15px; width: 76px; height: 76px; border-radius: 50%; background: #f7dce4; color: var(--rose-deep); font-size: 2.1rem; animation: gift-wiggle 3s ease-in-out infinite; }
     .surprise-box h3 { font: 400 clamp(1.8rem, 5vw, 2.5rem)/1.15 var(--serif); margin: 8px 0 10px; }
@@ -264,6 +274,17 @@ Te mereces un cumpleaños precioso y una vida llena de amor. Y yo espero poder s
         <div class="counter-number" id="hours-count">♡</div>
         <p class="counter-caption" id="hours-caption">horas desde que empezó nuestra historia</p>
         <p class="counter-seconds" id="seconds-caption"><strong>—</strong> segundos</p>
+      </div>
+    </section>
+
+    <section class="section wrap" id="quien-ama-mas" aria-labelledby="love-question-title">
+      <div class="heading reveal"><div class="ornament">♡ · ✧ · ♡</div><div class="eyebrow">Una pregunta importante</div><h2 id="love-question-title">¿Quién ama más al otro?</h2><p>Elige tu respuesta, mi amor ♡</p></div>
+      <div class="love-question-box reveal">
+        <div class="love-question-buttons">
+          <button class="button love-choice brisa-choice" id="brisa-choice" type="button">Brisa</button>
+          <button class="button primary love-choice daniel-choice" id="daniel-choice" type="button">Daniel</button>
+        </div>
+        <p class="love-answer" id="love-answer" aria-live="polite" hidden>Obvio que yo te amo más, mi amor ♡</p>
       </div>
     </section>
 
@@ -417,6 +438,51 @@ Te mereces un cumpleaños precioso y una vida llena de amor. Y yo espero poder s
     }
     updateElapsedTime();
 
+    // Juego de la pregunta: Brisa se hace más pequeña y Daniel más grande.
+    const brisaChoice = $("#brisa-choice");
+    const danielChoice = $("#daniel-choice");
+    const loveAnswer = $("#love-answer");
+    let brisaClicks = 0;
+    brisaChoice.addEventListener("click", () => {
+      brisaClicks += 1;
+      const brisaScale = Math.max(0.08, 1 - brisaClicks * 0.14);
+      const danielScale = Math.min(2.15, 1 + brisaClicks * 0.17);
+      brisaChoice.style.transform = `scale(${brisaScale})`;
+      const playArea = brisaChoice.parentElement;
+      const maxLeft = Math.max(0, playArea.clientWidth - brisaChoice.offsetWidth);
+      const maxTop = Math.max(0, playArea.clientHeight - brisaChoice.offsetHeight);
+      brisaChoice.style.left = `${Math.random() * maxLeft}px`;
+      brisaChoice.style.top = `${Math.random() * maxTop}px`;
+      danielChoice.style.transform = `scale(${danielScale})`;
+      if (brisaClicks >= 6) {
+        brisaChoice.style.opacity = "0.22";
+        brisaChoice.style.pointerEvents = "none";
+        brisaChoice.setAttribute("aria-label", "Brisa se hizo muy pequeñita");
+      }
+    });
+    function burstLoveHearts() {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+      const hearts = ["♡", "♥", "💕", "💗", "💖"];
+      for (let i = 0; i < 42; i++) {
+        const heart = document.createElement("span");
+        heart.className = "love-heart";
+        heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+        heart.style.left = `${Math.random() * 100}vw`;
+        heart.style.setProperty("--fall-time", `${2.4 + Math.random() * 2.2}s`);
+        heart.style.setProperty("--drift", `${Math.round(Math.random() * 180 - 90)}px`);
+        heart.style.fontSize = `${16 + Math.random() * 24}px`;
+        document.body.appendChild(heart);
+        window.setTimeout(() => heart.remove(), 5000);
+      }
+    }
+    danielChoice.addEventListener("click", () => {
+      loveAnswer.hidden = false;
+      danielChoice.textContent = "¡Lo sabía! ♡";
+      brisaChoice.disabled = true;
+      danielChoice.disabled = true;
+      burstLoveHearts();
+    });
+
     // Confeti ligero al pedir el deseo (no usa librerías externas).
     function burstConfetti() {
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
@@ -483,5 +549,7 @@ Te mereces un cumpleaños precioso y una vida llena de amor. Y yo espero poder s
   </script>
 </body>
 </html>
+
+
 
 
