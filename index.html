@@ -108,22 +108,15 @@
     .counter-label { position: relative; z-index: 1; text-transform: uppercase; letter-spacing: .18em; font-size: .69rem; opacity: .92; }
     .counter-number { position: relative; z-index: 1; font: clamp(4rem, 15vw, 7.5rem)/1.05 var(--serif); letter-spacing: -.06em; margin: 15px 0 7px; }
     .counter-caption { position: relative; z-index: 1; margin: 0; opacity: .95; }
+    .counter-seconds { position: relative; z-index: 1; margin: 8px 0 0; font: clamp(1.25rem, 4vw, 2rem)/1.2 var(--serif); opacity: .96; }
+    .counter-seconds strong { font-weight: 400; }
     .surprise-box { max-width: 780px; margin: 0 auto; border: 1px solid rgba(196,93,123,.18); background: linear-gradient(145deg,rgba(255,255,255,.84),rgba(255,239,241,.82)); border-radius: 25px; box-shadow: 0 16px 45px rgba(108,52,76,.07); padding: clamp(25px, 5vw, 45px); text-align: center; }
     .gift-icon { display: grid; place-items: center; margin: 0 auto 15px; width: 76px; height: 76px; border-radius: 50%; background: #f7dce4; color: var(--rose-deep); font-size: 2.1rem; animation: gift-wiggle 3s ease-in-out infinite; }
     .surprise-box h3 { font: 400 clamp(1.8rem, 5vw, 2.5rem)/1.15 var(--serif); margin: 8px 0 10px; }
     .surprise-box p { color: var(--muted); margin: 0 auto 22px; max-width: 530px; }
     .surprise-message { display: none; max-width: 540px; margin: 23px auto 0; padding-top: 20px; border-top: 1px solid var(--line); font: italic clamp(1.35rem, 3.5vw, 1.8rem)/1.5 var(--serif); color: var(--rose-deep); }
     .surprise-message.visible { display: block; animation: fade-up .5s both; }
-    .coupon-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 15px; }
-    .coupon { display: block; width: 100%; min-height: 212px; border: 1px dashed #d69aaa; border-radius: 15px; padding: 21px; color: var(--wine); background: rgba(255,255,255,.82); text-align: left; cursor: pointer; position: relative; transition: transform .2s, box-shadow .2s; }
-    .coupon:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
-    .coupon-icon { color: var(--rose); font-size: 1.8rem; }
-    .coupon h3 { font: 1.4rem/1.2 var(--serif); margin: 10px 0 7px; }
-    .coupon p { color: var(--muted); font-size: .87rem; line-height: 1.55; margin: 0; }
-    .coupon-label { display: block; color: var(--rose-deep); margin-top: 16px; text-transform: uppercase; letter-spacing: .08em; font-size: .68rem; font-weight: 800; }
-    .coupon.redeemed { background: #f6f1f1; opacity: .78; }
-    .coupon.redeemed .coupon-label { color: #64806d; }
-    .closing { text-align: center; padding: 86px 0 60px; }
+.closing { text-align: center; padding: 86px 0 60px; }
     .closing .closing-heart { color: var(--rose); font-size: 1.35rem; animation: heartbeat 1.8s infinite; display: inline-block; }
     .closing h2 { font: italic 400 clamp(2.8rem,8vw,5rem)/1.05 var(--serif); color: var(--rose-deep); letter-spacing: -.04em; margin: 15px 0; }
     .closing p { color: var(--muted); margin-bottom: 24px; }
@@ -152,10 +145,7 @@
       .letter-card { margin-top: 9px; }
       .photo-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 13px; }
       .photo-card:last-child { grid-column: 1 / -1; width: min(73%,300px); justify-self: center; }
-      .coupon-grid { grid-template-columns: 1fr; }
-      .coupon { min-height: 0; }
-      .coupon-label { margin-top: 12px; }
-    }
+}
     @media (max-width: 390px) {
       .wrap { width: calc(100% - 26px); }
       .hero { min-height: 82svh; }
@@ -239,21 +229,14 @@ Te mereces un cumpleaños precioso y una vida llena de amor. Y yo espero poder s
       </div>
     </section>
 
-    <section class="section wrap" id="historia">
-      <div class="heading reveal"><div class="ornament">✧ · ♡ · ✧</div><div class="eyebrow">Capítulos de nuestra historia</div><h2>Pequeños momentos, mucho amor</h2><p>Puedes cambiar estos recuerdos por fechas y momentos reales de ustedes.</p></div>
-      <!-- EDITA LOS RECUERDOS: cambia títulos, fechas y descripciones de cada bloque moment. -->
-      <div class="timeline">
-        <article class="moment reveal"><span class="moment-dot" aria-hidden="true"></span><div><time datetime="2023-03-14">14 de marzo de 2023</time><h3>Cuando empezó algo bonito</h3><p>Ese día comenzó una historia que hoy me alegra seguir construyendo contigo.</p></div></article>
-        <article class="moment reveal"><span class="moment-dot" aria-hidden="true"></span><div><time>Un día que llevo conmigo</time><h3>Una sonrisa que no olvido</h3><p>Hay momentos sencillos que se quedan en el corazón mucho más de lo que imaginamos.</p></div></article>
-        <article class="moment reveal"><span class="moment-dot" aria-hidden="true"></span><div><time>Todo lo que viene</time><h3>Más recuerdos por crear</h3><p>Nos quedan lugares que visitar, abrazos pendientes y muchísimas historias que vivir.</p></div></article>
-      </div>
-    </section>
+    
 
     <section class="section wrap" id="contador">
       <div class="counter reveal">
         <div class="counter-label">Desde que empezó nuestra historia</div>
-        <div class="counter-number" id="days-count">♡</div>
-        <p class="counter-caption" id="days-caption">días compartiendo recuerdos</p>
+        <div class="counter-number" id="hours-count">♡</div>
+        <p class="counter-caption" id="hours-caption">horas desde que empezó nuestra historia</p>
+        <p class="counter-seconds" id="seconds-caption"><strong>—</strong> segundos</p>
       </div>
     </section>
 
@@ -268,14 +251,7 @@ Te mereces un cumpleaños precioso y una vida llena de amor. Y yo espero poder s
       </div>
     </section>
 
-    <section class="section wrap" id="vales">
-      <div class="heading reveal"><div class="ornament">✧ · ♡ · ✧</div><div class="eyebrow">Vales válidos por cariño</div><h2>Cupones para mi Brisa</h2><p>Toca uno para canjearlo. Los canjes se guardan solo en el navegador de este dispositivo.</p></div>
-      <div class="coupon-grid">
-        <button type="button" class="coupon reveal" data-coupon="abrazo"><span class="coupon-icon" aria-hidden="true">♡</span><h3>Vale por un abrazo</h3><p>Un abrazo largo, sin prisa y de esos que hacen sentir que todo está bien.</p><span class="coupon-label">Toca para canjear →</span></button>
-        <button type="button" class="coupon reveal" data-coupon="cita"><span class="coupon-icon" aria-hidden="true">☕</span><h3>Vale por una cita</h3><p>Un plan bonito juntos, elegido entre los dos y disfrutado sin mirar el reloj.</p><span class="coupon-label">Toca para canjear →</span></button>
-        <button type="button" class="coupon reveal" data-coupon="beso"><span class="coupon-icon" aria-hidden="true">💌</span><h3>Vale por besitos</h3><p>Canjeable cuando quieras un poquito más de amor y apapachos.</p><span class="coupon-label">Toca para canjear →</span></button>
-      </div>
-    </section>
+    
 
     <section class="closing wrap reveal">
       <span class="closing-heart" aria-hidden="true">♡</span>
@@ -295,7 +271,6 @@ Te mereces un cumpleaños precioso y una vida llena de amor. Y yo espero poder s
        PERSONALIZA TU REGALO AQUÍ
        1) Cambia nombres y textos si quieres.
        2) La música debe estar en musica/cancion.mp3.
-       3) La fecha startDate sirve para el contador de días juntos.
        No borres las comillas ni las comas que separan cada opción.
        ============================================================= */
     const CONFIG = {
@@ -305,7 +280,6 @@ Te mereces un cumpleaños precioso y una vida llena de amor. Y yo espero poder s
       letterGreeting: "Mi Brisa bonita,",
       letterText: `Feliz cumpleaños, mi amor.\n\nHoy quiero recordarte lo especial que eres para mí. Me hace feliz poder coincidir contigo en este mundo tan grande y tener la oportunidad de compartir momentos, risas, abrazos y sueños a tu lado.\n\nDeseo que este nuevo año de vida te traiga tranquilidad, salud, alegría y muchas cosas bonitas. Que nunca te falten motivos para sentirte orgullosa de ti, personas que te quieran bonito y sueños que te emocionen.\n\nGracias por ser tú, por tu forma de hacer especiales hasta los días más simples y por ocupar un lugar tan bonito en mi corazón. Ojalá esta página te saque una sonrisa hoy y cada vez que vuelvas a ella.\n\nTe mereces un cumpleaños precioso y una vida llena de amor. Y yo espero poder seguir acompañándote en muchos de esos momentos.`,
       signature: "Con todo mi amor, Daniel ♡",
-      startDate: "2023-03-14", // Cambia por la fecha real en formato AAAA-MM-DD
       musicFile: "musica/cancion.mp3" // Ruta relativa; respeta mayúsculas y minúsculas
     };
 
@@ -350,22 +324,35 @@ Te mereces un cumpleaños precioso y una vida llena de amor. Y yo espero poder s
       img.addEventListener("load", () => { img.hidden = false; placeholder.hidden = true; });
     });
 
-    // Contador de días a partir de la fecha indicada en CONFIG.
-    function updateDays() {
-      const match = /^(\d{4})-(\d{2})-(\d{2})$/.exec(CONFIG.startDate);
-      if (!match) { $("#days-count").textContent = "♡"; $("#days-caption").textContent = "revisa la fecha startDate en CONFIG"; return; }
-      const start = new Date(Number(match[1]), Number(match[2]) - 1, Number(match[3]));
-      const today = new Date(); today.setHours(0, 0, 0, 0);
-      const count = Math.floor((today - start) / 86400000);
-      if (!Number.isNaN(start.getTime()) && count >= 0 && start.getFullYear() === Number(match[1]) && start.getMonth() === Number(match[2]) - 1 && start.getDate() === Number(match[3])) {
-        $("#days-count").textContent = count.toLocaleString("es-MX");
-        $("#days-caption").textContent = count === 1 ? "día creando recuerdos juntos" : "días creando recuerdos juntos";
-      } else {
-        $("#days-count").textContent = "♡";
-        $("#days-caption").textContent = "elige la fecha correcta en CONFIG";
+    // Contador fijo desde el 7 de julio de 2026 a las 00:00, hora local.
+    function updateElapsedTime() {
+      const start = new Date(2026, 6, 7, 0, 0, 0, 0);
+      const hoursElement = $("#hours-count");
+      const hoursCaption = $("#hours-caption");
+      const secondsCaption = $("#seconds-caption");
+
+      function render() {
+        const elapsed = Date.now() - start.getTime();
+        if (elapsed < 0) {
+          hoursElement.textContent = "0";
+          hoursCaption.textContent = "horas desde que empezó nuestra historia";
+          secondsCaption.innerHTML = "<strong>00</strong> segundos";
+          return;
+        }
+
+        const totalHours = Math.floor(elapsed / 3600000);
+        const seconds = Math.floor(elapsed / 1000) % 60;
+        hoursElement.textContent = totalHours.toLocaleString("es-MX");
+        hoursCaption.textContent = totalHours === 1
+          ? "hora desde que empezó nuestra historia"
+          : "horas desde que empezó nuestra historia";
+        secondsCaption.innerHTML = `<strong>${String(seconds).padStart(2, "0")}</strong> segundos`;
       }
+
+      render();
+      window.setInterval(render, 1000);
     }
-    updateDays();
+    updateElapsedTime();
 
     // Confeti ligero al pedir el deseo (no usa librerías externas).
     function burstConfetti() {
@@ -391,33 +378,12 @@ Te mereces un cumpleaños precioso y una vida llena de amor. Y yo espero poder s
       burstConfetti();
     });
 
-    // Vales: el canje se guarda en el dispositivo/navegador actual solamente.
-    const storageKey = `cumple-brisa-coupons-${CONFIG.birthdayName}-${CONFIG.fromName}`;
-    let redeemed = {};
-    try { redeemed = JSON.parse(localStorage.getItem(storageKey) || "{}"); } catch (_) { redeemed = {}; }
     let toastTimer;
     function showToast(message) {
       const toast = $("#toast"); toast.textContent = message; toast.classList.add("show");
       window.clearTimeout(toastTimer);
       toastTimer = window.setTimeout(() => toast.classList.remove("show"), 2700);
     }
-    $$("[data-coupon]").forEach((button) => {
-      const key = button.dataset.coupon;
-      const label = button.querySelector(".coupon-label");
-      const render = (done) => {
-        button.classList.toggle("redeemed", done);
-        label.textContent = done ? "✓ Canjeado en este dispositivo" : "Toca para canjear →";
-        button.setAttribute("aria-pressed", String(done));
-      };
-      render(Boolean(redeemed[key]));
-      button.addEventListener("click", () => {
-        if (redeemed[key]) return;
-        if (!window.confirm("¿Quieres canjear este vale? Se marcará como canjeado solo en este navegador.")) return;
-        redeemed[key] = true;
-        try { localStorage.setItem(storageKey, JSON.stringify(redeemed)); } catch (_) {}
-        render(true); showToast("Vale canjeado. ¡A disfrutarlo! ♡");
-      });
-    });
 
     // Reproductor de música: requiere tocar el botón por las reglas de los celulares.
     if (CONFIG.musicFile && CONFIG.musicFile.trim()) {
