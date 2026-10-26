@@ -95,6 +95,7 @@
     .letter-card::after { content: "♡"; position: absolute; right: 11px; bottom: -61px; color: rgba(196,93,123,.07); font: 10rem var(--serif); pointer-events: none; }
     .letter-card h3 { position: relative; z-index: 1; font: italic 2rem var(--serif); color: var(--rose-deep); margin: 0 0 18px; }
     .letter-card p { position: relative; z-index: 1; color: #755766; white-space: pre-line; margin: 0 0 16px; }
+
     .letter-card .signature { position: relative; z-index: 1; color: var(--rose-deep); font: italic 1.45rem var(--serif); margin-top: 23px; }
     .photo-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 20px; }
     .photo-card { background: var(--paper); padding: 11px 11px 17px; border: 1px solid rgba(135,61,89,.1); border-radius: 13px; box-shadow: 0 13px 35px rgba(108,52,76,.08); transform: rotate(var(--tilt,0deg)); transition: transform .25s ease, box-shadow .25s ease; }
@@ -240,13 +241,7 @@ Palabras de la Biblia que de alguna manera, me hacen pensar en ti y en lo bonito
         </div>
         <article class="letter-card" id="letter-card" aria-live="polite">
           <h3 id="letter-greeting">Mi Brisa Hermosaaa,</h3>
-          <p id="letter-text">Hoy quiero recordarte lo especial que eres para mí. Y aunque quizá no existan palabras suficientes para explicarte lo que siento por ti, quiero que sepas que conocerte es de esas cosas que agradezco con el corazón.
-
-Deseo que este nuevo año te regale días que te hagan feliz de verdad, que sane cualquier tristeza que guardes en silencio y que te recuerde, una y otra vez, lo maravillosa que eres. Quiero que sepas que estoy muy orgulloso de ti, de la persona que eres, de todo lo que has superado y de cómo sigues adelante incluso en los días que no son tan fáciles.
-
-Gracias por existir tal como eres y por convertirte en alguien a quien amo tanto. No necesito que seas perfecta ni que tengas siempre días buenos; me basta con que seas tú, con todo lo que eres. Ojalá esta página te saque una sonrisa hoy y cada vez que vuelvas a ella.
-
-Feliz cumpleaños, mi niña chula. ♡ Ojalá la vida te regale toda la felicidad que mereces y nunca te falten razones para sonreír. Te amo muchísimo, mi fresita. Hoy y siempre, deseo verte feliz. ♡</p>
+          <p id="letter-text">
           <div class="signature" id="letter-signature">Con todo mi amor, Daniel ♡</div>
         </article>
       </div>
@@ -349,6 +344,8 @@ Feliz cumpleaños, mi niña chula. ♡ Ojalá la vida te regale toda la felicida
       letterGreeting: "Mi Brisa Hermosaaa,",
       letterText: `Feliz cumpleaños mi vida.\n\nHoy quiero recordarte lo especial que eres para mí. Y aunque quizá no existan palabras suficientes para explicarte lo que siento por ti, quiero que sepas que conocerte es de esas cosas que agradezco con el corazón.\n\nDeseo que este nuevo año te regale días que te hagan feliz de verdad, que sane cualquier tristeza que guardes en silencio y que te recuerde, una y otra vez, lo maravillosa que eres. Quiero que sepas que estoy muy orgulloso de ti, de la persona que eres, de todo lo que has superado y de cómo sigues adelante incluso en los días que no son tan fáciles.\n\nGracias por existir tal como eres y por convertirte en alguien a quien amo tanto. No necesito que seas perfecta ni que tengas siempre días buenos; me basta con que seas tú, con todo lo que eres. Ojalá esta página te saque una sonrisa hoy y cada vez que vuelvas a ella.\n\nFeliz cumpleaños, mi niña chula. ♡ Ojalá la vida te regale toda la felicidad que mereces y nunca te falten razones para sonreír. Te amo muchísimo, mi fresita. Hoy y siempre, deseo verte feliz. ♡`,
       signature: "Con todo mi amor, Daniel ♡",
+      // Cambia este número para ajustar la velocidad al escribir la carta, en caracteres por segundo.
+      letterTypingSpeed: 20,
       musicFile: "musica/cancion.mp3" // Ruta relativa; respeta mayúsculas y minúsculas
     };
 
@@ -367,7 +364,8 @@ Feliz cumpleaños, mi niña chula. ♡ Ojalá la vida te regale toda la felicida
     $("#hero-subtitle").textContent = CONFIG.heroSubtitle;
     $("#hero-signature").textContent = `Con todo mi amor, ${CONFIG.fromName} ♡`;
     $("#letter-greeting").textContent = CONFIG.letterGreeting;
-    $("#letter-text").textContent = CONFIG.letterText;
+    const letterTextElement = $("#letter-text");
+    letterTextElement.textContent = "";
     $("#letter-signature").textContent = CONFIG.signature;
     $("footer").innerHTML = `Hecho con amor para ${escapeHTML(CONFIG.birthdayName)} <span style="color:var(--rose)">♥</span> · Un detalle de ${escapeHTML(CONFIG.fromName)}`;
 
@@ -402,10 +400,25 @@ Feliz cumpleaños, mi niña chula. ♡ Ojalá la vida te regale toda la felicida
     // Sobre: muestra la carta al tocarlo.
     const envelope = $("#envelope");
     const letterCard = $("#letter-card");
+    let typingStarted = false;
+    function typeLetter() {
+      if (typingStarted) return;
+      typingStarted = true;
+      const characters = Array.from(CONFIG.letterText);
+      let index = 0;
+      function writeNextCharacter() {
+        if (index >= characters.length) return;
+        letterTextElement.textContent += characters[index];
+        index += 1;
+        window.setTimeout(writeNextCharacter, 1000 / CONFIG.letterTypingSpeed);
+      }
+      writeNextCharacter();
+    }
     function openLetter() {
       envelope.classList.add("open");
       envelope.setAttribute("aria-expanded", "true");
       letterCard.classList.add("visible");
+      typeLetter();
     }
     envelope.addEventListener("click", openLetter);
     $("#back-to-top").addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
@@ -562,6 +575,10 @@ Feliz cumpleaños, mi niña chula. ♡ Ojalá la vida te regale toda la felicida
   </script>
 </body>
 </html>
+
+
+
+
 
 
 
