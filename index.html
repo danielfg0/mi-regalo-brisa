@@ -268,32 +268,32 @@ Palabras de la Biblia que de alguna manera, me hacen pensar en ti y en lo bonito
 
     <section class="section wrap" id="contador">
       <div class="counter reveal">
-        <div class="counter-label">Desde que empezó nuestra historia</div>
+        <div class="counter-label">Desde el 26 de julio ✧</div>
         <div class="counter-number" id="hours-count">♡</div>
-        <p class="counter-caption" id="hours-caption">horas desde que empezó nuestra historia</p>
-        <p class="counter-seconds" id="seconds-caption"><strong>—</strong> segundos</p>
+        <p class="counter-caption" id="hours-caption">horas de una historia muy bonita</p>
+        <p class="counter-seconds" id="seconds-caption"><strong>—</strong> segundos queriéndote un poquito más</p>
       </div>
     </section>
 
     <section class="section wrap" id="quien-ama-mas" aria-labelledby="love-question-title">
-      <div class="heading reveal"><div class="ornament">♡ · ✧ · ♡</div><div class="eyebrow">Una pregunta importante</div><h2 id="love-question-title">¿Quién ama más al otro?</h2><p>Elige tu respuesta, mi amor ♡</p></div>
+      <div class="heading reveal"><div class="ornament">♡ · ✧ · ♡</div><div class="eyebrow">Una pregunta muy importante</div><h2 id="love-question-title">¿Quién ama más al otro?</h2><p>A ver, mi amor… ¿cuál es tu respuesta? ♡</p></div>
       <div class="love-question-box reveal">
         <div class="love-question-buttons">
           <button class="button love-choice brisa-choice" id="brisa-choice" type="button">Brisa</button>
           <button class="button primary love-choice daniel-choice" id="daniel-choice" type="button">Daniel</button>
         </div>
-        <p class="love-answer" id="love-answer" aria-live="polite" hidden>Obvio que yo te amo más, mi amor ♡</p>
+        <p class="love-answer" id="love-answer" aria-live="polite" hidden>jajajaj Sabía que reconocerías la verdad. Obviooooo te amo más mami.</p>
       </div>
     </section>
 
     <section class="section wrap" id="sorpresa">
-      <div class="heading reveal"><div class="ornament">✧ · ♡ · ✧</div><div class="eyebrow">Una sorpresa pequeñita</div><h2>Hay algo más para ti</h2><p>Porque tu cumpleaños merece al menos un poquito de magia.</p></div>
+      <div class="heading reveal"><div class="ornament">✧ · ♡ · ✧</div><div class="eyebrow">UNA ÚLTIMA COSITA PARA TI</div><h2>Un deseo para la niña que amo</h2><p>Porque tu cumpleaños merece al menos un poquito de magia.</p></div>
       <div class="surprise-box reveal">
         <div class="gift-icon" aria-hidden="true">🎁</div>
         <h3>¿Lista para pedir un deseo?</h3>
-        <p>Respira profundo, pide algo bonito en silencio y toca el botón. Este momento es tuyo, Brisa.</p>
-        <button class="button primary" id="wish-button" type="button">Pedir mi deseo ✨</button>
-        <div class="surprise-message" id="surprise-message" aria-live="polite">Deseo que la vida te abrace bonito, que tus sueños encuentren camino y que nunca olvides lo muchísimo que vales. Feliz cumpleaños, mi amor. ♡</div>
+        <p>Hoy es tu día, mi amor. Cierra los ojitos un momento, piensa en algo que haga feliz a tu corazón y deja que este pequeño instante sea solamente tuyo.</p>
+        <button class="button primary" id="wish-button" type="button">Guardar mi deseo ✨</button>
+        <div class="surprise-message" id="surprise-message" aria-live="polite">Mi deseo para ti es que seas muy feliz, que cumplas cada uno de tus sueños y que nunca dudes de lo maravillosa que eres. Ojalá pudiera estar ahí para celebrar contigo, darte un besito y recordarte lo especial que eres para mí. Mientras llega ese día, quiero que sepas que estoy muy orgulloso de ti. Feliz cumpleaños, mi fresita chula...</div>
       </div>
     </section>
 
@@ -486,7 +486,7 @@ Palabras de la Biblia que de alguna manera, me hacen pensar en ti y en lo bonito
         const elapsed = Date.now() - start.getTime();
         if (elapsed < 0) {
           hoursElement.textContent = "0";
-          hoursCaption.textContent = "horas desde que empezó nuestra historia";
+          hoursCaption.textContent = "horas de una historia muy bonita";
           secondsCaption.innerHTML = "<strong>00</strong> segundos";
           return;
         }
@@ -495,8 +495,8 @@ Palabras de la Biblia que de alguna manera, me hacen pensar en ti y en lo bonito
         const seconds = Math.floor(elapsed / 1000) % 60;
         hoursElement.textContent = totalHours.toLocaleString("es-MX");
         hoursCaption.textContent = totalHours === 1
-          ? "hora desde que empezó nuestra historia"
-          : "horas desde que empezó nuestra historia";
+          ? "horas de una historia muy bonita"
+          : "horas de una historia muy bonita";
         secondsCaption.innerHTML = `<strong>${String(seconds).padStart(2, "0")}</strong> segundos`;
       }
 
@@ -513,7 +513,7 @@ Palabras de la Biblia que de alguna manera, me hacen pensar en ti y en lo bonito
     brisaChoice.addEventListener("click", () => {
       brisaClicks += 1;
       const brisaScale = Math.max(0.08, 1 - brisaClicks * 0.14);
-      const danielScale = Math.min(2.15, 1 + brisaClicks * 0.17);
+      const danielScale = Math.min(2.1, 1 + brisaClicks * 0.17);
       brisaChoice.style.transform = `scale(${brisaScale})`;
       const playArea = brisaChoice.parentElement;
       const maxLeft = Math.max(0, playArea.clientWidth - brisaChoice.offsetWidth);
@@ -530,14 +530,14 @@ Palabras de la Biblia que de alguna manera, me hacen pensar en ti y en lo bonito
     function burstLoveHearts() {
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
       const hearts = ["♡", "♥", "💕", "💗", "💖"];
-      for (let i = 0; i < 42; i++) {
+      for (let i = 0; i < 100; i++) {
         const heart = document.createElement("span");
         heart.className = "love-heart";
         heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
         heart.style.left = `${Math.random() * 100}vw`;
         heart.style.setProperty("--fall-time", `${2.4 + Math.random() * 2.2}s`);
         heart.style.setProperty("--drift", `${Math.round(Math.random() * 180 - 90)}px`);
-        heart.style.fontSize = `${16 + Math.random() * 24}px`;
+        heart.style.fontSize = `${30 + Math.random() * 24}px`;
         document.body.appendChild(heart);
         window.setTimeout(() => heart.remove(), 5000);
       }
@@ -562,7 +562,7 @@ Palabras de la Biblia que de alguna manera, me hacen pensar en ti y en lo bonito
         piece.style.color = ["#c45d7b", "#e7a3b4", "#c49b65", "#a95c79", "#e7bfc9"][Math.floor(Math.random() * 5)];
         piece.style.setProperty("--fall-time", `${2.3 + Math.random() * 2.3}s`);
         piece.style.setProperty("--drift", `${Math.round(Math.random() * 150 - 75)}px`);
-        piece.style.setProperty("--size", `${12 + Math.random() * 15}px`);
+        piece.style.setProperty("--size", `${50 + Math.random() * 15}px`);
         document.body.appendChild(piece);
         window.setTimeout(() => piece.remove(), 5000);
       }
