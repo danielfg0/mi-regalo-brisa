@@ -8,337 +8,337 @@
   <title>Feliz cumpleaños, Brisa ♡</title>
   <style>
     :root {
-      --cream: #fff9f5;
-      --paper: #fffdfb;
-      --blush: #fbe8e9;
-      --pink: #e7a3b4;
-      --rose: #c45d7b;
-      --rose-deep: #873d59;
-      --wine: #563443;
-      --muted: #9a7d88;
-      --gold: #c49b65;
-      --line: rgba(135, 61, 89, .15);
-      --shadow: 0 22px 65px rgba(108, 52, 76, .12);
-      --serif: Georgia, "Times New Roman", serif;
-      --sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --crema: #fff9f5;
+      --papel: #fffdfb;
+      --rubor: #fbe8e9;
+      --rosa-claro: #e7a3b4;
+      --rosa: #c45d7b;
+      --rosa-oscuro: #873d59;
+      --vino: #563443;
+      --secundario: #9a7d88;
+      --dorado: #c49b65;
+      --linea: rgba(135, 61, 89, .15);
+      --sombra: 0 22px 65px rgba(108, 52, 76, .12);
+      --serifa: Georgia, "Times New Roman", serif;
+      --palo-seco: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; scroll-padding-top: 22px; }
     body {
-      margin: 0; color: var(--wine); font-family: var(--sans); line-height: 1.7; overflow-x: hidden;
+      margin: 0; color: var(--vino); font-family: var(--palo-seco); line-height: 1.7; overflow-x: hidden;
       background: radial-gradient(ellipse at 8% 4%, rgba(245, 204, 215, 0.65), transparent 32rem),
-                  radial-gradient(ellipse at 96% 28%, rgba(182, 149, 192, 0.7), transparent 30rem), var(--cream);
+                  radial-gradient(ellipse at 96% 28%, rgba(182, 149, 192, 0.7), transparent 30rem), var(--crema);
     }
     body::before { content: ""; position: fixed; inset: 0; pointer-events: none; opacity: .19; z-index: -1; background-image: radial-gradient(#d9a6b5 .7px, transparent .7px); background-size: 17px 17px; }
     button, a { font: inherit; }
-    button:focus-visible, a:focus-visible { outline: 3px solid var(--rose); outline-offset: 4px; }
+    button:focus-visible, a:focus-visible { outline: 3px solid var(--rosa); outline-offset: 4px; }
     button { -webkit-tap-highlight-color: transparent; }
     img { max-width: 100%; }
-    .wrap { width: min(1080px, calc(100% - 36px)); margin-inline: auto; }
-    .topbar { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 20px 12px 8px; color: var(--muted); text-transform: uppercase; letter-spacing: .18em; font-size: .68rem; text-align: center; }
-    .topbar .heart { color: var(--rose); font-size: 1rem; }
-    .eyebrow { color: var(--rose-deep); font-weight: 750; text-transform: uppercase; letter-spacing: .2em; font-size: .68rem; }
-    .serif { font-family: var(--serif); font-weight: 400; }
-    .hero { min-height: min(850px, 91svh); min-height: min(850px, 91vh); display: grid; place-items: center; position: relative; isolation: isolate; text-align: center; padding: 50px 0 84px; }
-    .hero-inner { max-width: 810px; position: relative; z-index: 2; }
-    .birthday-stamp { display: inline-flex; align-items: center; gap: 9px; border: 1px solid rgba(196,93,123,.24); border-radius: 99px; background: rgba(255,255,255,.66); color: var(--rose-deep); padding: 9px 15px; font-size: .77rem; box-shadow: 0 8px 25px rgba(108,52,76,.05); animation: fade-up .8s both; }
-    h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(3.3rem, 10vw, 7.1rem); letter-spacing: -.065em; line-height: .94; margin: 27px 0 24px; animation: fade-up .9s .08s both; }
-    h1 em { color: var(--rose); font-weight: 400; }
-    .hero-copy { max-width: 540px; color: #8b6d79; margin: 0 auto 29px; font-size: clamp(1rem, 2.4vw, 1.15rem); animation: fade-up .9s .16s both; }
-    .signature-line { margin: -9px auto 30px; color: var(--rose-deep); font: italic 1.1rem var(--serif); animation: fade-up .9s .21s both; }
-    .actions { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 11px; animation: fade-up .9s .24s both; }
-    .button { appearance: none; border: 1px solid rgba(196,93,123,.28); border-radius: 99px; padding: 13px 21px; display: inline-flex; justify-content: center; align-items: center; gap: 9px; text-decoration: none; cursor: pointer; color: var(--rose-deep); background: rgba(255,255,255,.78); box-shadow: 0 9px 25px rgba(108,52,76,.08); transition: transform .2s ease, box-shadow .2s ease, background .2s ease; }
-    .button:hover { transform: translateY(-3px); box-shadow: 0 13px 30px rgba(108,52,76,.14); }
-    .button.primary { background: var(--rose); border-color: var(--rose); color: white; }
-    .button.primary:hover { background: var(--rose-deep); }
-    .hero-deco { position: absolute; pointer-events: none; z-index: -1; user-select: none; }
-    .deco-heart { font-family: var(--serif); color: rgba(196,93,123,.18); animation: float 6s ease-in-out infinite; }
-    .heart-a { left: 4%; top: 22%; font-size: clamp(5rem, 11vw, 9rem); transform: rotate(-17deg); }
-    .heart-b { right: 5%; top: 20%; font-size: clamp(3.6rem, 8vw, 6.8rem); animation-delay: -2s; }
-    .flower-a { left: 12%; bottom: 13%; color: rgba(196,155,101,.36); font-size: clamp(3rem, 7vw, 5rem); animation: float 8s ease-in-out infinite reverse; }
-    .flower-b { right: 10%; bottom: 15%; color: rgba(196,93,123,.24); font-size: clamp(2.8rem, 6vw, 4.5rem); animation: float 7s ease-in-out infinite; }
-    .scroll-cue { position: absolute; bottom: 19px; left: 50%; transform: translateX(-50%); color: #a78a95; font-size: .7rem; letter-spacing: .18em; text-transform: uppercase; white-space: nowrap; }
-    .scroll-cue span { display: block; font-size: 1rem; animation: nudge 1.5s infinite; }
-    section.section { padding: 86px 0; }
-    .heading { max-width: 660px; text-align: center; margin: 0 auto 38px; }
-    .ornament { color: var(--rose); letter-spacing: .45em; font-size: .95rem; margin-bottom: 9px; }
-    .heading h2 { font: 400 clamp(2.4rem, 6.5vw, 4.2rem)/1.04 var(--serif); letter-spacing: -.045em; margin: 12px 0 14px; }
-    .heading p { color: var(--muted); margin: 0; }
-    .birthday-note { max-width: 790px; margin: 0 auto; border: 1px solid var(--line); border-radius: 22px; padding: 23px 28px; text-align: center; background: rgba(255,255,255,.67); box-shadow: 0 12px 40px rgba(108,52,76,.06); }
-    .birthday-note p { margin: 0; font: italic clamp(1.25rem, 3vw, 1.75rem)/1.55 var(--serif); color: #805465; }
-    .birthday-note .small-heart { display: inline-block; color: var(--rose); margin: 0 7px; }
-    .verse-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 11px; max-width: 650px; margin: 25px auto 0; }
-    .verse-button { appearance: none; border: 1px solid rgba(196,93,123,.28); border-radius: 14px; padding: 12px 14px; color: var(--rose-deep); background: rgba(255,255,255,.86); box-shadow: 0 7px 20px rgba(108,52,76,.06); cursor: pointer; transition: transform .2s ease, box-shadow .2s ease, background .2s ease; }
-    .verse-button:hover { transform: translateY(-2px); background: #fff; box-shadow: 0 10px 24px rgba(108,52,76,.12); }
-    .verse-overlay { position: fixed; inset: 0; z-index: 80; display: grid; place-items: center; padding: 22px; background: rgba(68,40,52,.42); backdrop-filter: blur(4px); }
-    .verse-overlay[hidden] { display: none; }
-    .verse-paper { position: relative; width: min(560px, 100%); padding: clamp(34px, 7vw, 58px); text-align: center; background: #fff; border: 1px solid rgba(135,61,89,.12); border-radius: 8px 8px 20px 8px; box-shadow: 0 24px 70px rgba(50,20,35,.25); animation: letter-reveal .35s both; }
-    .verse-paper::after { content: ""; position: absolute; right: 0; bottom: 0; border-width: 0 0 25px 25px; border-style: solid; border-color: transparent transparent #f6edf0 transparent; }
-    .verse-close { position: absolute; top: 10px; right: 14px; border: 0; background: transparent; color: var(--muted); font-size: 1.8rem; line-height: 1; cursor: pointer; }
-    .verse-paper h2 { margin: 10px 0 16px; color: var(--rose-deep); font: 400 clamp(2rem, 7vw, 3rem)/1.1 var(--serif); }
-    .verse-paper p { margin: 0; color: #755766; font: italic clamp(1.15rem, 3vw, 1.4rem)/1.65 var(--serif); }
-    body.verse-open { overflow: hidden; }
-    .letter-layout { display: grid; grid-template-columns: .9fr 1.1fr; align-items: center; gap: clamp(25px, 5vw, 58px); max-width: 900px; margin: 0 auto; }
-    .envelope-side { text-align: center; }
-    .envelope { display: block; position: relative; width: min(100%, 370px); height: 245px; margin: 0 auto 12px; background: none; border: 0; padding: 0; cursor: pointer; filter: drop-shadow(0 18px 20px rgba(108,52,76,.13)); perspective: 900px; }
-    .env-back { position: absolute; inset: 20px 0 0; background: #eab6c5; border-radius: 11px; }
-    .env-note { position: absolute; z-index: 2; left: 8%; top: 29px; width: 84%; height: 178px; display: grid; place-content: center; background: #fffdf9; border: 1px solid rgba(196,155,101,.4); border-radius: 6px; color: var(--rose-deep); font: italic 1.35rem var(--serif); transition: transform .8s cubic-bezier(.2,.8,.2,1); padding: 16px; }
-    .env-flap { position: absolute; top: 20px; left: 0; width: 100%; height: 140px; background: #f4cbd6; clip-path: polygon(0 0,100% 0,50% 100%); transform-origin: top; transition: transform .8s cubic-bezier(.2,.8,.2,1); z-index: 4; }
-    .env-pocket { position: absolute; inset: 58px 0 0; background: linear-gradient(145deg,#f8dbe3,#eab2c3); clip-path: polygon(0 0,50% 60%,100% 0,100% 100%,0 100%); border-radius: 0 0 11px 11px; z-index: 3; }
-    .env-seal { position: absolute; z-index: 5; left: 50%; top: 106px; transform: translateX(-50%); width: 47px; height: 47px; display: grid; place-items: center; border-radius: 50%; color: white; background: var(--rose); box-shadow: 0 6px 16px rgba(135,61,89,.23); font-size: 1.5rem; transition: opacity .25s ease; }
-    .envelope.open .env-flap { transform: rotateX(180deg); z-index: 1; }
-    .envelope.open .env-note { transform: translateY(-70px); }
-    .envelope.open .env-seal { opacity: 0; }
-    .tap-note { color: var(--muted); font-size: .82rem; margin: 0; }
-    .letter-card { display: none; padding: clamp(25px, 4vw, 39px); background: rgba(255,255,255,.84); border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--shadow); position: relative; overflow: hidden; }
-    .letter-card.visible { display: block; animation: letter-reveal .7s cubic-bezier(.2,.8,.2,1) both; }
-    .letter-card::after { content: "♡"; position: absolute; right: 11px; bottom: -61px; color: rgba(196,93,123,.07); font: 10rem var(--serif); pointer-events: none; }
-    .letter-card h3 { position: relative; z-index: 1; font: italic 2rem var(--serif); color: var(--rose-deep); margin: 0 0 18px; }
-    .letter-card p { position: relative; z-index: 1; color: #755766; white-space: pre-line; margin: 0 0 16px; }
+    .contenedor { width: min(1080px, calc(100% - 36px)); margin-inline: auto; }
+    .barra-superior { display: flex; align-items: center; justify-content: center; gap: 10px; padding: 20px 12px 8px; color: var(--secundario); text-transform: uppercase; letter-spacing: .18em; font-size: .68rem; text-align: center; }
+    .barra-superior .corazon { color: var(--rosa); font-size: 1rem; }
+    .antetitulo { color: var(--rosa-oscuro); font-weight: 750; text-transform: uppercase; letter-spacing: .2em; font-size: .68rem; }
+    .serif { font-family: var(--serifa); font-weight: 400; }
+    .portada { min-height: min(850px, 91svh); min-height: min(850px, 91vh); display: grid; place-items: center; position: relative; isolation: isolate; text-align: center; padding: 50px 0 84px; }
+    .contenido-portada { max-width: 810px; position: relative; z-index: 2; }
+    .sello-cumpleanos { display: inline-flex; align-items: center; gap: 9px; border: 1px solid rgba(196,93,123,.24); border-radius: 99px; background: rgba(255,255,255,.66); color: var(--rosa-oscuro); padding: 9px 15px; font-size: .77rem; box-shadow: 0 8px 25px rgba(108,52,76,.05); animation: aparecer-arriba .8s both; }
+    h1 { font-family: var(--serifa); font-weight: 400; font-size: clamp(3.3rem, 10vw, 7.1rem); letter-spacing: -.065em; line-height: .94; margin: 27px 0 24px; animation: aparecer-arriba .9s .08s both; }
+    h1 em { color: var(--rosa); font-weight: 400; }
+    .texto-portada { max-width: 540px; color: #8b6d79; margin: 0 auto 29px; font-size: clamp(1rem, 2.4vw, 1.15rem); animation: aparecer-arriba .9s .16s both; }
+    .firma-portada { margin: -9px auto 30px; color: var(--rosa-oscuro); font: italic 1.1rem var(--serifa); animation: aparecer-arriba .9s .21s both; }
+    .actions { display: flex; justify-content: center; align-items: center; flex-wrap: contenedor; gap: 11px; animation: aparecer-arriba .9s .24s both; }
+    .boton { appearance: none; border: 1px solid rgba(196,93,123,.28); border-radius: 99px; padding: 13px 21px; display: inline-flex; justify-content: center; align-items: center; gap: 9px; text-decoration: none; cursor: pointer; color: var(--rosa-oscuro); background: rgba(255,255,255,.78); box-shadow: 0 9px 25px rgba(108,52,76,.08); transition: transform .2s ease, box-shadow .2s ease, background .2s ease; }
+    .boton:hover { transform: translateY(-3px); box-shadow: 0 13px 30px rgba(108,52,76,.14); }
+    .boton.principal { background: var(--rosa); border-color: var(--rosa); color: white; }
+    .boton.principal:hover { background: var(--rosa-oscuro); }
+    .adorno-portada { position: absolute; pointer-events: none; z-index: -1; user-select: none; }
+    .corazon-decorativo { font-family: var(--serifa); color: rgba(196,93,123,.18); animation: flotar 6s ease-in-out infinite; }
+    .corazon-uno { left: 4%; top: 22%; font-size: clamp(5rem, 11vw, 9rem); transform: rotate(-17deg); }
+    .corazon-dos { right: 5%; top: 20%; font-size: clamp(3.6rem, 8vw, 6.8rem); animation-delay: -2s; }
+    .flor-uno { left: 12%; bottom: 13%; color: rgba(196,155,101,.36); font-size: clamp(3rem, 7vw, 5rem); animation: flotar 8s ease-in-out infinite reverse; }
+    .flor-dos { right: 10%; bottom: 15%; color: rgba(196,93,123,.24); font-size: clamp(2.8rem, 6vw, 4.5rem); animation: flotar 7s ease-in-out infinite; }
+    .pista-desplazamiento { position: absolute; bottom: 19px; left: 50%; transform: translateX(-50%); color: #a78a95; font-size: .7rem; letter-spacing: .18em; text-transform: uppercase; white-space: nowrap; }
+    .pista-desplazamiento span { display: block; font-size: 1rem; animation: empujar 1.5s infinite; }
+    section.seccion { padding: 86px 0; }
+    .encabezado { max-width: 660px; text-align: center; margin: 0 auto 38px; }
+    .ornamento { color: var(--rosa); letter-spacing: .45em; font-size: .95rem; margin-bottom: 9px; }
+    .encabezado h2 { font: 400 clamp(2.4rem, 6.5vw, 4.2rem)/1.04 var(--serifa); letter-spacing: -.045em; margin: 12px 0 14px; }
+    .encabezado p { color: var(--secundario); margin: 0; }
+    .nota-cumpleanos { max-width: 790px; margin: 0 auto; border: 1px solid var(--linea); border-radius: 22px; padding: 23px 28px; text-align: center; background: rgba(255,255,255,.67); box-shadow: 0 12px 40px rgba(108,52,76,.06); }
+    .nota-cumpleanos p { margin: 0; font: italic clamp(1.25rem, 3vw, 1.75rem)/1.55 var(--serifa); color: #805465; }
+    .nota-cumpleanos .corazon-pequeno { display: inline-block; color: var(--rosa); margin: 0 7px; }
+    .rejilla-versiculos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 11px; max-width: 650px; margin: 25px auto 0; }
+    .boton-versiculo { appearance: none; border: 1px solid rgba(196,93,123,.28); border-radius: 14px; padding: 12px 14px; color: var(--rosa-oscuro); background: rgba(255,255,255,.86); box-shadow: 0 7px 20px rgba(108,52,76,.06); cursor: pointer; transition: transform .2s ease, box-shadow .2s ease, background .2s ease; }
+    .boton-versiculo:hover { transform: translateY(-2px); background: #fff; box-shadow: 0 10px 24px rgba(108,52,76,.12); }
+    .capa-versiculo { position: fixed; inset: 0; z-index: 80; display: grid; place-items: center; padding: 22px; background: rgba(68,40,52,.42); backdrop-filter: blur(4px); }
+    .capa-versiculo[hidden] { display: none; }
+    .hoja-versiculo { position: relative; width: min(560px, 100%); padding: clamp(34px, 7vw, 58px); text-align: center; background: #fff; border: 1px solid rgba(135,61,89,.12); border-radius: 8px 8px 20px 8px; box-shadow: 0 24px 70px rgba(50,20,35,.25); animation: revelar-carta .35s both; }
+    .hoja-versiculo::after { content: ""; position: absolute; right: 0; bottom: 0; border-width: 0 0 25px 25px; border-style: solid; border-color: transparent transparent #f6edf0 transparent; }
+    .cerrar-versiculo { position: absolute; top: 10px; right: 14px; border: 0; background: transparent; color: var(--secundario); font-size: 1.8rem; line-height: 1; cursor: pointer; }
+    .hoja-versiculo h2 { margin: 10px 0 16px; color: var(--rosa-oscuro); font: 400 clamp(2rem, 7vw, 3rem)/1.1 var(--serifa); }
+    .hoja-versiculo p { margin: 0; color: #755766; font: italic clamp(1.15rem, 3vw, 1.4rem)/1.65 var(--serifa); }
+    body.versiculo-abierto { overflow: hidden; }
+    .diseno-carta { display: grid; grid-template-columns: .9fr 1.1fr; align-items: center; gap: clamp(25px, 5vw, 58px); max-width: 900px; margin: 0 auto; }
+    .lado-sobre { text-align: center; }
+    .sobre { display: block; position: relative; width: min(100%, 370px); height: 245px; margin: 0 auto 12px; background: none; border: 0; padding: 0; cursor: pointer; filter: drop-shadow(0 18px 20px rgba(108,52,76,.13)); perspective: 900px; }
+    .fondo-sobre { position: absolute; inset: 20px 0 0; background: #eab6c5; border-radius: 11px; }
+    .nota-sobre { position: absolute; z-index: 2; left: 8%; top: 29px; width: 84%; height: 178px; display: grid; place-content: center; background: #fffdf9; border: 1px solid rgba(196,155,101,.4); border-radius: 6px; color: var(--rosa-oscuro); font: italic 1.35rem var(--serifa); transition: transform .8s cubic-bezier(.2,.8,.2,1); padding: 16px; }
+    .solapa-sobre { position: absolute; top: 20px; left: 0; width: 100%; height: 140px; background: #f4cbd6; clip-path: polygon(0 0,100% 0,50% 100%); transform-origin: top; transition: transform .8s cubic-bezier(.2,.8,.2,1); z-index: 4; }
+    .bolsillo-sobre { position: absolute; inset: 58px 0 0; background: linear-gradient(145deg,#f8dbe3,#eab2c3); clip-path: polygon(0 0,50% 60%,100% 0,100% 100%,0 100%); border-radius: 0 0 11px 11px; z-index: 3; }
+    .sello-sobre { position: absolute; z-index: 5; left: 50%; top: 106px; transform: translateX(-50%); width: 47px; height: 47px; display: grid; place-items: center; border-radius: 50%; color: white; background: var(--rosa); box-shadow: 0 6px 16px rgba(135,61,89,.23); font-size: 1.5rem; transition: opacity .25s ease; }
+    .sobre.abierto .solapa-sobre { transform: rotateX(180deg); z-index: 1; }
+    .sobre.abierto .nota-sobre { transform: translateY(-70px); }
+    .sobre.abierto .sello-sobre { opacity: 0; }
+    .nota-toque { color: var(--secundario); font-size: .82rem; margin: 0; }
+    .tarjeta-carta { display: none; padding: clamp(25px, 4vw, 39px); background: rgba(255,255,255,.84); border: 1px solid var(--linea); border-radius: 20px; box-shadow: var(--sombra); position: relative; overflow: hidden; }
+    .tarjeta-carta.visible { display: block; animation: revelar-carta .7s cubic-bezier(.2,.8,.2,1) both; }
+    .tarjeta-carta::after { content: "♡"; position: absolute; right: 11px; bottom: -61px; color: rgba(196,93,123,.07); font: 10rem var(--serifa); pointer-events: none; }
+    .tarjeta-carta h3 { position: relative; z-index: 1; font: italic 2rem var(--serifa); color: var(--rosa-oscuro); margin: 0 0 18px; }
+    .tarjeta-carta p { position: relative; z-index: 1; color: #755766; white-space: pre-line; margin: 0 0 16px; }
 
-    .letter-card .signature { position: relative; z-index: 1; color: var(--rose-deep); font: italic 1.45rem var(--serif); margin-top: 23px; }
-    .letter-card .typing-active::after { content: "|"; display: inline-block; margin-left: 2px; color: var(--rose); font: 400 1em var(--sans); animation: typing-blink .8s steps(1,end) infinite; }
-    .photo-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 20px; }
-    .photo-card { background: var(--paper); padding: 11px 11px 17px; border: 1px solid rgba(135,61,89,.1); border-radius: 13px; box-shadow: 0 13px 35px rgba(108,52,76,.08); transform: rotate(var(--tilt,0deg)); transition: transform .25s ease, box-shadow .25s ease; }
-    .photo-card:hover { transform: translateY(-6px) rotate(0deg); box-shadow: var(--shadow); }
-    .photo-frame { position: relative; overflow: hidden; aspect-ratio: 4 / 4.8; border-radius: 8px; background: linear-gradient(145deg,#f6d4de,#f9e9df 60%,#e9d8e9); display: grid; place-items: center; }
-    .photo-frame img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
-    .photo-frame video { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; cursor: pointer; }
-    .photo-placeholder { padding: 18px; text-align: center; color: #9e667a; font: italic 1.2rem/1.5 var(--serif); }
-    .photo-placeholder small { display: block; font: .68rem/1.5 var(--sans); color: #a67f8d; margin-top: 8px; }
-    .photo-caption { text-align: center; color: #896e7a; font: italic 1.2rem var(--serif); margin: 14px 5px 0; }
+    .tarjeta-carta .firma { position: relative; z-index: 1; color: var(--rosa-oscuro); font: italic 1.45rem var(--serifa); margin-top: 23px; }
+    .tarjeta-carta .escritura-activa::after { content: "|"; display: inline-block; margin-left: 2px; color: var(--rosa); font: 400 1em var(--palo-seco); animation: parpadeo-escritura .8s steps(1,end) infinite; }
+    .rejilla-fotos { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 20px; }
+    .tarjeta-foto { background: var(--papel); padding: 11px 11px 17px; border: 1px solid rgba(135,61,89,.1); border-radius: 13px; box-shadow: 0 13px 35px rgba(108,52,76,.08); transform: rotate(var(--inclinacion,0deg)); transition: transform .25s ease, box-shadow .25s ease; }
+    .tarjeta-foto:hover { transform: translateY(-6px) rotate(0deg); box-shadow: var(--sombra); }
+    .marco-foto { position: relative; overflow: hidden; aspect-ratio: 4 / 4.8; border-radius: 8px; background: linear-gradient(145deg,#f6d4de,#f9e9df 60%,#e9d8e9); display: grid; place-items: center; }
+    .marco-foto img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
+    .marco-foto video { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; cursor: pointer; }
+    .marcador-foto { padding: 18px; text-align: center; color: #9e667a; font: italic 1.2rem/1.5 var(--serifa); }
+    .marcador-foto small { display: block; font: .68rem/1.5 var(--palo-seco); color: #a67f8d; margin-top: 8px; }
+    .pie-foto { text-align: center; color: #896e7a; font: italic 1.2rem var(--serifa); margin: 14px 5px 0; }
     .timeline { max-width: 750px; margin: 0 auto; position: relative; }
-    .timeline::before { content: ""; position: absolute; width: 1px; top: 6px; bottom: 8px; left: 17px; background: linear-gradient(var(--pink),rgba(231,163,180,.15)); }
+    .timeline::before { content: ""; position: absolute; width: 1px; top: 6px; bottom: 8px; left: 17px; background: linear-gradient(var(--rosa-claro),rgba(231,163,180,.15)); }
     .moment { display: grid; grid-template-columns: 37px 1fr; gap: 17px; position: relative; padding: 0 0 30px; }
     .moment:last-child { padding-bottom: 0; }
-    .moment-dot { z-index: 1; margin: 7px 0 0 11px; width: 13px; height: 13px; border: 3px solid var(--cream); border-radius: 50%; background: var(--rose); box-shadow: 0 0 0 1px #e7a3b4; }
-    .moment time { display: block; color: var(--rose-deep); font-size: .69rem; font-weight: 750; text-transform: uppercase; letter-spacing: .15em; margin-bottom: 3px; }
-    .moment h3 { font: 1.55rem var(--serif); margin: 0 0 4px; color: var(--wine); }
-    .moment p { color: var(--muted); margin: 0; }
-    .counter { max-width: 780px; margin: 0 auto; padding: clamp(31px, 6vw, 55px) 25px; border-radius: 27px; overflow: hidden; position: relative; text-align: center; color: white; background: linear-gradient(125deg,#91445f,#c96784 57%,#d99aa7); box-shadow: 0 23px 55px rgba(135,61,89,.2); }
-    .counter::before, .counter::after { content: "♡"; position: absolute; font: 10rem var(--serif); opacity: .12; line-height: 1; }
-    .counter::before { left: -8px; top: -25px; transform: rotate(-18deg); }
-    .counter::after { right: -8px; bottom: -41px; transform: rotate(15deg); }
-    .counter-label { position: relative; z-index: 1; text-transform: uppercase; letter-spacing: .18em; font-size: .69rem; opacity: .92; }
-    .counter-number { position: relative; z-index: 1; font: clamp(4rem, 15vw, 7.5rem)/1.05 var(--serif); letter-spacing: -.06em; margin: 15px 0 7px; }
-    .counter-caption { position: relative; z-index: 1; margin: 0; opacity: .95; }
-    .counter-seconds { position: relative; z-index: 1; margin: 8px 0 0; font: clamp(1.25rem, 4vw, 2rem)/1.2 var(--serif); opacity: .96; }
-    .counter-seconds strong { font-weight: 400; }
-    .love-question-box { max-width: 780px; margin: 0 auto; padding: clamp(28px, 6vw, 48px) 20px; text-align: center; border: 1px solid rgba(196,93,123,.18); background: linear-gradient(145deg,rgba(255,255,255,.84),rgba(255,239,241,.82)); border-radius: 25px; box-shadow: 0 16px 45px rgba(108,52,76,.07); overflow: hidden; }
-    .love-question-buttons { position: relative; min-height: 150px; }
-    .love-choice { position: absolute; min-width: 130px; transition: left .28s ease, top .28s ease, transform .28s cubic-bezier(.2,.8,.2,1), min-width .28s ease, padding .28s ease, opacity .28s ease; }
-    .brisa-choice { left: calc(50% - 150px); top: 48px; background: #e7a3b4; border-color: #e7a3b4; color: white; }
-    .brisa-choice:hover { background: #d9879d; }
-    .daniel-choice { left: calc(50% + 20px); top: 48px; background: #c45d7b; border-color: #c45d7b; color: white; }
-    .love-answer { margin: 24px auto 0; color: var(--rose-deep); font: italic clamp(1.5rem, 4vw, 2rem)/1.4 var(--serif); animation: fade-up .6s both; }
-    .love-answer[hidden] { display: none; }
-    .love-heart { position: fixed; z-index: 90; top: -35px; pointer-events: none; color: var(--rose); animation: love-heart-fall var(--fall-time, 3s) ease-in forwards; }
-    @keyframes love-heart-fall { 0% { transform: translate3d(0,-5vh,0) rotate(0) scale(.7); opacity: 0; } 12% { opacity: 1; } 100% { transform: translate3d(var(--drift,0px),110vh,0) rotate(360deg) scale(1.2); opacity: 0; } }
-    .cake-celebration { padding: 76px 0 68px; text-align: center; }
-    .cake-heading { max-width: 680px; margin: 0 auto 8px; }
-    .cake-heading h2 { margin: 12px 0 9px; color: var(--rose-deep); font: italic 400 clamp(2.45rem, 7vw, 4.6rem)/1.04 var(--serif); letter-spacing: -.045em; }
-    .cake-heading p { margin: 0; color: var(--muted); font: italic clamp(1rem, 2.5vw, 1.2rem)/1.6 var(--serif); }
-    .cake-scene { position: relative; isolation: isolate; width: min(860px, 100%); margin: 0 auto; }
-    .cake-scene::before { content: ""; position: absolute; z-index: -1; inset: 15% 8% 2%; border-radius: 50%; background: radial-gradient(ellipse, rgba(255,255,255,.86), rgba(255,244,239,.48) 48%, transparent 74%); filter: blur(12px); }
-    .cake-art { display: block; width: 100%; height: auto; overflow: visible; }
-    .cake-art .flame { transform-box: fill-box; transform-origin: center bottom; animation: candle-flicker 1.1s ease-in-out infinite alternate; }
-    .cake-art .flame-two { animation-delay: -.35s; }
-    .cake-art .flame-glow { opacity: .28; }
-    .cake-art .flame.is-blowing { animation: flame-blow-out 1.45s cubic-bezier(.35,.04,.68,.42) forwards; }
-    .cake-art .flame-two.is-blowing { animation-delay: .16s; }
-    .cake-art .smoke-trail { fill: none; stroke: #b39aa0; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 100; stroke-dashoffset: 100; opacity: 0; }
-    .cake-art .smoke-trail.visible { animation: smoke-drift 2.9s ease-out forwards; }
-    .cake-wind { position: absolute; z-index: 2; inset: 0; overflow: visible; pointer-events: none; }
-    .wind-particle { position: absolute; left: 0; top: var(--gust-y-start); width: var(--particle-size); height: var(--particle-size); border-radius: 50%; background: var(--particle-color); box-shadow: 0 0 9px rgba(255,255,255,.9); opacity: 0; animation: gust-stream var(--gust-duration) cubic-bezier(.18,.62,.36,1) var(--gust-delay) both; }
-    .blow-button { margin-top: -7px; padding: 9px 19px; min-height: 40px; font-size: .9rem; }
-    .blow-button:disabled { cursor: default; opacity: .78; transform: none; }
+    .moment-dot { z-index: 1; margin: 7px 0 0 11px; width: 13px; height: 13px; border: 3px solid var(--crema); border-radius: 50%; background: var(--rosa); box-shadow: 0 0 0 1px #e7a3b4; }
+    .moment time { display: block; color: var(--rosa-oscuro); font-size: .69rem; font-weight: 750; text-transform: uppercase; letter-spacing: .15em; margin-bottom: 3px; }
+    .moment h3 { font: 1.55rem var(--serifa); margin: 0 0 4px; color: var(--vino); }
+    .moment p { color: var(--secundario); margin: 0; }
+    .tarjeta-contador { max-width: 780px; margin: 0 auto; padding: clamp(31px, 6vw, 55px) 25px; border-radius: 27px; overflow: hidden; position: relative; text-align: center; color: white; background: linear-gradient(125deg,#91445f,#c96784 57%,#d99aa7); box-shadow: 0 23px 55px rgba(135,61,89,.2); }
+    .tarjeta-contador::before, .tarjeta-contador::after { content: "♡"; position: absolute; font: 10rem var(--serifa); opacity: .12; line-height: 1; }
+    .tarjeta-contador::before { left: -8px; top: -25px; transform: rotate(-18deg); }
+    .tarjeta-contador::after { right: -8px; bottom: -41px; transform: rotate(15deg); }
+    .etiqueta-contador { position: relative; z-index: 1; text-transform: uppercase; letter-spacing: .18em; font-size: .69rem; opacity: .92; }
+    .numero-contador { position: relative; z-index: 1; font: clamp(4rem, 15vw, 7.5rem)/1.05 var(--serifa); letter-spacing: -.06em; margin: 15px 0 7px; }
+    .descripcion-contador { position: relative; z-index: 1; margin: 0; opacity: .95; }
+    .segundos-contador { position: relative; z-index: 1; margin: 8px 0 0; font: clamp(1.25rem, 4vw, 2rem)/1.2 var(--serifa); opacity: .96; }
+    .segundos-contador strong { font-weight: 400; }
+    .caja-pregunta-amor { max-width: 780px; margin: 0 auto; padding: clamp(28px, 6vw, 48px) 20px; text-align: center; border: 1px solid rgba(196,93,123,.18); background: linear-gradient(145deg,rgba(255,255,255,.84),rgba(255,239,241,.82)); border-radius: 25px; box-shadow: 0 16px 45px rgba(108,52,76,.07); overflow: hidden; }
+    .botones-pregunta-amor { position: relative; min-height: 150px; }
+    .opcion-amor { position: absolute; min-width: 130px; transition: left .28s ease, top .28s ease, transform .28s cubic-bezier(.2,.8,.2,1), min-width .28s ease, padding .28s ease, opacity .28s ease; }
+    .opcion-brisa { left: calc(50% - 150px); top: 48px; background: #e7a3b4; border-color: #e7a3b4; color: white; }
+    .opcion-brisa:hover { background: #d9879d; }
+    .opcion-daniel { left: calc(50% + 20px); top: 48px; background: #c45d7b; border-color: #c45d7b; color: white; }
+    .respuesta-amor { margin: 24px auto 0; color: var(--rosa-oscuro); font: italic clamp(1.5rem, 4vw, 2rem)/1.4 var(--serifa); animation: aparecer-arriba .6s both; }
+    .respuesta-amor[hidden] { display: none; }
+    .corazon-amor { position: fixed; z-index: 90; top: -35px; pointer-events: none; color: var(--rosa); animation: caer-corazon-amor var(--tiempo-caida, 3s) ease-in forwards; }
+    @keyframes caer-corazon-amor { 0% { transform: translate3d(0,-5vh,0) rotate(0) scale(.7); opacity: 0; } 12% { opacity: 1; } 100% { transform: translate3d(var(--deriva,0px),110vh,0) rotate(360deg) scale(1.2); opacity: 0; } }
+    .celebracion-pastel { padding: 76px 0 68px; text-align: center; }
+    .encabezado-pastel { max-width: 680px; margin: 0 auto 8px; }
+    .encabezado-pastel h2 { margin: 12px 0 9px; color: var(--rosa-oscuro); font: italic 400 clamp(2.45rem, 7vw, 4.6rem)/1.04 var(--serifa); letter-spacing: -.045em; }
+    .encabezado-pastel p { margin: 0; color: var(--secundario); font: italic clamp(1rem, 2.5vw, 1.2rem)/1.6 var(--serifa); }
+    .escena-pastel { position: relative; isolation: isolate; width: min(860px, 100%); margin: 0 auto; }
+    .escena-pastel::before { content: ""; position: absolute; z-index: -1; inset: 15% 8% 2%; border-radius: 50%; background: radial-gradient(ellipse, rgba(255,255,255,.86), rgba(255,244,239,.48) 48%, transparent 74%); filter: blur(12px); }
+    .ilustracion-pastel { display: block; width: 100%; height: auto; overflow: visible; }
+    .ilustracion-pastel .llama { transform-box: fill-box; transform-origin: center bottom; animation: titilar-vela 2.1s ease-in-out infinite alternate; }
+    .ilustracion-pastel .llama-dos { animation-delay: -.35s; }
+    .ilustracion-pastel .resplandor-llama { opacity: .28; }
+    .ilustracion-pastel .llama.apagandose { animation: apagar-llama 1.45s cubic-bezier(.35,.04,.68,.42) forwards; }
+    .ilustracion-pastel .llama-dos.apagandose { animation-delay: .16s; }
+    .ilustracion-pastel .rastro-humo { fill: none; stroke: #b39aa0; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 100; stroke-dashoffset: 100; opacity: 0; }
+    .ilustracion-pastel .rastro-humo.visible { animation: derivar-humo 2.9s ease-out forwards; }
+    .viento-pastel { position: absolute; z-index: 2; inset: 0; overflow: visible; pointer-events: none; }
+    .particula-viento { position: absolute; left: 0; top: var(--inicio-y-viento); width: var(--tamano-particula); height: var(--tamano-particula); border-radius: 50%; background: var(--color-particula); box-shadow: 0 0 9px rgba(255,255,255,.9); opacity: 0; animation: corriente-viento var(--duracion-rafaga) cubic-bezier(.18,.62,.36,1) var(--retraso-rafaga) both; }
+    .boton-soplar { margin-top: -7px; padding: 9px 19px; min-height: 40px; font-size: .9rem; }
+    .boton-soplar:disabled { cursor: default; opacity: .78; transform: none; }
     footer { text-align: center; padding: 22px 0 calc(32px + env(safe-area-inset-bottom)); color: #ab8e99; font-size: .74rem; }
-    .music-button { position: fixed; z-index: 30; right: max(15px, env(safe-area-inset-right)); bottom: max(15px, env(safe-area-inset-bottom)); border: 1px solid rgba(196,93,123,.22); background: rgba(255,253,251,.94); color: var(--rose-deep); border-radius: 99px; padding: 11px 15px; box-shadow: 0 8px 27px rgba(108,52,76,.16); cursor: pointer; backdrop-filter: blur(10px); font-size: .83rem; }
-    .toast { position: fixed; z-index: 50; left: 50%; bottom: calc(78px + env(safe-area-inset-bottom)); transform: translate(-50%, 12px); opacity: 0; pointer-events: none; background: #563443; color: white; padding: 11px 17px; border-radius: 99px; font-size: .86rem; text-align: center; width: max-content; max-width: calc(100% - 30px); transition: opacity .2s ease, transform .2s ease; box-shadow: 0 9px 28px rgba(50,20,35,.18); }
-    .toast.show { opacity: 1; transform: translate(-50%,0); }
-    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.8,.2,1); }
-    .reveal.in-view { opacity: 1; transform: translateY(0); }
-    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
-    @keyframes fade-up { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes float { 0%,100% { translate: 0 0; } 50% { translate: 0 -14px; } }
-    @keyframes nudge { 0%,100% { transform: translateY(0); } 50% { transform: translateY(5px); } }
-    @keyframes letter-reveal { from { opacity: 0; transform: translateY(22px) scale(.99); } to { opacity: 1; transform: translateY(0) scale(1); } }
-    @keyframes typing-blink { 50% { opacity: 0; } }
-    @keyframes heartbeat { 0%,100% { transform: scale(1); } 12% { transform: scale(1.18); } 24% { transform: scale(1); } 36% { transform: scale(1.12); } }
-    @keyframes candle-flicker { from { transform: rotate(-2deg) scale(.96,1.03); } to { transform: rotate(2.5deg) scale(1.04,.97); } }
-    @keyframes flame-blow-out { 0% { opacity: 1; transform: rotate(0) scale(1); } 19% { opacity: 1; transform: rotate(17deg) scale(1.13,.82); } 43% { opacity: .95; transform: rotate(30deg) scale(.91,1.08); } 68% { opacity: .78; transform: rotate(49deg) scale(.63,.86); } 86% { opacity: .42; transform: rotate(69deg) scale(.31,.53); } 100% { opacity: 0; transform: rotate(83deg) scale(.08,.18); } }
-    @keyframes smoke-drift { 0% { opacity: 0; stroke-dashoffset: 100; transform: translateY(7px); } 18% { opacity: .65; } 70% { opacity: .4; } 100% { opacity: 0; stroke-dashoffset: 0; transform: translateY(-17px); } }
-    @keyframes gust-stream { 0% { opacity: 0; transform: translate3d(0,0,0) scale(.35); } 12% { opacity: .9; } 62% { opacity: .66; } 100% { opacity: 0; transform: translate3d(var(--gust-x),var(--gust-y),0) scale(.12); } }
+    .boton-musica { position: fixed; z-index: 30; right: max(15px, env(safe-area-inset-right)); bottom: max(15px, env(safe-area-inset-bottom)); border: 1px solid rgba(196,93,123,.22); background: rgba(255,253,251,.94); color: var(--rosa-oscuro); border-radius: 99px; padding: 11px 15px; box-shadow: 0 8px 27px rgba(108,52,76,.16); cursor: pointer; backdrop-filter: blur(10px); font-size: .83rem; }
+    .aviso-emergente { position: fixed; z-index: 50; left: 50%; bottom: calc(78px + env(safe-area-inset-bottom)); transform: translate(-50%, 12px); opacity: 0; pointer-events: none; background: #563443; color: white; padding: 11px 17px; border-radius: 99px; font-size: .86rem; text-align: center; width: max-content; max-width: calc(100% - 30px); transition: opacity .2s ease, transform .2s ease; box-shadow: 0 9px 28px rgba(50,20,35,.18); }
+    .aviso-emergente.mostrar { opacity: 1; transform: translate(-50%,0); }
+    .revelar { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.8,.2,1); }
+    .revelar.en-vista { opacity: 1; transform: translateY(0); }
+    .solo-lectores { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+    @keyframes aparecer-arriba { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes flotar { 0%,100% { translate: 0 0; } 50% { translate: 0 -14px; } }
+    @keyframes empujar { 0%,100% { transform: translateY(0); } 50% { transform: translateY(5px); } }
+    @keyframes revelar-carta { from { opacity: 0; transform: translateY(22px) scale(.99); } to { opacity: 1; transform: translateY(0) scale(1); } }
+    @keyframes parpadeo-escritura { 50% { opacity: 0; } }
+    @keyframes latido { 0%,100% { transform: scale(1); } 12% { transform: scale(1.18); } 24% { transform: scale(1); } 36% { transform: scale(1.12); } }
+    @keyframes titilar-vela { from { transform: rotate(-2deg) scale(.96,1.03); } to { transform: rotate(2.5deg) scale(1.04,.97); } }
+    @keyframes apagar-llama { 0% { opacity: 1; transform: rotate(0) scale(1); } 19% { opacity: 1; transform: rotate(17deg) scale(1.13,.82); } 43% { opacity: .95; transform: rotate(30deg) scale(.91,1.08); } 68% { opacity: .78; transform: rotate(49deg) scale(.63,.86); } 86% { opacity: .42; transform: rotate(69deg) scale(.31,.53); } 100% { opacity: 0; transform: rotate(83deg) scale(.08,.18); } }
+    @keyframes derivar-humo { 0% { opacity: 0; stroke-dashoffset: 100; transform: translateY(7px); } 18% { opacity: .65; } 70% { opacity: .4; } 100% { opacity: 0; stroke-dashoffset: 0; transform: translateY(-17px); } }
+    @keyframes corriente-viento { 0% { opacity: 0; transform: translate3d(0,0,0) scale(.35); } 12% { opacity: .9; } 62% { opacity: .66; } 100% { opacity: 0; transform: translate3d(var(--viento-x),var(--viento-y),0) scale(.12); } }
     @media (max-width: 760px) {
-      .hero { min-height: 84svh; padding: 35px 0 70px; }
-      .heart-a { left: -5%; top: 16%; } .heart-b { right: -3%; top: 13%; }
-      .flower-a { left: 2%; bottom: 11%; } .flower-b { right: 2%; bottom: 10%; }
-      section.section { padding: 65px 0; }
-      .verse-grid { gap: 9px; }
-      .verse-button { padding: 11px 8px; font-size: .92rem; }
-      .letter-layout { grid-template-columns: 1fr; max-width: 570px; gap: 20px; }
-      .envelope { max-width: 340px; height: 225px; }
-      .letter-card { margin-top: 9px; }
-      .photo-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 13px; }
-      .photo-card:last-child { grid-column: 1 / -1; width: min(73%,300px); justify-self: center; }
-      .cake-celebration { padding: 60px 0 52px; }
-      .cake-heading { padding-inline: 4px; }
-      .blow-button { margin-top: -3px; }
+      .portada { min-height: 84svh; padding: 35px 0 70px; }
+      .corazon-uno { left: -5%; top: 16%; } .corazon-dos { right: -3%; top: 13%; }
+      .flor-uno { left: 2%; bottom: 11%; } .flor-dos { right: 2%; bottom: 10%; }
+      section.seccion { padding: 65px 0; }
+      .rejilla-versiculos { gap: 9px; }
+      .boton-versiculo { padding: 11px 8px; font-size: .92rem; }
+      .diseno-carta { grid-template-columns: 1fr; max-width: 570px; gap: 20px; }
+      .sobre { max-width: 340px; height: 225px; }
+      .tarjeta-carta { margin-top: 9px; }
+      .rejilla-fotos { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 13px; }
+      .tarjeta-foto:last-child { grid-column: 1 / -1; width: min(73%,300px); justify-self: center; }
+      .celebracion-pastel { padding: 60px 0 52px; }
+      .encabezado-pastel { padding-inline: 4px; }
+      .boton-soplar { margin-top: -3px; }
 }
     @media (max-width: 390px) {
-      .wrap { width: calc(100% - 26px); }
-      .hero { min-height: 82svh; }
-      .birthday-stamp { font-size: .67rem; padding: 8px 11px; }
+      .contenedor { width: calc(100% - 26px); }
+      .portada { min-height: 82svh; }
+      .sello-cumpleanos { font-size: .67rem; padding: 8px 11px; }
       .actions { flex-direction: column; width: 100%; }
-      .actions .button { width: min(100%,300px); }
-      .photo-grid { gap: 9px; }
-      .photo-card { padding: 7px 7px 12px; }
-      .photo-caption { font-size: 1.05rem; }
-      .letter-card { padding: 24px 20px; }
-      .cake-celebration { padding-top: 50px; }
+      .actions .boton { width: min(100%,300px); }
+      .rejilla-fotos { gap: 9px; }
+      .tarjeta-foto { padding: 7px 7px 12px; }
+      .pie-foto { font-size: 1.05rem; }
+      .tarjeta-carta { padding: 24px 20px; }
+      .celebracion-pastel { padding-top: 50px; }
     }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
-      .reveal { opacity: 1; transform: none; }
+      .revelar { opacity: 1; transform: none; }
     }
   </style>
 </head>
 <body>
-  <header class="topbar" aria-label="Dedicatoria"><span class="heart" aria-hidden="true">♡</span><span>Un pequeño universo para ti</span><span class="heart" aria-hidden="true">♡</span></header>
+  <header class="barra-superior" aria-label="Dedicatoria"><span class="corazon" aria-hidden="true">♡</span><span>Un pequeño universo para ti</span><span class="corazon" aria-hidden="true">♡</span></header>
 
   <main>
-    <section class="hero wrap" id="inicio" aria-labelledby="hero-title">
-      <span class="hero-deco deco-heart heart-a" aria-hidden="true">♡</span>
-      <span class="hero-deco deco-heart heart-b" aria-hidden="true">♡</span>
-      <span class="hero-deco flower-a" aria-hidden="true">✿</span>
-      <span class="hero-deco flower-b" aria-hidden="true">✧</span>
-      <div class="hero-inner">
-        <div class="birthday-stamp"><span aria-hidden="true">✦</span> Hoy celebramos el regalo más bonito que Dios me dio <span aria-hidden="true">✦</span></div>
-        <h1 id="hero-title">Feliz cumpleaños,<br><em>mi Brisa.</em></h1>
-        <p class="hero-copy" id="hero-subtitle">Preparé este pequeño rincón para recordarte lo muchísimo que te amo, mi fresita hermosa.</p>
-        <p class="signature-line" id="hero-signature">Con todo mi amor, Daniel ♡</p>
+    <section class="portada contenedor" id="inicio" aria-labelledby="titulo-portada">
+      <span class="adorno-portada corazon-decorativo corazon-uno" aria-hidden="true">♡</span>
+      <span class="adorno-portada corazon-decorativo corazon-dos" aria-hidden="true">♡</span>
+      <span class="adorno-portada flor-uno" aria-hidden="true">✿</span>
+      <span class="adorno-portada flor-dos" aria-hidden="true">✧</span>
+      <div class="contenido-portada">
+        <div class="sello-cumpleanos"><span aria-hidden="true">✦</span> Hoy celebramos el regalo más bonito que Dios me dio <span aria-hidden="true">✦</span></div>
+        <h1 id="titulo-portada">Feliz cumpleaños,<br><em>mi Brisa.</em></h1>
+        <p class="texto-portada" id="subtitulo-portada">Preparé este pequeño rincón para recordarte lo muchísimo que te amo, mi fresita hermosa.</p>
+        <p class="firma-portada" id="firma-portada">Con todo mi amor, Daniel ♡</p>
       </div>
-      <div class="scroll-cue" aria-hidden="true">Hay más mi vida<span>⌄⌄⌄</span></div>
+      <div class="pista-desplazamiento" aria-hidden="true">Hay más mi vida<span>⌄⌄⌄</span></div>
     </section>
 
-    <section class="section wrap reveal" aria-label="Un deseo para tu cumpleaños">
-      <div class="birthday-note">
+    <section class="seccion contenedor revelar" aria-label="Un deseo para tu cumpleaños">
+      <div class="nota-cumpleanos">
         <p>“Mi Brisa, encontré estos versículos y los ordené como un poema para ti. 
 
-Palabras de la Biblia que de alguna manera, me hacen pensar en ti y en lo bonito que es amarte.” <span class="small-heart">♡</span></p>
-        <div class="verse-grid" aria-label="Versículos para ti">
-          <button class="verse-button" type="button" data-title="Cantares 2:2" data-message="«Mi amada es una rosa entre las espinas»">01 · Cantares 2:2</button>
-          <button class="verse-button" type="button" data-title="Cantares 4:1" data-message="«¡Eres bella, amada mía! ¡Eres sumamente bella! Son tus ojos dos palomas que se asoman tras el velo. Son tus negros cabellos cabritos que juguetean en los montes de Galaad»">02 · Cantares 4:1</button>
-          <button class="verse-button" type="button" data-title="Cantares 4:5" data-message="«Tus pechos son dos gacelas, ¡son dos gacelas que pastan entre las rosas!»">03 · Cantares 4:5</button>
-          <button class="verse-button" type="button" data-title="Cantares 6:7" data-message="«Tus mejillas, tras el velo, son rojas como manzanas»">04 · Cantares 6:7</button>
-          <button class="verse-button" type="button" data-title="Cantares 4:7" data-message="«¡Qué bella eres, amada mía! ¡Todo en ti es perfecto!»">05 · Cantares 4:7</button>
-          <button class="verse-button" type="button" data-title="Cantares 4:9" data-message="«Amada mía, desde que me miraste mi corazón te pertenece. Es tuyo desde que lo envolviste entre los hilos de tu collar»">06 · Cantares 4:9</button>
-          <button class="verse-button" type="button" data-title="1 Corintios 16:13-14" data-message="«Manténganse siempre en estado de alerta, pero confiando en Cristo. Sean fuertes y valientes, y todo lo que hagan, háganlo con amor»">07 · 1 Corintios 16:13-14</button>
-          <button class="verse-button" type="button" data-title="Rut 1:17" data-message="«Donde tú mueras moriré, y allí mismo seré enterrada. Que Dios me castigue si te abandono, pues nada podrá separarnos; ¡nada, ni siquiera la muerte!»">08 · Rut 1:17</button>
-          <button class="verse-button" type="button" data-title="Cantares 6:8-9" data-message="«Puede haber sesenta reinas, y más de ochenta mujeres; pero mi palomita amada es una mujer singular; ¡es una mujer perfecta! Es la hija preferida de su madre. Hasta las mujeres mismas la ven y la felicitan; reinas y princesas no se cansan de alabarla»">09 · Cantares 6:8-9</button>
-          <button class="verse-button" type="button" data-title="Cantares 8:6-7" data-message="«¡Graba mi nombre en tu corazón! ¡Graba mi imagen en tu brazo! ¡Tan fuerte es el amor como la muerte! ¡Tan cierta es la pasión como la tumba! ¡El fuego del amor es una llama que Dios mismo ha encendido! ¡No hay mares que puedan apagarlo, ni ríos que puedan extinguirlo! Si alguien se atreviera a ofrecer todas sus riquezas a cambio del amor, no recibiría más que desprecio»">10 · Cantares 8:6-7</button>
+Palabras de la Biblia que de alguna manera, me hacen pensar en ti y en lo bonito que es amarte.” <span class="corazon-pequeno">♡</span></p>
+        <div class="rejilla-versiculos" aria-label="Versículos para ti">
+          <button class="boton-versiculo" type="button" data-titulo="Cantares 2:2" data-mensaje="«Mi amada es una rosa entre las espinas»">01 · Cantares 2:2</button>
+          <button class="boton-versiculo" type="button" data-titulo="Cantares 4:1" data-mensaje="«¡Eres bella, amada mía! ¡Eres sumamente bella! Son tus ojos dos palomas que se asoman tras el velo. Son tus negros cabellos cabritos que juguetean en los montes de Galaad»">02 · Cantares 4:1</button>
+          <button class="boton-versiculo" type="button" data-titulo="Cantares 4:5" data-mensaje="«Tus pechos son dos gacelas, ¡son dos gacelas que pastan entre las rosas!»">03 · Cantares 4:5</button>
+          <button class="boton-versiculo" type="button" data-titulo="Cantares 6:7" data-mensaje="«Tus mejillas, tras el velo, son rojas como manzanas»">04 · Cantares 6:7</button>
+          <button class="boton-versiculo" type="button" data-titulo="Cantares 4:7" data-mensaje="«¡Qué bella eres, amada mía! ¡Todo en ti es perfecto!»">05 · Cantares 4:7</button>
+          <button class="boton-versiculo" type="button" data-titulo="Cantares 4:9" data-mensaje="«Amada mía, desde que me miraste mi corazón te pertenece. Es tuyo desde que lo envolviste entre los hilos de tu collar»">06 · Cantares 4:9</button>
+          <button class="boton-versiculo" type="button" data-titulo="1 Corintios 16:13-14" data-mensaje="«Manténganse siempre en estado de alerta, pero confiando en Cristo. Sean fuertes y valientes, y todo lo que hagan, háganlo con amor»">07 · 1 Corintios 16:13-14</button>
+          <button class="boton-versiculo" type="button" data-titulo="Rut 1:17" data-mensaje="«Donde tú mueras moriré, y allí mismo seré enterrada. Que Dios me castigue si te abandono, pues nada podrá separarnos; ¡nada, ni siquiera la muerte!»">08 · Rut 1:17</button>
+          <button class="boton-versiculo" type="button" data-titulo="Cantares 6:8-9" data-mensaje="«Puede haber sesenta reinas, y más de ochenta mujeres; pero mi palomita amada es una mujer singular; ¡es una mujer perfecta! Es la hija preferida de su madre. Hasta las mujeres mismas la ven y la felicitan; reinas y princesas no se cansan de alabarla»">09 · Cantares 6:8-9</button>
+          <button class="boton-versiculo" type="button" data-titulo="Cantares 8:6-7" data-mensaje="«¡Graba mi nombre en tu corazón! ¡Graba mi imagen en tu brazo! ¡Tan fuerte es el amor como la muerte! ¡Tan cierta es la pasión como la tumba! ¡El fuego del amor es una llama que Dios mismo ha encendido! ¡No hay mares que puedan apagarlo, ni ríos que puedan extinguirlo! Si alguien se atreviera a ofrecer todas sus riquezas a cambio del amor, no recibiría más que desprecio»">10 · Cantares 8:6-7</button>
         </div>
       </div>
     </section>
 
-    <section class="section wrap" id="carta">
-      <div class="heading reveal">
-        <div class="ornament">✧ · ♡ · ✧</div>
-        <div class="eyebrow">De mi corazón al tuyo mi amor</div>
+    <section class="seccion contenedor" id="carta">
+      <div class="encabezado revelar">
+        <div class="ornamento">✧ · ♡ · ✧</div>
+        <div class="antetitulo">De mi corazón al tuyo mi amor</div>
         <h2>Una cartita para mi persona favorita</h2>
         <p>Hay cosas que quiero que puedas volver a leer siempre que las necesites.</p>
       </div>
-      <div class="letter-layout">
-        <div class="envelope-side reveal">
-          <button class="envelope" id="envelope" type="button" aria-label="Abrir el sobre de la carta" aria-expanded="false">
-            <span class="env-back"></span><span class="env-note">Unas palabras<br>solo para ti…</span><span class="env-flap"></span><span class="env-pocket"></span><span class="env-seal" aria-hidden="true">♡</span>
+      <div class="diseno-carta">
+        <div class="lado-sobre revelar">
+          <button class="sobre" id="sobre" type="button" aria-label="Abrir el sobre de la carta" aria-expanded="false">
+            <span class="fondo-sobre"></span><span class="nota-sobre">Unas palabras<br>solo para ti…</span><span class="solapa-sobre"></span><span class="bolsillo-sobre"></span><span class="sello-sobre" aria-hidden="true">♡</span>
           </button>
-          <p class="tap-note">Toca el sobre para abrir tu carta</p>
+          <p class="nota-toque">Toca el sobre para abrir tu carta</p>
         </div>
-        <article class="letter-card" id="letter-card" aria-live="polite">
-          <h3 id="letter-greeting"></h3>
-          <p id="letter-text"></p>
-          <div class="signature" id="letter-signature"></div>
+        <article class="tarjeta-carta" id="tarjeta-carta" aria-live="polite">
+          <h3 id="saludo-carta"></h3>
+          <p id="texto-carta"></p>
+          <div class="firma" id="firma-carta"></div>
         </article>
       </div>
     </section>
 
-    <section class="section wrap" id="recuerdos">
-      <div class="heading reveal">
-        <div class="ornament">✧ · ♡ · ✧</div><div class="eyebrow">Aunque haya 6,638.259 kilómetros</div>
+    <section class="seccion contenedor" id="recuerdos">
+      <div class="encabezado revelar">
+        <div class="ornamento">✧ · ♡ · ✧</div><div class="antetitulo">Aunque haya 6,638.259 kilómetros</div>
         <h2>Un poquito de nosotros</h2>
         <p>Hay momentos que todavía no hemos vivido juntos, pero que ya imaginamos mi amor.</p>
       </div>
-      <!-- EDITA LAS FOTOS: coloca foto-1.jpg, foto-2.jpg y foto-3.jpg dentro de la carpeta fotos/ -->
-      <div class="photo-grid">
-        <article class="photo-card reveal" style="--tilt:-2deg"><div class="photo-frame"><img src="fotos/foto-1.jpeg"><div class="photo-placeholder"></div></div><p class="photo-caption">Mi graduación, contigo en mi imaginación ♡</p></article>
-        <article class="photo-card reveal" style="--tilt:1.5deg"><div class="photo-frame"><video class="photo-video" poster="fotos/foto-2.jpeg" loop playsinline preload="metadata" tabindex="0" role="button" aria-label="Reproducir el video del abrazo"><source src="fotos/video-2.mp4" type="video/mp4">Tu navegador no puede reproducir este video.</video><div class="photo-placeholder">No se pudo cargar el video<small>Revisa fotos/video-2.mp4</small></div></div><p class="photo-caption">El abrazo que nos debemos ♡</p></article>
-        <article class="photo-card reveal" style="--tilt:-2deg"><div class="photo-frame"><img src="fotos/foto-3.jpeg" ><div class="photo-placeholder"></div></div><p class="photo-caption">La mujer que admiro ♡</p></article>
+      <!-- EDITA LAS FOTOS: cambia las rutas de las imágenes y del video según los archivos que guardes dentro de fotos/. -->
+      <div class="rejilla-fotos">
+        <article class="tarjeta-foto revelar" style="--inclinacion:-2deg"><div class="marco-foto"><img src="fotos/foto-1.jpeg"><div class="marcador-foto"></div></div><p class="pie-foto">Mi graduación, contigo en mi imaginación ♡</p></article>
+        <article class="tarjeta-foto revelar" style="--inclinacion:1.5deg"><div class="marco-foto"><video class="video-foto" poster="fotos/foto-2.jpeg" loop playsinline preload="metadata" tabindex="0" role="button" aria-label="Reproducir el video del abrazo"><source src="fotos/video-2.mp4" type="video/mp4">Tu navegador no puede reproducir este video.</video><div class="marcador-foto">No se pudo cargar el video<small>Revisa fotos/video-2.mp4</small></div></div><p class="pie-foto">El abrazo que nos debemos ♡</p></article>
+        <article class="tarjeta-foto revelar" style="--inclinacion:-2deg"><div class="marco-foto"><img src="fotos/foto-3.jpeg" ><div class="marcador-foto"></div></div><p class="pie-foto">La mujer que admiro ♡</p></article>
       </div>
     </section>
 
     
 
-    <section class="section wrap" id="contador">
-      <div class="counter reveal">
-        <div class="counter-label">Desde el 26 de julio ✧</div>
-        <div class="counter-number" id="hours-count">♡</div>
-        <p class="counter-caption" id="hours-caption">horas de una historia muy bonita</p>
-        <p class="counter-seconds" id="seconds-caption"><strong>—</strong> segundos queriéndote un poquito más</p>
+    <section class="seccion contenedor" id="contador">
+      <div class="tarjeta-contador revelar">
+        <div class="etiqueta-contador">Desde el 26 de julio ✧</div>
+        <div class="numero-contador" id="total-horas">♡</div>
+        <p class="descripcion-contador" id="descripcion-horas">horas de una historia muy bonita</p>
+        <p class="segundos-contador" id="descripcion-segundos"><strong>—</strong> segundos queriéndote un poquito más</p>
       </div>
     </section>
 
-    <section class="section wrap" id="quien-ama-mas" aria-labelledby="love-question-title">
-      <div class="heading reveal"><div class="ornament">♡ · ✧ · ♡</div><div class="eyebrow">Una pregunta muy importante</div><h2 id="love-question-title">¿Quién ama más al otro?</h2><p>A ver, mi amor… ¿cuál es tu respuesta? ♡</p></div>
-      <div class="love-question-box reveal">
-        <div class="love-question-buttons">
-          <button class="button love-choice brisa-choice" id="brisa-choice" type="button">Brisa</button>
-          <button class="button primary love-choice daniel-choice" id="daniel-choice" type="button">Daniel</button>
+    <section class="seccion contenedor" id="quien-ama-mas" aria-labelledby="titulo-pregunta-amor">
+      <div class="encabezado revelar"><div class="ornamento">♡ · ✧ · ♡</div><div class="antetitulo">Una pregunta muy importante</div><h2 id="titulo-pregunta-amor">¿Quién ama más al otro?</h2><p>A ver, mi amor… ¿cuál es tu respuesta? ♡</p></div>
+      <div class="caja-pregunta-amor revelar">
+        <div class="botones-pregunta-amor">
+          <button class="boton opcion-amor opcion-brisa" id="opcion-brisa" type="button">Brisa</button>
+          <button class="boton principal opcion-amor opcion-daniel" id="opcion-daniel" type="button">Daniel</button>
         </div>
-        <p class="love-answer" id="love-answer" aria-live="polite" hidden>jajajaj Sabía que reconocerías la verdad. Obviooooo te amo más mami.</p>
+        <p class="respuesta-amor" id="respuesta-amor" aria-live="polite" hidden>jajajaj Sabía que reconocerías la verdad. Obviooooo te amo más mami.</p>
       </div>
     </section>
 
-    <section class="cake-celebration wrap reveal" aria-labelledby="cake-title">
-      <div class="cake-heading"><div class="heading reveal"><div class="ornament">✧ · ♡ · ✧</div>  
-        <span class="eyebrow">UNA ÚLTIMA COSITA PARA TI</span>
-        <h2 id="cake-title">¿Lista para pedir un deseo?</h2>
+    <section class="celebracion-pastel contenedor revelar" aria-labelledby="titulo-pastel">
+      <div class="encabezado-pastel"><div class="encabezado revelar"><div class="ornamento">✧ · ♡ · ✧</div>  
+        <span class="antetitulo">UNA ÚLTIMA COSITA PARA TI</span>
+        <h2 id="titulo-pastel">¿Lista para pedir un deseo?</h2>
         <p>Hoy es tu día, mi amor. Cierra los ojitos un momento, piensa en algo que haga feliz a tu corazón y deja que este pequeño instante sea solamente tuyo.</p>
       </div>
 
-      <div class="cake-scene" id="cake-scene">
-        <svg class="cake-art" viewBox="0 0 900 640" role="img" aria-labelledby="cake-art-title cake-art-desc">
-          <title id="cake-art-title">Pastel de cumpleaños de crema y fresas con las velas encendidas del número 23</title>
-          <desc id="cake-art-desc">Un pastel grande cubierto de crema, adornado con fresas y dos velas encendidas con forma de 2 y 3.</desc>
+      <div class="escena-pastel" id="escena-pastel">
+        <svg class="ilustracion-pastel" viewBox="0 0 900 640" role="img" aria-labelledby="titulo-ilustracion-pastel descripcion-ilustracion-pastel">
+          <title id="titulo-ilustracion-pastel">Pastel de cumpleaños de crema y fresas con las velas encendidas del número 23</title>
+          <desc id="descripcion-ilustracion-pastel">Un pastel grande cubierto de crema, adornado con fresas y dos velas encendidas con forma de 2 y 3.</desc>
           <defs>
-            <linearGradient id="cake-body" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#fff8f2"/><stop offset=".48" stop-color="#f7dce0"/><stop offset="1" stop-color="#eab9c7"/></linearGradient>
-            <linearGradient id="cake-cream" x1="0" y1="0" x2=".95" y2="1"><stop stop-color="#fffefa"/><stop offset=".62" stop-color="#fff1e9"/><stop offset="1" stop-color="#f8deda"/></linearGradient>
-            <linearGradient id="cake-plate" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#fffdfb"/><stop offset=".55" stop-color="#f6e4e4"/><stop offset="1" stop-color="#e6c4cc"/></linearGradient>
-            <linearGradient id="candle-wax" x1="0" y1="0" x2="1" y2=".75"><stop stop-color="#fff1cd"/><stop offset=".38" stop-color="#f2b5a8"/><stop offset=".72" stop-color="#dd7f91"/><stop offset="1" stop-color="#bd5f7a"/></linearGradient>
-            <linearGradient id="strawberry-red" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#fa8c8d"/><stop offset=".5" stop-color="#e55068"/><stop offset="1" stop-color="#b92e54"/></linearGradient>
-            <linearGradient id="flame-color" x1=".2" y1="1" x2=".75" y2="0"><stop stop-color="#ff914d"/><stop offset=".6" stop-color="#ffc85e"/><stop offset="1" stop-color="#fff4bf"/></linearGradient>
-            <filter id="cake-shadow" x="-.2" y="-.2" width="1.4" height="1.6"><feDropShadow dx="0" dy="17" stdDeviation="15" flood-color="#8d5264" flood-opacity=".18"/></filter>
-            <filter id="flame-blur" x="-1" y="-1" width="3" height="3"><feGaussianBlur stdDeviation="8"/></filter>
-            <g id="strawberry">
+            <linearGradient id="cuerpo-pastel" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#fff8f2"/><stop offset=".48" stop-color="#f7dce0"/><stop offset="1" stop-color="#eab9c7"/></linearGradient>
+            <linearGradient id="crema-pastel" x1="0" y1="0" x2=".95" y2="1"><stop stop-color="#fffefa"/><stop offset=".62" stop-color="#fff1e9"/><stop offset="1" stop-color="#f8deda"/></linearGradient>
+            <linearGradient id="plato-pastel" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#fffdfb"/><stop offset=".55" stop-color="#f6e4e4"/><stop offset="1" stop-color="#e6c4cc"/></linearGradient>
+            <linearGradient id="cera-vela" x1="0" y1="0" x2="1" y2=".75"><stop stop-color="#fff1cd"/><stop offset=".38" stop-color="#f2b5a8"/><stop offset=".72" stop-color="#dd7f91"/><stop offset="1" stop-color="#bd5f7a"/></linearGradient>
+            <linearGradient id="rojo-fresa" x1="0" y1="0" x2=".8" y2="1"><stop stop-color="#fa8c8d"/><stop offset=".5" stop-color="#e55068"/><stop offset="1" stop-color="#b92e54"/></linearGradient>
+            <linearGradient id="color-llama" x1=".2" y1="1" x2=".75" y2="0"><stop stop-color="#ff914d"/><stop offset=".6" stop-color="#ffc85e"/><stop offset="1" stop-color="#fff4bf"/></linearGradient>
+            <filter id="sombra-pastel" x="-.2" y="-.2" width="1.4" height="1.6"><feDropShadow dx="0" dy="17" stdDeviation="15" flood-color="#8d5264" flood-opacity=".18"/></filter>
+            <filter id="desenfoque-llama" x="-1" y="-1" width="3" height="3"><feGaussianBlur stdDeviation="8"/></filter>
+            <g id="fresa">
               <path d="M0 9 C-3 1 -13 -1 -19 3 C-13 -8 -4 -8 0 -1 C5 -9 15 -8 19 2 C11 -1 4 2 0 9Z" fill="#71945e"/>
-              <path d="M0 3 C-9 -3 -20 6 -16 19 C-13 30 -4 39 0 42 C5 38 14 29 17 18 C20 6 9 -3 0 3Z" fill="url(#strawberry-red)"/>
+              <path d="M0 3 C-9 -3 -20 6 -16 19 C-13 30 -4 39 0 42 C5 38 14 29 17 18 C20 6 9 -3 0 3Z" fill="url(#rojo-fresa)"/>
               <g fill="#ffe8ae" opacity=".94"><ellipse cx="-8" cy="11" rx="1.4" ry="2.1"/><ellipse cx="2" cy="9" rx="1.4" ry="2.1"/><ellipse cx="10" cy="14" rx="1.4" ry="2.1"/><ellipse cx="-10" cy="23" rx="1.4" ry="2.1"/><ellipse cx="0" cy="21" rx="1.4" ry="2.1"/><ellipse cx="9" cy="25" rx="1.4" ry="2.1"/><ellipse cx="-5" cy="32" rx="1.4" ry="2.1"/><ellipse cx="5" cy="33" rx="1.4" ry="2.1"/></g>
               <ellipse cx="-7" cy="13" rx="3" ry="8" fill="#fff" opacity=".13" transform="rotate(25 -7 13)"/>
             </g>
           </defs>
 
           <ellipse cx="449" cy="530" rx="309" ry="42" fill="#dbaeb9" opacity=".2"/>
-          <ellipse cx="450" cy="510" rx="318" ry="53" fill="url(#cake-plate)" stroke="#e9cbd1" stroke-width="3"/>
+          <ellipse cx="450" cy="510" rx="318" ry="53" fill="url(#plato-pastel)" stroke="#e9cbd1" stroke-width="3"/>
           <ellipse cx="450" cy="501" rx="286" ry="34" fill="#fffaf6" stroke="#eed8d9" stroke-width="2"/>
-          <g filter="url(#cake-shadow)">
-            <path d="M198 323 C252 286 348 269 450 269 C554 269 649 287 702 323 L696 464 C692 493 600 513 450 513 C300 513 207 493 203 464Z" fill="url(#cake-body)" stroke="#e7c3c9" stroke-width="3"/>
-            <path d="M200 325 C250 286 349 263 450 263 C552 263 650 287 700 325 C650 363 553 378 450 378 C348 378 251 363 200 325Z" fill="url(#cake-cream)" stroke="#f2d9d5" stroke-width="3"/>
-            <path d="M201 326 C251 352 344 366 450 366 C558 366 650 351 699 326 L696 348 C688 355 682 352 678 366 C674 380 662 382 656 370 L649 350 C634 355 617 359 599 362 L595 379 C592 393 579 394 574 381 L569 366 C545 371 519 374 492 376 L490 390 C488 403 475 404 470 391 L465 377 C437 378 408 377 381 375 L378 390 C375 404 362 402 359 389 L357 373 C328 371 300 366 276 361 L270 378 C265 391 253 386 252 373 L253 356 C231 349 214 339 201 326Z" fill="url(#cake-cream)" stroke="#f1d6d1" stroke-width="2"/>
+          <g filter="url(#sombra-pastel)">
+            <path d="M198 323 C252 286 348 269 450 269 C554 269 649 287 702 323 L696 464 C692 493 600 513 450 513 C300 513 207 493 203 464Z" fill="url(#cuerpo-pastel)" stroke="#e7c3c9" stroke-width="3"/>
+            <path d="M200 325 C250 286 349 263 450 263 C552 263 650 287 700 325 C650 363 553 378 450 378 C348 378 251 363 200 325Z" fill="url(#crema-pastel)" stroke="#f2d9d5" stroke-width="3"/>
+            <path d="M201 326 C251 352 344 366 450 366 C558 366 650 351 699 326 L696 348 C688 355 682 352 678 366 C674 380 662 382 656 370 L649 350 C634 355 617 359 599 362 L595 379 C592 393 579 394 574 381 L569 366 C545 371 519 374 492 376 L490 390 C488 403 475 404 470 391 L465 377 C437 378 408 377 381 375 L378 390 C375 404 362 402 359 389 L357 373 C328 371 300 366 276 361 L270 378 C265 391 253 386 252 373 L253 356 C231 349 214 339 201 326Z" fill="url(#crema-pastel)" stroke="#f1d6d1" stroke-width="2"/>
             <path d="M207 417 C260 435 348 444 450 444 C553 444 641 435 693 417" fill="none" stroke="#fffaf5" stroke-width="17" stroke-linecap="round" opacity=".9"/>
             <path d="M208 423 C271 441 354 448 450 448 C548 448 629 441 692 423" fill="none" stroke="#e9b4c1" stroke-width="3" opacity=".65"/>
             <path d="M210 468 C267 490 353 500 450 500 C549 500 634 490 690 468" fill="none" stroke="#fff7f2" stroke-width="8" stroke-linecap="round" opacity=".72"/>
 
-            <g fill="url(#cake-cream)" stroke="#f2dad5" stroke-width="2">
+            <g fill="url(#crema-pastel)" stroke="#f2dad5" stroke-width="2">
               <path d="M237 345 C236 328 251 320 265 328 C278 314 298 322 296 338 C310 342 310 359 296 363 L241 363 C226 360 226 347 237 345Z"/>
               <path d="M604 342 C602 326 619 319 632 328 C645 314 665 322 663 338 C677 342 678 359 663 363 L609 363 C593 360 593 347 604 342Z"/>
               <path d="M320 472 C319 460 330 454 340 460 C350 451 364 456 363 468 C374 472 373 483 362 486 L325 486 C313 483 313 474 320 472Z"/>
@@ -347,31 +347,31 @@ Palabras de la Biblia que de alguna manera, me hacen pensar en ti y en lo bonito
           </g>
 
           <g aria-hidden="true">
-            <use href="#strawberry" transform="translate(286 299) scale(.82) rotate(-13)"/>
-            <use href="#strawberry" transform="translate(338 277) scale(.7) rotate(8)"/>
-            <use href="#strawberry" transform="translate(573 292) scale(.86) rotate(13)"/>
-            <use href="#strawberry" transform="translate(624 318) scale(.67) rotate(-12)"/>
-            <use href="#strawberry" transform="translate(285 394) scale(.56) rotate(-8)"/>
-            <use href="#strawberry" transform="translate(611 398) scale(.55) rotate(11)"/>
-            <use href="#strawberry" transform="translate(392 463) scale(.48) rotate(-7)"/>
-            <use href="#strawberry" transform="translate(500 464) scale(.47) rotate(9)"/>
+            <use href="#fresa" transform="translate(286 299) scale(.82) rotate(-13)"/>
+            <use href="#fresa" transform="translate(338 277) scale(.7) rotate(8)"/>
+            <use href="#fresa" transform="translate(573 292) scale(.86) rotate(13)"/>
+            <use href="#fresa" transform="translate(624 318) scale(.67) rotate(-12)"/>
+            <use href="#fresa" transform="translate(285 394) scale(.56) rotate(-8)"/>
+            <use href="#fresa" transform="translate(611 398) scale(.55) rotate(11)"/>
+            <use href="#fresa" transform="translate(392 463) scale(.48) rotate(-7)"/>
+            <use href="#fresa" transform="translate(500 464) scale(.47) rotate(9)"/>
           </g>
 
-          <g class="candles" aria-hidden="true">
-            <path class="wick" d="M403 177 L403 158 M488 174 L488 156" stroke="#77534c" stroke-width="5" stroke-linecap="round"/>
-            <path class="candle-shadow" d="M365 207 C368 184 386 169 405 174 C430 180 432 201 415 220 L380 257 L430 257 M461 179 C481 165 507 170 512 189 C516 204 503 215 488 219 C507 221 519 233 515 250 C510 274 481 280 462 263" fill="none" stroke="#9d536a" stroke-width="31" stroke-linecap="round" stroke-linejoin="round" opacity=".22" transform="translate(0 4)"/>
-            <path class="candle-color" d="M365 207 C368 184 386 169 405 174 C430 180 432 201 415 220 L380 257 L430 257 M461 179 C481 165 507 170 512 189 C516 204 503 215 488 219 C507 221 519 233 515 250 C510 274 481 280 462 263" fill="none" stroke="url(#candle-wax)" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+          <g class="velas" aria-hidden="true">
+            <path class="mecha" d="M403 177 L403 158 M488 174 L488 156" stroke="#77534c" stroke-width="5" stroke-linecap="round"/>
+            <path class="sombra-vela" d="M365 207 C368 184 386 169 405 174 C430 180 432 201 415 220 L380 257 L430 257 M461 179 C481 165 507 170 512 189 C516 204 503 215 488 219 C507 221 519 233 515 250 C510 274 481 280 462 263" fill="none" stroke="#9d536a" stroke-width="31" stroke-linecap="round" stroke-linejoin="round" opacity=".22" transform="translate(0 4)"/>
+            <path class="color-vela" d="M365 207 C368 184 386 169 405 174 C430 180 432 201 415 220 L380 257 L430 257 M461 179 C481 165 507 170 512 189 C516 204 503 215 488 219 C507 221 519 233 515 250 C510 274 481 280 462 263" fill="none" stroke="url(#cera-vela)" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
             <path d="M370 204 C374 185 389 176 403 179 M465 180 C481 171 497 175 504 185" fill="none" stroke="#fff8e6" stroke-width="3" stroke-linecap="round" opacity=".9"/>
-            <g class="smoke-trail smoke-two"><path d="M403 151 C383 136 423 126 405 107 C395 97 402 84 412 75"/></g>
-            <g class="smoke-trail smoke-three"><path d="M488 149 C509 135 469 124 487 105 C497 95 490 82 480 73"/></g>
-            <g class="flame flame-one">
-              <ellipse class="flame-glow" cx="403" cy="132" rx="22" ry="29" fill="#ffbd62" filter="url(#flame-blur)"/>
-              <path d="M403 101 C400 116 384 124 386 139 C387 151 394 158 403 157 C415 155 421 143 416 131 C412 120 405 112 403 101Z" fill="url(#flame-color)"/>
+            <g class="rastro-humo humo-dos"><path d="M403 151 C383 136 423 126 405 107 C395 97 402 84 412 75"/></g>
+            <g class="rastro-humo humo-tres"><path d="M488 149 C509 135 469 124 487 105 C497 95 490 82 480 73"/></g>
+            <g class="llama llama-uno">
+              <ellipse class="resplandor-llama" cx="403" cy="132" rx="22" ry="29" fill="#ffbd62" filter="url(#desenfoque-llama)"/>
+              <path d="M403 101 C400 116 384 124 386 139 C387 151 394 158 403 157 C415 155 421 143 416 131 C412 120 405 112 403 101Z" fill="url(#color-llama)"/>
               <path d="M404 131 C400 139 398 144 402 150 C406 147 409 142 407 137Z" fill="#fffbe5" opacity=".92"/>
             </g>
-            <g class="flame flame-two">
-              <ellipse class="flame-glow" cx="488" cy="130" rx="22" ry="29" fill="#ffbd62" filter="url(#flame-blur)"/>
-              <path d="M488 99 C485 114 469 122 471 137 C472 149 479 156 488 155 C500 153 506 141 501 129 C497 118 490 110 488 99Z" fill="url(#flame-color)"/>
+            <g class="llama llama-dos">
+              <ellipse class="resplandor-llama" cx="488" cy="130" rx="22" ry="29" fill="#ffbd62" filter="url(#desenfoque-llama)"/>
+              <path d="M488 99 C485 114 469 122 471 137 C472 149 479 156 488 155 C500 153 506 141 501 129 C497 118 490 110 488 99Z" fill="url(#color-llama)"/>
               <path d="M489 129 C485 137 483 142 487 148 C491 145 494 140 492 135Z" fill="#fffbe5" opacity=".92"/>
             </g>
           </g>
@@ -380,24 +380,24 @@ Palabras de la Biblia que de alguna manera, me hacen pensar en ti y en lo bonito
             <path d="M195 208 l4 10 10 4-10 4-4 10-4-10-10-4 10-4Z"/><path d="M666 209 l3 8 8 3-8 3-3 8-3-8-8-3 8-3Z"/><circle cx="248" cy="257" r="4"/><circle cx="651" cy="255" r="3"/>
           </g>
         </svg>
-        <div class="cake-wind" id="cake-wind" aria-hidden="true"></div>
+        <div class="viento-pastel" id="viento-pastel" aria-hidden="true"></div>
       </div>
 
-      <button class="button primary blow-button" id="blow-button" type="button" aria-label="Soplar las velas de Brisa" aria-pressed="false">Soplar</button>
-      <p class="sr-only" id="blow-status" role="status" aria-live="polite">Las velas del 23 están encendidas.</p>
+      <button class="boton principal boton-soplar" id="boton-soplar" type="button" aria-label="Soplar las velas de Brisa" aria-pressed="false">Soplar</button>
+      <p class="solo-lectores" id="estado-soplido" role="status" aria-live="polite">Las velas del 23 están encendidas.</p>
     </section>
   </main>
 
-  <footer>Hecho con amor para Brisa <span style="color:var(--rose)">♥</span> · Daniel</footer>
-  <button class="music-button" id="music-button" type="button" hidden aria-pressed="false">♫ Reproducir canción</button>
-  <audio id="background-music" loop preload="none"></audio>
-  <div id="toast" class="toast" role="status" aria-live="polite"></div>
-  <div class="verse-overlay" id="verse-overlay" hidden>
-    <section class="verse-paper" role="dialog" aria-modal="true" aria-labelledby="verse-title" aria-describedby="verse-description">
-      <button class="verse-close" id="verse-close" type="button" aria-label="Cerrar">×</button>
-      <span class="closing-heart" aria-hidden="true">♡</span>
-      <h2 id="verse-title"></h2>
-      <p id="verse-description"></p>
+  <footer>Hecho con amor para Brisa <span style="color:var(--rosa)">♥</span> · Daniel</footer>
+  <button class="boton-musica" id="boton-musica" type="button" hidden aria-pressed="false">♫ Reproducir canción</button>
+  <audio id="musica-fondo" loop preload="none"></audio>
+  <div id="aviso-emergente" class="aviso-emergente" role="status" aria-live="polite"></div>
+  <div class="capa-versiculo" id="capa-versiculo" hidden>
+    <section class="hoja-versiculo" role="dialog" aria-modal="true" aria-labelledby="titulo-versiculo" aria-describedby="descripcion-versiculo">
+      <button class="cerrar-versiculo" id="cerrar-versiculo" type="button" aria-label="Cerrar">×</button>
+      <span class="corazon-despedida" aria-hidden="true">♡</span>
+      <h2 id="titulo-versiculo"></h2>
+      <p id="descripcion-versiculo"></p>
     </section>
   </div>
 
@@ -421,291 +421,300 @@ Palabras de la Biblia que de alguna manera, me hacen pensar en ti y en lo bonito
 
           No olvides quién es Brisa para ti.
        ========================================================================================== */
-    const CONFIG = {
-      birthdayName: "Brisa",
-      fromName: "Daniel",
-      heroSubtitle: "Hoy es un día muy especial porque naciste tú. Preparé este pequeño rincón para recordarte lo muchísimo que te amo, mi fresita hermosa.",
-      letterGreeting: "Mi Brisa Hermosaaa,",
-      letterText: `Feliz cumpleaños mi vida.\n\nHoy quiero recordarte lo especial que eres para mí. Y aunque quizá no existan palabras suficientes para explicarte lo que siento por ti, quiero que sepas que conocerte es de esas cosas que agradezco con el corazón.\n\nDeseo que este nuevo año te regale días que te hagan feliz de verdad, que sane cualquier tristeza que guardes en silencio y que te recuerde, una y otra vez, lo maravillosa que eres. Quiero que sepas que estoy muy orgulloso de ti, de la persona que eres, de todo lo que has superado y de cómo sigues adelante incluso en los días que no son tan fáciles.\n\nGracias por existir tal como eres y por convertirte en alguien a quien amo tanto. No necesito que seas perfecta ni que tengas siempre días buenos; me basta con que seas tú, con todo lo que eres. Ojalá esta página te saque una sonrisa hoy y cada vez que vuelvas a ella.\n\nFeliz cumpleaños, mi niña chula. ♡ Ojalá la vida te regale toda la felicidad que mereces y nunca te falten razones para sonreír. Te amo muchísimo, mi fresita. Hoy y siempre, deseo verte feliz. ♡`,
-      signature: "Con todo mi amor, Daniel ♡",
+    // Personaliza aquí el nombre, los textos de portada y carta, la firma,
+    // la velocidad de escritura y la ruta del archivo de música.
+    const AJUSTES = {
+      nombreCumpleanera: "Brisa",
+      nombreRemitente: "Daniel",
+      subtituloPortada: "Hoy es un día muy especial porque naciste tú. Preparé este pequeño rincón para recordarte lo muchísimo que te amo, mi fresita hermosa.",
+      saludoCarta: "Mi Brisa Hermosaaa,",
+      textoCarta: `Feliz cumpleaños mi vida.\n\nHoy quiero recordarte lo especial que eres para mí. Y aunque quizá no existan palabras suficientes para explicarte lo que siento por ti, quiero que sepas que conocerte es de esas cosas que agradezco con el corazón.\n\nDeseo que este nuevo año te regale días que te hagan feliz de verdad, que sane cualquier tristeza que guardes en silencio y que te recuerde, una y otra vez, lo maravillosa que eres. Quiero que sepas que estoy muy orgulloso de ti, de la persona que eres, de todo lo que has superado y de cómo sigues adelante incluso en los días que no son tan fáciles.\n\nGracias por existir tal como eres y por convertirte en alguien a quien amo tanto. No necesito que seas perfecta ni que tengas siempre días buenos; me basta con que seas tú, con todo lo que eres. Ojalá esta página te saque una sonrisa hoy y cada vez que vuelvas a ella.\n\nFeliz cumpleaños, mi niña chula. ♡ Ojalá la vida te regale toda la felicidad que mereces y nunca te falten razones para sonreír. Te amo muchísimo, mi fresita. Hoy y siempre, deseo verte feliz. ♡`,
+      firma: "Con todo mi amor, Daniel ♡",
       // Velocidad natural de escritura: ajusta estos valores mínimo y máximo (caracteres por segundo).
-      letterTypingSpeedMin: 5,
-      letterTypingSpeedMax: 40,
-      musicFile: "musica/cancion.mp3" // Ruta relativa; respeta mayúsculas y minúsculas
+      velocidadEscrituraCartaMinima: 5,
+      velocidadEscrituraCartaMaxima: 40,
+      archivoMusica: "musica/cancion.mp3" // Ruta relativa; respeta mayúsculas y minúsculas
     };
 
-    const $ = (selector) => document.querySelector(selector);
-    const $$ = (selector) => [...document.querySelectorAll(selector)];
+    const buscar = (selector) => document.querySelector(selector);
+    const buscarTodos = (selector) => [...document.querySelectorAll(selector)];
 
-    function escapeHTML(value) {
-      return String(value).replace(/[&<>"']/g, (character) => ({
+    function escaparHTML(valor) {
+      return String(valor).replace(/[&<>"']/g, (caracter) => ({
         "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
-      })[character]);
+      })[caracter]);
     }
 
-    // Sustituye el nombre, dedicatoria y carta desde CONFIG.
-    document.title = `Feliz cumpleaños, ${CONFIG.birthdayName} ♡`;
-    $("#hero-title").innerHTML = `Feliz cumpleaños,<br><em>mi ${escapeHTML(CONFIG.birthdayName)}.</em>`;
-    $("#hero-subtitle").textContent = CONFIG.heroSubtitle;
-    $("#hero-signature").textContent = `Con todo mi amor, ${CONFIG.fromName} ♡`;
-    const letterGreetingElement = $("#letter-greeting");
-    letterGreetingElement.textContent = "";
-    const letterTextElement = $("#letter-text");
-    letterTextElement.textContent = "";
-    const letterSignatureElement = $("#letter-signature");
-    letterSignatureElement.textContent = "";
-    $("footer").innerHTML = `Hecho con amor para ${escapeHTML(CONFIG.birthdayName)} <span style="color:var(--rose)">♥</span> · Un detalle de ${escapeHTML(CONFIG.fromName)}`;
+    // Sustituye el nombre, dedicatoria y carta desde AJUSTES.
+    document.title = `Feliz cumpleaños, ${AJUSTES.nombreCumpleanera} ♡`;
+    buscar("#titulo-portada").innerHTML = `Feliz cumpleaños,<br><em>mi ${escaparHTML(AJUSTES.nombreCumpleanera)}.</em>`;
+    buscar("#subtitulo-portada").textContent = AJUSTES.subtituloPortada;
+    buscar("#firma-portada").textContent = `Con todo mi amor, ${AJUSTES.nombreRemitente} ♡`;
+    const elementoSaludoCarta = buscar("#saludo-carta");
+    elementoSaludoCarta.textContent = "";
+    const elementoTextoCarta = buscar("#texto-carta");
+    elementoTextoCarta.textContent = "";
+    const elementoFirmaCarta = buscar("#firma-carta");
+    elementoFirmaCarta.textContent = "";
+    buscar("footer").innerHTML = `Hecho con amor para ${escaparHTML(AJUSTES.nombreCumpleanera)} <span style="color:var(--rosa)">♥</span> · ${escaparHTML(AJUSTES.nombreRemitente)}`;
 
     // Cada botón muestra su cita y descripción en una hojita dentro de esta misma página.
-    const verseOverlay = $("#verse-overlay");
-    const verseTitle = $("#verse-title");
-    const verseDescription = $("#verse-description");
-    const verseClose = $("#verse-close");
-    let lastVerseButton = null;
-    function closeVersePaper() {
-      verseOverlay.hidden = true;
-      document.body.classList.remove("verse-open");
-      if (lastVerseButton) lastVerseButton.focus();
+    const capaVersiculo = buscar("#capa-versiculo");
+    const tituloVersiculo = buscar("#titulo-versiculo");
+    const descripcionVersiculo = buscar("#descripcion-versiculo");
+    const cerrarVersiculo = buscar("#cerrar-versiculo");
+    let ultimoBotonVersiculo = null;
+    function cerrarHojaVersiculo() {
+      capaVersiculo.hidden = true;
+      document.body.classList.remove("versiculo-abierto");
+      if (ultimoBotonVersiculo) ultimoBotonVersiculo.focus();
     }
-    $$(".verse-button").forEach((button) => {
-      button.addEventListener("click", () => {
-        lastVerseButton = button;
-        verseTitle.textContent = button.dataset.title;
-        verseDescription.textContent = button.dataset.message;
-        verseOverlay.hidden = false;
-        document.body.classList.add("verse-open");
-        verseClose.focus();
+    buscarTodos(".boton-versiculo").forEach((boton) => {
+      boton.addEventListener("click", () => {
+        ultimoBotonVersiculo = boton;
+        tituloVersiculo.textContent = boton.dataset.titulo;
+        descripcionVersiculo.textContent = boton.dataset.mensaje;
+        capaVersiculo.hidden = false;
+        document.body.classList.add("versiculo-abierto");
+        cerrarVersiculo.focus();
       });
     });
-    verseClose.addEventListener("click", closeVersePaper);
-    verseOverlay.addEventListener("click", (event) => {
-      if (event.target === verseOverlay) closeVersePaper();
+    cerrarVersiculo.addEventListener("click", cerrarHojaVersiculo);
+    capaVersiculo.addEventListener("click", (evento) => {
+      if (evento.target === capaVersiculo) cerrarHojaVersiculo();
     });
-    document.addEventListener("keydown", (event) => {
-      if (event.key === "Escape" && !verseOverlay.hidden) closeVersePaper();
+    document.addEventListener("keydown", (evento) => {
+      if (evento.key === "Escape" && !capaVersiculo.hidden) cerrarHojaVersiculo();
     });
     // Sobre: muestra la carta al tocarlo.
-    const envelope = $("#envelope");
-    const letterCard = $("#letter-card");
-    let typingStarted = false;
-    function typeText(element, text) {
-      const characters = Array.from(text);
-      element.classList.add("typing-active");
-      return new Promise((resolve) => {
-        let index = 0;
-        function writeNextCharacter() {
-          if (index >= characters.length) {
-            element.classList.remove("typing-active");
-            resolve();
+    const sobre = buscar("#sobre");
+    const tarjetaCarta = buscar("#tarjeta-carta");
+    let escrituraIniciada = false;
+    function escribirTexto(elemento, texto) {
+      const caracteres = Array.from(texto);
+      elemento.classList.add("escritura-activa");
+      return new Promise((resolver) => {
+        let indice = 0;
+        function escribirCaracterSiguiente() {
+          if (indice >= caracteres.length) {
+            elemento.classList.remove("escritura-activa");
+            resolver();
             return;
           }
-          const character = characters[index];
-          element.textContent += character;
-          index += 1;
-          const minSpeed = CONFIG.letterTypingSpeedMin;
-          const maxSpeed = CONFIG.letterTypingSpeedMax;
-          const charactersPerSecond = minSpeed + Math.random() * (maxSpeed - minSpeed);
-          let delay = 1000 / charactersPerSecond;
-          if (/[.!?…]/u.test(character)) delay += 180 + Math.random() * 320;
-          else if (/[,;:]/u.test(character)) delay += 90 + Math.random() * 180;
-          else if (character === "\n") delay += 70 + Math.random() * 130;
-          window.setTimeout(writeNextCharacter, delay);
+          const caracter = caracteres[indice];
+          elemento.textContent += caracter;
+          indice += 1;
+          const velocidadMinima = AJUSTES.velocidadEscrituraCartaMinima;
+          const velocidadMaxima = AJUSTES.velocidadEscrituraCartaMaxima;
+          const caracteresPorSegundo = velocidadMinima + Math.random() * (velocidadMaxima - velocidadMinima);
+          let demora = 1000 / caracteresPorSegundo;
+          if (/[.!?…]/u.test(caracter)) demora += 180 + Math.random() * 320;
+          else if (/[,;:]/u.test(caracter)) demora += 90 + Math.random() * 180;
+          else if (caracter === "\n") demora += 70 + Math.random() * 130;
+          window.setTimeout(escribirCaracterSiguiente, demora);
         }
-        writeNextCharacter();
+        escribirCaracterSiguiente();
       });
     }
-    async function typeLetter() {
-      if (typingStarted) return;
-      typingStarted = true;
-      await typeText(letterGreetingElement, CONFIG.letterGreeting);
-      await typeText(letterTextElement, CONFIG.letterText);
-      await typeText(letterSignatureElement, CONFIG.signature);
+    async function escribirCarta() {
+      if (escrituraIniciada) return;
+      escrituraIniciada = true;
+      await escribirTexto(elementoSaludoCarta, AJUSTES.saludoCarta);
+      await escribirTexto(elementoTextoCarta, AJUSTES.textoCarta);
+      await escribirTexto(elementoFirmaCarta, AJUSTES.firma);
     }
-    function openLetter() {
-      envelope.classList.add("open");
-      envelope.setAttribute("aria-expanded", "true");
-      letterCard.classList.add("visible");
-      typeLetter();
+    function abrirCarta() {
+      sobre.classList.add("abierto");
+      sobre.setAttribute("aria-expanded", "true");
+      tarjetaCarta.classList.add("visible");
+      escribirCarta();
     }
-    envelope.addEventListener("click", openLetter);
-    const cakeScene = $("#cake-scene");
-    const cakeWind = $("#cake-wind");
-    const blowButton = $("#blow-button");
-    blowButton.addEventListener("click", () => {
-      if (blowButton.disabled) return;
+    sobre.addEventListener("click", abrirCarta);
+    const escenaPastel = buscar("#escena-pastel");
+    const vientoPastel = buscar("#viento-pastel");
+    const botonSoplar = buscar("#boton-soplar");
+    botonSoplar.addEventListener("click", () => {
+      if (botonSoplar.disabled) return;
 
-      cakeScene.classList.add("blowing");
-      blowButton.disabled = true;
-      blowButton.setAttribute("aria-pressed", "true");
-      const flames = $$(".cake-art .flame");
-      flames.forEach((flame) => flame.classList.add("is-blowing"));
+      escenaPastel.classList.add("soplando");
+      botonSoplar.disabled = true;
+      botonSoplar.setAttribute("aria-pressed", "true");
+      const llamas = buscarTodos(".ilustracion-pastel .llama");
+      llamas.forEach((llama) => llama.classList.add("apagandose"));
 
-      const particleCount = 34;
-      for (let i = 0; i < particleCount; i += 1) {
-        const particle = document.createElement("span");
-        particle.className = "wind-particle";
-        particle.style.setProperty("--gust-x", `${cakeScene.clientWidth * (.38 + Math.random() * .2)}px`);
-        particle.style.setProperty("--gust-y", `${Math.round(Math.random() * 54 - 27)}px`);
-        particle.style.setProperty("--gust-y-start", `${14 + Math.random() * 15}%`);
-        particle.style.setProperty("--gust-duration", `${.95 + Math.random() * .55}s`);
-        particle.style.setProperty("--gust-delay", `${Math.random() * .28}s`);
-        particle.style.setProperty("--particle-size", `${3 + Math.random() * 5}px`);
-        particle.style.setProperty("--particle-color", ["#fffaf4", "#f8dce2", "#efc3cb", "#fff0d5"][Math.floor(Math.random() * 4)]);
-        cakeWind.appendChild(particle);
-        window.setTimeout(() => particle.remove(), 1900);
+      const cantidadParticulas = 34;
+      for (let indice = 0; indice < cantidadParticulas; indice += 1) {
+        const particula = document.createElement("span");
+        particula.className = "particula-viento";
+        particula.style.setProperty("--viento-x", `${escenaPastel.clientWidth * (.38 + Math.random() * .2)}px`);
+        particula.style.setProperty("--viento-y", `${Math.round(Math.random() * 54 - 27)}px`);
+        particula.style.setProperty("--inicio-y-viento", `${14 + Math.random() * 15}%`);
+        particula.style.setProperty("--duracion-rafaga", `${.95 + Math.random() * .55}s`);
+        particula.style.setProperty("--retraso-rafaga", `${Math.random() * .28}s`);
+        particula.style.setProperty("--tamano-particula", `${3 + Math.random() * 5}px`);
+        particula.style.setProperty("--color-particula", ["#fffaf4", "#f8dce2", "#efc3cb", "#fff0d5"][Math.floor(Math.random() * 4)]);
+        vientoPastel.appendChild(particula);
+        window.setTimeout(() => particula.remove(), 1900);
       }
 
       window.setTimeout(() => {
-        $$(".cake-art .smoke-trail").forEach((smoke) => smoke.classList.add("visible"));
+        buscarTodos(".ilustracion-pastel .rastro-humo").forEach((humo) => humo.classList.add("visible"));
       }, 1380);
       window.setTimeout(() => {
-        $("#blow-status").textContent = "Las velas del 23 se apagaron despacito. ¡Feliz cumpleaños, Brisa!";
+        buscar("#estado-soplido").textContent = "Las velas del 23 se apagaron despacito. ¡Feliz cumpleaños, Brisa!";
       }, 1750);
       window.setTimeout(() => {
-        blowButton.textContent = "Deseo pedido ♡";
+        botonSoplar.textContent = "Deseo pedido ♡";
       }, 2100);
     });
 
     // Fotos: muestra el marcador romántico si todavía no se agregó la imagen.
-    $$(".photo-frame").forEach((frame) => {
-      const img = frame.querySelector("img");
-      const video = frame.querySelector("video");
-      const placeholder = frame.querySelector(".photo-placeholder");
-      const showPlaceholder = () => { if (img) img.hidden = true; if (video) video.hidden = true; placeholder.hidden = false; };
-      placeholder.hidden = true;
-      if (img) {
-        img.addEventListener("error", showPlaceholder);
-        if (img.complete && img.naturalWidth === 0) showPlaceholder();
-        img.addEventListener("load", () => { img.hidden = false; placeholder.hidden = true; });
+    buscarTodos(".marco-foto").forEach((marco) => {
+      const imagen = marco.querySelector("img");
+      const video = marco.querySelector("video");
+      const marcador = marco.querySelector(".marcador-foto");
+      const mostrarMarcador = () => { if (imagen) imagen.hidden = true; if (video) video.hidden = true; marcador.hidden = false; };
+      marcador.hidden = true;
+      if (imagen) {
+        imagen.addEventListener("error", mostrarMarcador);
+        if (imagen.complete && imagen.naturalWidth === 0) mostrarMarcador();
+        imagen.addEventListener("load", () => { imagen.hidden = false; marcador.hidden = true; });
       }
       if (video) {
-        video.addEventListener("error", showPlaceholder);
+        video.addEventListener("error", mostrarMarcador);
         video.addEventListener("click", () => {
-          if (video.paused) video.play().catch(() => showPlaceholder());
+          if (video.paused) video.play().catch(() => mostrarMarcador());
         });
-        video.addEventListener("keydown", (event) => {
-          if (event.key === "Enter" || event.key === " ") {
-            event.preventDefault();
-            if (video.paused) video.play().catch(() => showPlaceholder());
+        video.addEventListener("keydown", (evento) => {
+          if (evento.key === "Enter" || evento.key === " ") {
+            evento.preventDefault();
+            if (video.paused) video.play().catch(() => mostrarMarcador());
           }
         });
       }
     });
 
-    // Contador fijo desde el 7 de julio de 2026 a las 00:00, hora local.
-    function updateElapsedTime() {
-      const start = new Date(2026, 6, 26, 0, 0, 0, 0);
-      const hoursElement = $("#hours-count");
-      const hoursCaption = $("#hours-caption");
-      const secondsCaption = $("#seconds-caption");
+    // Contador desde el 26 de julio de 2026 a las 00:00, hora local. Cambia esta fecha si quieres ajustar el inicio.
+    function actualizarTiempoTranscurrido() {
+      const fechaInicio = new Date(2026, 6, 26, 0, 0, 0, 0);
+      const elementoHoras = buscar("#total-horas");
+      const descripcionHoras = buscar("#descripcion-horas");
+      const descripcionSegundos = buscar("#descripcion-segundos");
 
-      function render() {
-        const elapsed = Date.now() - start.getTime();
-        if (elapsed < 0) {
-          hoursElement.textContent = "0";
-          hoursCaption.textContent = "horas de una historia muy bonita";
-          secondsCaption.innerHTML = "<strong>00</strong> segundos";
+      function actualizarVista() {
+        const tiempoTranscurrido = Date.now() - fechaInicio.getTime();
+        if (tiempoTranscurrido < 0) {
+          elementoHoras.textContent = "0";
+          descripcionHoras.textContent = "horas de una historia muy bonita";
+          descripcionSegundos.innerHTML = "<strong>00</strong> segundos";
           return;
         }
 
-        const totalHours = Math.floor(elapsed / 3600000);
-        const seconds = Math.floor(elapsed / 1000) % 60;
-        hoursElement.textContent = totalHours.toLocaleString("es-MX");
-        hoursCaption.textContent = totalHours === 1
-          ? "horas de una historia muy bonita"
+        const horasTotales = Math.floor(tiempoTranscurrido / 3600000);
+        const segundos = Math.floor(tiempoTranscurrido / 1000) % 60;
+        elementoHoras.textContent = horasTotales.toLocaleString("es-MX");
+        descripcionHoras.textContent = horasTotales === 1
+          ? "hora de una historia muy bonita"
           : "horas de una historia muy bonita";
-        secondsCaption.innerHTML = `<strong>${String(seconds).padStart(2, "0")}</strong> segundos`;
+        descripcionSegundos.innerHTML = `<strong>${String(segundos).padStart(2, "0")}</strong> segundos`;
       }
 
-      render();
-      window.setInterval(render, 1000);
+      actualizarVista();
+      window.setInterval(actualizarVista, 1000);
     }
-    updateElapsedTime();
+    actualizarTiempoTranscurrido();
 
     // Juego de la pregunta: Brisa se hace más pequeña y Daniel más grande.
-    const brisaChoice = $("#brisa-choice");
-    const danielChoice = $("#daniel-choice");
-    const loveAnswer = $("#love-answer");
-    let brisaClicks = 0;
-    brisaChoice.addEventListener("click", () => {
-      brisaClicks += 1;
-      const brisaScale = Math.max(0.08, 1 - brisaClicks * 0.14);
-      const danielScale = Math.min(2.1, 1 + brisaClicks * 0.17);
-      brisaChoice.style.transform = `scale(${brisaScale})`;
-      const playArea = brisaChoice.parentElement;
-      const maxLeft = Math.max(0, playArea.clientWidth - brisaChoice.offsetWidth);
-      const maxTop = Math.max(0, playArea.clientHeight - brisaChoice.offsetHeight);
-      brisaChoice.style.left = `${Math.random() * maxLeft}px`;
-      brisaChoice.style.top = `${Math.random() * maxTop}px`;
-      danielChoice.style.transform = `scale(${danielScale})`;
-      if (brisaClicks >= 6) {
-        brisaChoice.style.opacity = "0.22";
-        brisaChoice.style.pointerEvents = "none";
-        brisaChoice.setAttribute("aria-label", "Brisa se hizo muy pequeñita");
+    const opcionBrisa = buscar("#opcion-brisa");
+    const opcionDaniel = buscar("#opcion-daniel");
+    const respuestaAmor = buscar("#respuesta-amor");
+    let clicsBrisa = 0;
+    opcionBrisa.addEventListener("click", () => {
+      clicsBrisa += 1;
+      const escalaBrisa = Math.max(0.08, 1 - clicsBrisa * 0.14);
+      const escalaDaniel = Math.min(2.1, 1 + clicsBrisa * 0.17);
+      opcionBrisa.style.transform = `scale(${escalaBrisa})`;
+      const areaJuego = opcionBrisa.parentElement;
+      const limiteIzquierdo = Math.max(0, areaJuego.clientWidth - opcionBrisa.offsetWidth);
+      const limiteSuperior = Math.max(0, areaJuego.clientHeight - opcionBrisa.offsetHeight);
+      opcionBrisa.style.left = `${Math.random() * limiteIzquierdo}px`;
+      opcionBrisa.style.top = `${Math.random() * limiteSuperior}px`;
+      opcionDaniel.style.transform = `scale(${escalaDaniel})`;
+      if (clicsBrisa >= 6) {
+        opcionBrisa.style.opacity = "0.22";
+        opcionBrisa.style.pointerEvents = "none";
+        opcionBrisa.setAttribute("aria-label", "Brisa se hizo muy pequeñita");
       }
     });
-    function burstLoveHearts() {
+    function lanzarCorazones() {
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-      const hearts = ["♡", "♥", "💕", "💗", "💖"];
-      for (let i = 0; i < 100; i++) {
-        const heart = document.createElement("span");
-        heart.className = "love-heart";
-        heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
-        heart.style.left = `${Math.random() * 100}vw`;
-        heart.style.setProperty("--fall-time", `${2.4 + Math.random() * 2.2}s`);
-        heart.style.setProperty("--drift", `${Math.round(Math.random() * 180 - 90)}px`);
-        heart.style.fontSize = `${30 + Math.random() * 24}px`;
-        document.body.appendChild(heart);
-        window.setTimeout(() => heart.remove(), 5000);
+      const corazones = ["♡", "♥", "💕", "💗", "💖"];
+      for (let indice = 0; indice < 100; indice++) {
+        const corazon = document.createElement("span");
+        corazon.className = "corazon-amor";
+        corazon.textContent = corazones[Math.floor(Math.random() * corazones.length)];
+        corazon.style.left = `${Math.random() * 100}vw`;
+        corazon.style.setProperty("--tiempo-caida", `${2.4 + Math.random() * 2.2}s`);
+        corazon.style.setProperty("--deriva", `${Math.round(Math.random() * 180 - 90)}px`);
+        corazon.style.fontSize = `${30 + Math.random() * 24}px`;
+        document.body.appendChild(corazon);
+        window.setTimeout(() => corazon.remove(), 5000);
       }
     }
-    danielChoice.addEventListener("click", () => {
-      loveAnswer.hidden = false;
-      danielChoice.textContent = "¡Lo sabía! ♡";
-      brisaChoice.disabled = true;
-      danielChoice.disabled = true;
-      burstLoveHearts();
+    opcionDaniel.addEventListener("click", () => {
+      respuestaAmor.hidden = false;
+      opcionDaniel.textContent = "¡Lo sabía! ♡";
+      opcionBrisa.disabled = true;
+      opcionDaniel.disabled = true;
+      lanzarCorazones();
     });
 
-    let toastTimer;
-    function showToast(message) {
-      const toast = $("#toast"); toast.textContent = message; toast.classList.add("show");
-      window.clearTimeout(toastTimer);
-      toastTimer = window.setTimeout(() => toast.classList.remove("show"), 2700);
+    let temporizadorAviso;
+    function mostrarAviso(mensaje) {
+      const aviso = buscar("#aviso-emergente"); aviso.textContent = mensaje; aviso.classList.add("mostrar");
+      window.clearTimeout(temporizadorAviso);
+      temporizadorAviso = window.setTimeout(() => aviso.classList.remove("mostrar"), 2700);
     }
 
     // Reproductor de música: requiere tocar el botón por las reglas de los celulares.
-    if (CONFIG.musicFile && CONFIG.musicFile.trim()) {
-      const audio = $("#background-music");
-      const musicButton = $("#music-button");
-      audio.src = CONFIG.musicFile;
-      musicButton.hidden = false;
-      audio.addEventListener("error", () => showToast("No encuentro la canción. Revisa musica/cancion.mp3 en GitHub."));
-      musicButton.addEventListener("click", async () => {
+    if (AJUSTES.archivoMusica && AJUSTES.archivoMusica.trim()) {
+      const audio = buscar("#musica-fondo");
+      const botonMusica = buscar("#boton-musica");
+      audio.src = AJUSTES.archivoMusica;
+      botonMusica.hidden = false;
+      audio.addEventListener("error", () => mostrarAviso("No encuentro la canción. Revisa musica/cancion.mp3 en GitHub."));
+      botonMusica.addEventListener("click", async () => {
         try {
           if (audio.paused) {
             await audio.play();
-            musicButton.textContent = "Ⅱ Pausar canción";
-            musicButton.setAttribute("aria-pressed", "true");
+            botonMusica.textContent = "Ⅱ Pausar canción";
+            botonMusica.setAttribute("aria-pressed", "true");
           } else {
-            audio.pause(); musicButton.textContent = "♫ Reproducir canción";
-            musicButton.setAttribute("aria-pressed", "false");
+            audio.pause(); botonMusica.textContent = "♫ Reproducir canción";
+            botonMusica.setAttribute("aria-pressed", "false");
           }
-        } catch (_) { showToast("No se pudo reproducir. Comprueba el archivo MP3 y vuelve a tocar el botón."); }
+        } catch (_) { mostrarAviso("No se pudo reproducir. Comprueba el archivo MP3 y vuelve a tocar el botón."); }
       });
     }
 
     // Animación de entrada de secciones al desplazarse; el contenido sigue visible si no hay soporte.
     if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) { entry.target.classList.add("in-view"); observer.unobserve(entry.target); }
+      const observador = new IntersectionObserver((entradas) => {
+        entradas.forEach((entrada) => {
+          if (entrada.isIntersecting) { entrada.target.classList.add("en-vista"); observador.unobserve(entrada.target); }
         });
       }, { threshold: 0.12 });
-      $$(".reveal").forEach((element) => observer.observe(element));
+      buscarTodos(".revelar").forEach((elemento) => observador.observe(elemento));
     } else {
-      $$(".reveal").forEach((element) => element.classList.add("in-view"));
+      buscarTodos(".revelar").forEach((elemento) => elemento.classList.add("en-vista"));
     }
   </script>
 </body>
 </html>
+
+
+
+
+
+
+
