@@ -531,9 +531,33 @@ Palabras de la Biblia que de alguna manera, me hacen pensar en ti y en lo bonito
     const escenaPastel = buscar("#escena-pastel");
     const vientoPastel = buscar("#viento-pastel");
     const botonSoplar = buscar("#boton-soplar");
-    botonSoplar.addEventListener("click", () => {
-      if (botonSoplar.disabled) return;
+    const estadoSoplido = buscar("#estado-soplido");
+    const ConstructorAudio = window.AudioContext || window.webkitAudioContext;
+    let detectorActivo = false;
+    let usarBotonManual = false;
+    let flujoMicrofono = null;
+    let contextoAudio = null;
+    let frameDetector = 0;
+    let temporizadorDeteccion = 0;
 
+    function detenerMicrofono() {
+      detectorActivo = false;
+      window.cancelAnimationFrame(frameDetector);
+      window.clearTimeout(temporizadorDeteccion);
+      temporizadorDeteccion = 0;
+      if (flujoMicrofono) {
+        flujoMicrofono.getTracks().forEach((pista) => pista.stop());
+        flujoMicrofono = null;
+      }
+      if (contextoAudio && contextoAudio.state !== "closed") {
+        contextoAudio.close().catch(() => {});
+      }
+      contextoAudio = null;
+    }
+
+    function apagarVelas() {
+      if (botonSoplar.disabled) return;
+      detenerMicrofono();
       escenaPastel.classList.add("soplando");
       botonSoplar.disabled = true;
       botonSoplar.setAttribute("aria-pressed", "true");
@@ -549,7 +573,7 @@ Palabras de la Biblia que de alguna manera, me hacen pensar en ti y en lo bonito
         particula.style.setProperty("--inicio-y-viento", `${14 + Math.random() * 15}%`);
         particula.style.setProperty("--duracion-rafaga", `${.95 + Math.random() * .55}s`);
         particula.style.setProperty("--retraso-rafaga", `${Math.random() * .28}s`);
-        particula.style.setProperty("--tamano-particula", `${3 + Math.random() * 5}px`);
+        particula.style.setProperty("--tamano-particula", `${6 + Math.random() * 5}px`);
         particula.style.setProperty("--color-particula", ["#d8b4fe", "#c084fc", "#f5d0fe", "#fde68a"][Math.floor(Math.random() * 4)]);
         vientoPastel.appendChild(particula);
         window.setTimeout(() => particula.remove(), 1900);
@@ -559,13 +583,96 @@ Palabras de la Biblia que de alguna manera, me hacen pensar en ti y en lo bonito
         buscarTodos(".ilustracion-pastel .rastro-humo").forEach((humo) => humo.classList.add("visible"));
       }, 1380);
       window.setTimeout(() => {
-        buscar("#estado-soplido").textContent = "Las velas del 23 se apagaron despacito. ¡Feliz cumpleaños, Brisa!";
+        estadoSoplido.textContent = "Las velas del 23 se apagaron despacito. ¡Feliz cumpleaños, Brisa!";
       }, 1750);
       window.setTimeout(() => {
         botonSoplar.textContent = "Deseo pedido ♡";
       }, 2100);
-    });
+    }
 
+    async function iniciarDeteccionSoplido() {
+      botonSoplar.disabled = true;
+      botonSoplar.textContent = "Activando micrófono…";
+      estadoSoplido.textContent = "Permite el micrófono y sopla cerca del dispositivo.";
+
+      try {
+        if (!navigator.mediaDevices?.getUserMedia || !ConstructorAudio) {
+          throw new Error("micrófono no disponible");
+        }
+        flujoMicrofono = await navigator.mediaDevices.getUserMedia({
+          audio: { echoCancellation: false, noiseSuppression: false, autoGainControl: false },
+          video: false
+        });
+        contextoAudio = new ConstructorAudio();
+        await contextoAudio.resume();
+
+        const fuenteMicrofono = contextoAudio.createMediaStreamSource(flujoMicrofono);
+        const analizador = contextoAudio.createAnalyser();
+        analizador.fftSize = 2048;
+        const datosAudio = new Float32Array(analizador.fftSize);
+        const salidaSilenciosa = contextoAudio.createGain();
+        salidaSilenciosa.gain.value = 0;
+        fuenteMicrofono.connect(analizador);
+        analizador.connect(salidaSilenciosa);
+        salidaSilenciosa.connect(contextoAudio.destination);
+
+        detectorActivo = true;
+        usarBotonManual = false;
+        botonSoplar.disabled = false;
+        botonSoplar.textContent = "Sopla ahora · o toca para apagar";
+        estadoSoplido.textContent = "Micrófono activo. Sopla cerca del dispositivo o toca el botón para apagar las velas.";
+        let inicioSoplido = 0;
+        const umbralSoplido = 0.12;
+        const duracionSoplido = 300;
+
+        function revisarMicrofono() {
+          if (!detectorActivo) return;
+          analizador.getFloatTimeDomainData(datosAudio);
+          let sumaCuadrados = 0;
+          for (let indice = 0; indice < datosAudio.length; indice += 1) {
+            sumaCuadrados += datosAudio[indice] * datosAudio[indice];
+          }
+          const volumenRms = Math.sqrt(sumaCuadrados / datosAudio.length);
+          const ahora = performance.now();
+          if (volumenRms >= umbralSoplido) {
+            if (!inicioSoplido) inicioSoplido = ahora;
+            if (ahora - inicioSoplido >= duracionSoplido) {
+              detenerMicrofono();
+              estadoSoplido.textContent = "¡Detecté el soplido!";
+              apagarVelas();
+              return;
+            }
+          } else {
+            inicioSoplido = 0;
+          }
+          frameDetector = window.requestAnimationFrame(revisarMicrofono);
+        }
+        frameDetector = window.requestAnimationFrame(revisarMicrofono);
+        temporizadorDeteccion = window.setTimeout(() => {
+          if (!detectorActivo) return;
+          detenerMicrofono();
+          usarBotonManual = true;
+          botonSoplar.textContent = "Apagar las velas";
+          estadoSoplido.textContent = "No detecté el soplido. Toca el botón para apagar las velas.";
+        }, 15000);
+      } catch (_) {
+        detenerMicrofono();
+        usarBotonManual = true;
+        botonSoplar.disabled = false;
+        botonSoplar.textContent = "Apagar las velas";
+        estadoSoplido.textContent = "No pude usar el micrófono. Toca el botón para apagar las velas manualmente.";
+      }
+    }
+
+    botonSoplar.addEventListener("click", () => {
+      if (botonSoplar.disabled) return;
+      if (detectorActivo || usarBotonManual) {
+        usarBotonManual = false;
+        apagarVelas();
+        return;
+      }
+      iniciarDeteccionSoplido();
+    });
     // Fotos: muestra el marcador romántico si todavía no se agregó la imagen.
     buscarTodos(".marco-foto").forEach((marco) => {
       const imagen = marco.querySelector("img");
