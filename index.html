@@ -168,7 +168,7 @@
     @keyframes titilar-vela { from { transform: rotate(-2deg) scale(.96,1.03); } to { transform: rotate(2.5deg) scale(1.04,.97); } }
     @keyframes apagar-llama { 0% { opacity: 1; transform: rotate(0) scale(1); } 19% { opacity: 1; transform: rotate(17deg) scale(1.13,.82); } 43% { opacity: .95; transform: rotate(30deg) scale(.91,1.08); } 68% { opacity: .78; transform: rotate(49deg) scale(.63,.86); } 86% { opacity: .42; transform: rotate(69deg) scale(.31,.53); } 100% { opacity: 0; transform: rotate(83deg) scale(.08,.18); } }
     @keyframes derivar-humo { 0% { opacity: 0; stroke-dashoffset: 100; transform: translateY(7px); } 18% { opacity: .65; } 70% { opacity: .4; } 100% { opacity: 0; stroke-dashoffset: 0; transform: translateY(-17px); } }
-    @keyframes corriente-viento { 0% { opacity: 0; transform: translate3d(0,0,0) scale(.35); } 12% { opacity: .9; } 62% { opacity: .66; } 100% { opacity: 0; transform: translate3d(var(--viento-x),var(--viento-y),0) scale(.12); } }
+    @keyframes corriente-viento { 0% { opacity: 0; transform: translate3d(0,0,0) scale(.35); } 12% { opacity: 1; } 62% { opacity: .85; } 100% { opacity: 0; transform: translate3d(var(--viento-x),var(--viento-y),0) scale(.12); } }
     @media (max-width: 760px) {
       .portada { min-height: 84svh; padding: 35px 0 70px; }
       .corazon-uno { left: -5%; top: 16%; } .corazon-dos { right: -3%; top: 13%; }
@@ -540,7 +540,7 @@ Palabras de la Biblia que de alguna manera, me hacen pensar en ti y en lo bonito
       const llamas = buscarTodos(".ilustracion-pastel .llama");
       llamas.forEach((llama) => llama.classList.add("apagandose"));
 
-      const cantidadParticulas = 34;
+      const cantidadParticulas = 100;
       for (let indice = 0; indice < cantidadParticulas; indice += 1) {
         const particula = document.createElement("span");
         particula.className = "particula-viento";
@@ -550,7 +550,7 @@ Palabras de la Biblia que de alguna manera, me hacen pensar en ti y en lo bonito
         particula.style.setProperty("--duracion-rafaga", `${.95 + Math.random() * .55}s`);
         particula.style.setProperty("--retraso-rafaga", `${Math.random() * .28}s`);
         particula.style.setProperty("--tamano-particula", `${3 + Math.random() * 5}px`);
-        particula.style.setProperty("--color-particula", ["#fffaf4", "#f8dce2", "#efc3cb", "#fff0d5"][Math.floor(Math.random() * 4)]);
+        particula.style.setProperty("--color-particula", ["#d8b4fe", "#c084fc", "#f5d0fe", "#fde68a"][Math.floor(Math.random() * 4)]);
         vientoPastel.appendChild(particula);
         window.setTimeout(() => particula.remove(), 1900);
       }
@@ -710,10 +710,3 @@ Palabras de la Biblia que de alguna manera, me hacen pensar en ti y en lo bonito
   </script>
 </body>
 </html>
-
-
-
-
-
-
-
