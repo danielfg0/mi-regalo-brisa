@@ -141,7 +141,7 @@
     .escena-pastel { position: relative; isolation: isolate; width: min(860px, 100%); margin: 0 auto; }
     .escena-pastel::before { content: ""; position: absolute; z-index: -1; inset: 15% 8% 2%; border-radius: 50%; background: radial-gradient(ellipse, rgba(255,255,255,.86), rgba(255,244,239,.48) 48%, transparent 74%); filter: blur(12px); }
     .ilustracion-pastel { display: block; width: 100%; height: auto; overflow: visible; }
-    .ilustracion-pastel .llama { transform-box: fill-box; transform-origin: center bottom; animation: titilar-vela 2.1s ease-in-out infinite alternate; }
+    .ilustracion-pastel .llama { transform-box: fill-box; transform-origin: center bottom; animation: titilar-vela 0.5s ease-in-out infinite alternate; }
     .ilustracion-pastel .llama-dos { animation-delay: -.35s; }
     .ilustracion-pastel .resplandor-llama { opacity: .28; }
     .ilustracion-pastel .llama.apagandose { animation: apagar-llama 1.45s cubic-bezier(.35,.04,.68,.42) forwards; }
@@ -293,7 +293,7 @@ Palabras de la Biblia que de alguna manera, me hacen pensar en ti y en lo bonito
           <button class="boton opcion-amor opcion-brisa" id="opcion-brisa" type="button">Brisa</button>
           <button class="boton principal opcion-amor opcion-daniel" id="opcion-daniel" type="button">Daniel</button>
         </div>
-        <p class="respuesta-amor" id="respuesta-amor" aria-live="polite" hidden>jajajaj Sabía que reconocerías la verdad. Obviooooo te amo más mami.</p>
+        <p class="respuesta-amor" id="respuesta-amor" aria-live="polite" hidden>Obviooooo te amo más mami.</p>
       </div>
     </section>
 
@@ -306,8 +306,8 @@ Palabras de la Biblia que de alguna manera, me hacen pensar en ti y en lo bonito
 
       <div class="escena-pastel" id="escena-pastel">
         <svg class="ilustracion-pastel" viewBox="0 0 900 640" role="img" aria-labelledby="titulo-ilustracion-pastel descripcion-ilustracion-pastel">
-          <title id="titulo-ilustracion-pastel">Pastel de cumpleaños de crema y fresas con las velas encendidas del número 23</title>
-          <desc id="descripcion-ilustracion-pastel">Un pastel grande cubierto de crema, adornado con fresas y dos velas encendidas con forma de 2 y 3.</desc>
+          <title id="titulo-ilustracion-pastel">Pastel de fresasss</title>
+          <desc id="descripcion-ilustracion-pastel">pastel de fresasss</desc>
           <defs>
             <linearGradient id="cuerpo-pastel" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#fff8f2"/><stop offset=".48" stop-color="#f7dce0"/><stop offset="1" stop-color="#eab9c7"/></linearGradient>
             <linearGradient id="crema-pastel" x1="0" y1="0" x2=".95" y2="1"><stop stop-color="#fffefa"/><stop offset=".62" stop-color="#fff1e9"/><stop offset="1" stop-color="#f8deda"/></linearGradient>
@@ -592,7 +592,7 @@ Palabras de la Biblia que de alguna manera, me hacen pensar en ti y en lo bonito
       }
     });
 
-    // Contador desde el 26 de julio de 2026 a las 00:00, hora local. Cambia esta fecha si quieres ajustar el inicio.
+    // contador de horas 
     function actualizarTiempoTranscurrido() {
       const fechaInicio = new Date(2026, 6, 26, 0, 0, 0, 0);
       const elementoHoras = buscar("#total-horas");
@@ -639,7 +639,7 @@ Palabras de la Biblia que de alguna manera, me hacen pensar en ti y en lo bonito
       opcionBrisa.style.left = `${Math.random() * limiteIzquierdo}px`;
       opcionBrisa.style.top = `${Math.random() * limiteSuperior}px`;
       opcionDaniel.style.transform = `scale(${escalaDaniel})`;
-      if (clicsBrisa >= 6) {
+      if (clicsBrisa >= 10) {
         opcionBrisa.style.opacity = "0.22";
         opcionBrisa.style.pointerEvents = "none";
         opcionBrisa.setAttribute("aria-label", "Brisa se hizo muy pequeñita");
@@ -662,7 +662,7 @@ Palabras de la Biblia que de alguna manera, me hacen pensar en ti y en lo bonito
     }
     opcionDaniel.addEventListener("click", () => {
       respuestaAmor.hidden = false;
-      opcionDaniel.textContent = "¡Lo sabía! ♡";
+      opcionDaniel.textContent = "Si mi amor! ♡";
       opcionBrisa.disabled = true;
       opcionDaniel.disabled = true;
       lanzarCorazones();
