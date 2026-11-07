@@ -180,7 +180,6 @@
       .sobre { max-width: 340px; height: 225px; }
       .tarjeta-carta { margin-top: 9px; }
       .rejilla-fotos { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 13px; }
-      .tarjeta-foto:last-child { grid-column: 1 / -1; width: min(73%,300px); justify-self: center; }
       .celebracion-pastel { padding: 60px 0 52px; }
       .encabezado-pastel { padding-inline: 4px; }
       .boton-soplar { margin-top: -3px; }
@@ -272,7 +271,6 @@ Palabras de la Biblia que de alguna manera, me hacen pensar en ti y en lo bonito
       <!-- EDITA LAS FOTOS: cambia las rutas de las imágenes y del video según los archivos que guardes dentro de fotos/. -->
       <div class="rejilla-fotos">
         <article class="tarjeta-foto revelar" style="--inclinacion:-2deg"><div class="marco-foto"><img src="fotos/foto-1.jpeg"><div class="marcador-foto"></div></div><p class="pie-foto">Mi graduación, contigo en mi imaginación ♡</p></article>
-        <article class="tarjeta-foto revelar" style="--inclinacion:1.5deg"><div class="marco-foto"><video class="video-foto" poster="fotos/foto-2.jpeg" loop playsinline preload="metadata" tabindex="0" role="button" aria-label="Reproducir el video del abrazo"><source src="fotos/video-2.mp4" type="video/mp4">Tu navegador no puede reproducir este video.</video><div class="marcador-foto">No se pudo cargar el video<small>Revisa fotos/video-2.mp4</small></div></div><p class="pie-foto">El abrazo que nos debemos ♡</p></article>
         <article class="tarjeta-foto revelar" style="--inclinacion:-2deg"><div class="marco-foto"><img src="fotos/foto-3.jpeg" ><div class="marcador-foto"></div></div><p class="pie-foto">La mujer que admiro ♡</p></article>
       </div>
     </section>
@@ -284,7 +282,7 @@ Palabras de la Biblia que de alguna manera, me hacen pensar en ti y en lo bonito
         <div class="etiqueta-contador">Desde el 26 de julio ✧</div>
         <div class="numero-contador" id="total-horas">♡</div>
         <p class="descripcion-contador" id="descripcion-horas">horas de una historia muy bonita</p>
-        <p class="segundos-contador" id="descripcion-segundos"><strong>—</strong> segundos queriéndote un poquito más</p>
+        <p class="segundos-contador" id="descripcion-segundos"><strong>—</strong> minutos y <strong>—</strong> segundos queriéndote un poquito más</p>
       </div>
     </section>
 
@@ -606,17 +604,18 @@ Palabras de la Biblia que de alguna manera, me hacen pensar en ti y en lo bonito
         if (tiempoTranscurrido < 0) {
           elementoHoras.textContent = "0";
           descripcionHoras.textContent = "horas de una historia muy bonita";
-          descripcionSegundos.innerHTML = "<strong>00</strong> segundos";
+          descripcionSegundos.innerHTML = "<strong>00</strong> minutos y <strong>00</strong> segundos";
           return;
         }
 
         const horasTotales = Math.floor(tiempoTranscurrido / 3600000);
+        const minutos = Math.floor(tiempoTranscurrido / 60000) % 60;
         const segundos = Math.floor(tiempoTranscurrido / 1000) % 60;
         elementoHoras.textContent = horasTotales.toLocaleString("es-MX");
         descripcionHoras.textContent = horasTotales === 1
           ? "hora de una historia muy bonita"
           : "horas de una historia muy bonita";
-        descripcionSegundos.innerHTML = `<strong>${String(segundos).padStart(2, "0")}</strong> segundos`;
+        descripcionSegundos.innerHTML = `<strong>${String(minutos).padStart(2, "0")}</strong> minutos y <strong>${String(segundos).padStart(2, "0")}</strong> segundos`;
       }
 
       actualizarVista();
