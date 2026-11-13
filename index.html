@@ -564,7 +564,7 @@ Palabras de la Biblia que de alguna manera, me hacen pensar en ti y en lo bonito
       const llamas = buscarTodos(".ilustracion-pastel .llama");
       llamas.forEach((llama) => llama.classList.add("apagandose"));
 
-      const cantidadParticulas = 100;
+      const cantidadParticulas = 300;
       for (let indice = 0; indice < cantidadParticulas; indice += 1) {
         const particula = document.createElement("span");
         particula.className = "particula-viento";
@@ -622,8 +622,8 @@ Palabras de la Biblia que de alguna manera, me hacen pensar en ti y en lo bonito
         botonSoplar.textContent = "Sopla ahora · o toca para apagar";
         estadoSoplido.textContent = "Micrófono activo. Sopla cerca del dispositivo o toca el botón para apagar las velas.";
         let inicioSoplido = 0;
-        const umbralSoplido = 0.08;
-        const duracionSoplido = 200;
+        const umbralSoplido = 0.06;
+        const duracionSoplido = 170;
 
         function revisarMicrofono() {
           if (!detectorActivo) return;
@@ -673,7 +673,7 @@ Palabras de la Biblia que de alguna manera, me hacen pensar en ti y en lo bonito
       }
       iniciarDeteccionSoplido();
     });
-    // Fotos: muestra el marcador romántico si todavía no se agregó la imagen.
+   // fotosss
     buscarTodos(".marco-foto").forEach((marco) => {
       const imagen = marco.querySelector("img");
       const video = marco.querySelector("video");
@@ -714,7 +714,7 @@ Palabras de la Biblia que de alguna manera, me hacen pensar en ti y en lo bonito
           descripcionSegundos.innerHTML = "<strong>00</strong> minutos y <strong>00</strong> segundos";
           return;
         }
-
+  
         const horasTotales = Math.floor(tiempoTranscurrido / 3600000);
         const minutos = Math.floor(tiempoTranscurrido / 60000) % 60;
         const segundos = Math.floor(tiempoTranscurrido / 1000) % 60;
@@ -754,17 +754,17 @@ Palabras de la Biblia que de alguna manera, me hacen pensar en ti y en lo bonito
     });
     function lanzarCorazones() {
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-      const corazones = ["♡", "♥", "💕", "💗", "💖"];
-      for (let indice = 0; indice < 100; indice++) {
+      const corazones = ["🌸", "🌼", "💕", "💗", "💖"];
+      for (let indice = 0; indice < 110; indice++) {
         const corazon = document.createElement("span");
         corazon.className = "corazon-amor";
         corazon.textContent = corazones[Math.floor(Math.random() * corazones.length)];
         corazon.style.left = `${Math.random() * 100}vw`;
-        corazon.style.setProperty("--tiempo-caida", `${2.4 + Math.random() * 2.2}s`);
+        corazon.style.setProperty("--tiempo-caida", `${3.4 + Math.random() * 3.2}s`);
         corazon.style.setProperty("--deriva", `${Math.round(Math.random() * 180 - 90)}px`);
         corazon.style.fontSize = `${30 + Math.random() * 24}px`;
         document.body.appendChild(corazon);
-        window.setTimeout(() => corazon.remove(), 5000);
+        window.setTimeout(() => corazon.remove(), 10000);
       }
     }
     opcionDaniel.addEventListener("click", () => {
@@ -803,7 +803,7 @@ Palabras de la Biblia que de alguna manera, me hacen pensar en ti y en lo bonito
       });
     }
 
-    // Animación de entrada de secciones al desplazarse; el contenido sigue visible si no hay soporte.
+    // animación de entrada de secciones al desplazarse
     if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       const observador = new IntersectionObserver((entradas) => {
         entradas.forEach((entrada) => {
