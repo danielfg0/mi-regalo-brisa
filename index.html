@@ -160,7 +160,10 @@
     .panel-mensajes { max-width: 680px; margin: 13px 0 0; padding: 18px 21px; border: 1px solid var(--linea); border-radius: 16px; background: rgba(255,255,255,.8); box-shadow: 0 10px 30px rgba(108,52,76,.07); }
     .panel-mensajes[hidden], .siguiente-mensajito[hidden] { display: none; }
     .texto-mensajito { margin: 0 0 13px; color: #755766; font: italic clamp(1.05rem, 2.8vw, 1.28rem)/1.65 var(--serifa); white-space: pre-line; overflow-wrap: anywhere; }
+    .controles-mensajito { display: flex; align-items: center; gap: 10px; min-height: 34px; }
     .siguiente-mensajito { padding: 7px 12px; font-size: .78rem; }
+    .boton-mensajes:disabled, .boton-mensajes:disabled:hover { cursor: default; opacity: .72; transform: none; box-shadow: 0 5px 16px rgba(108,52,76,.055); }
+    .temporizador-mensajito { min-width: 1ch; color: var(--rosa-oscuro); font-size: .9rem; font-weight: 700; line-height: 1; text-align: center; font-variant-numeric: tabular-nums; }
     @media (max-width: 560px) { .rincon-mensajes { margin-top: 6px; } .panel-mensajes { padding: 15px 16px; } }
     .boton-musica { position: fixed; z-index: 30; right: max(15px, env(safe-area-inset-right)); bottom: max(15px, env(safe-area-inset-bottom)); border: 1px solid rgba(196,93,123,.22); background: rgba(255,253,251,.94); color: var(--rosa-oscuro); border-radius: 99px; padding: 11px 15px; box-shadow: 0 8px 27px rgba(108,52,76,.16); cursor: pointer; backdrop-filter: blur(10px); font-size: .83rem; }
     .aviso-emergente { position: fixed; z-index: 50; left: 50%; bottom: calc(78px + env(safe-area-inset-bottom)); transform: translate(-50%, 12px); opacity: 0; pointer-events: none; background: #563443; color: white; padding: 11px 17px; border-radius: 99px; font-size: .86rem; text-align: center; width: max-content; max-width: calc(100% - 30px); transition: opacity .2s ease, transform .2s ease; box-shadow: 0 9px 28px rgba(50,20,35,.18); }
@@ -217,7 +220,10 @@
     <button class="boton-mensajes" id="boton-mensajes" type="button" aria-expanded="false" aria-controls="panel-mensajes">Cuando lo necesites ♡</button>
     <div class="panel-mensajes" id="panel-mensajes" hidden>
       <p class="texto-mensajito" id="texto-mensajito" aria-live="polite"></p>
-      <button class="boton-mensajes siguiente-mensajito" id="siguiente-mensajito" type="button" hidden>Otro mensajito ♡</button>
+      <div class="controles-mensajito">
+        <button class="boton-mensajes siguiente-mensajito" id="siguiente-mensajito" type="button" hidden>Otro mensajito ♡</button>
+        <span class="temporizador-mensajito" id="temporizador-mensajito" aria-live="off" hidden></span>
+      </div>
     </div>
   </section>
 
@@ -444,7 +450,7 @@ Palabras de la Biblia que de alguna manera, me hacen pensar en ti y en lo bonito
       firma: "Con todo mi amor, Daniel ♡",
       
       velocidadEscrituraCartaMinima: 5,
-      velocidadEscrituraCartaMaxima: 40,
+      velocidadEscrituraCartaMaxima: 30,
       archivoMusica: "musica/cancion.mp3" 
     };
 
@@ -683,6 +689,7 @@ const MENSAJES = {
     const panelMensajes = buscar("#panel-mensajes");
     const textoMensajito = buscar("#texto-mensajito");
     const botonSiguienteMensajito = buscar("#siguiente-mensajito");
+    const temporizadorMensajito = buscar("#temporizador-mensajito");
     const CLAVE_HISTORIAL_MENSAJES = "brisa-mensajitos-v1";
     let estadoMensajes = {};
     try {
@@ -738,7 +745,7 @@ const MENSAJES = {
 
     let temporizadorEscrituraMensajito = 0;
     let versionEscrituraMensajito = 0;
-    function escribirMensajito(texto) {
+    function escribirMensajito(texto, alTerminar) {
       window.clearTimeout(temporizadorEscrituraMensajito);
       const version = ++versionEscrituraMensajito;
       textoMensajito.textContent = "";
@@ -749,6 +756,7 @@ const MENSAJES = {
         if (version !== versionEscrituraMensajito) return;
         if (indice >= caracteres.length) {
           textoMensajito.classList.remove("escritura-activa");
+          if (alTerminar) alTerminar();
           return;
         }
         const caracter = caracteres[indice++];
@@ -762,15 +770,42 @@ const MENSAJES = {
       }
       escribirSiguiente();
     }
+    let temporizadorCuentaRegresiva = 0;
+    function iniciarCuentaRegresivaMensajito() {
+      window.clearInterval(temporizadorCuentaRegresiva);
+      let segundosRestantes = 5;
+      botonSiguienteMensajito.disabled = true;
+      temporizadorMensajito.textContent = String(segundosRestantes);
+      temporizadorMensajito.hidden = false;
+      temporizadorCuentaRegresiva = window.setInterval(() => {
+        segundosRestantes -= 1;
+        if (segundosRestantes <= 0) {
+          window.clearInterval(temporizadorCuentaRegresiva);
+          temporizadorCuentaRegresiva = 0;
+          temporizadorMensajito.textContent = "";
+          temporizadorMensajito.hidden = true;
+          botonSiguienteMensajito.disabled = false;
+          return;
+        }
+        temporizadorMensajito.textContent = String(segundosRestantes);
+      }, 1000);
+    }
     function mostrarSiguienteMensajito() {
+      window.clearInterval(temporizadorCuentaRegresiva);
+      temporizadorCuentaRegresiva = 0;
+      temporizadorMensajito.textContent = "";
+      temporizadorMensajito.hidden = true;
+      botonSiguienteMensajito.disabled = true;
       const { hora, minuto } = horaArgentinaActual();
       const categoria = categoriaPorHora(hora, minuto);
       const mensaje = Math.random() < 0.0001 ? MENSAJES.especial[0] : sacarMensaje(categoria);
-      escribirMensajito(mensaje);
+      escribirMensajito(mensaje, iniciarCuentaRegresivaMensajito);
     }
     botonMensajes.addEventListener("click", () => {
+      if (!panelMensajes.hidden) return;
       panelMensajes.hidden = false;
       botonSiguienteMensajito.hidden = false;
+      botonMensajes.disabled = true;
       botonMensajes.setAttribute("aria-expanded", "true");
       mostrarSiguienteMensajito();
     });
