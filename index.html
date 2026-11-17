@@ -153,6 +153,15 @@
     .boton-soplar { margin-top: -7px; padding: 9px 19px; min-height: 40px; font-size: .9rem; }
     .boton-soplar:disabled { cursor: default; opacity: .78; transform: none; }
     footer { text-align: center; padding: 22px 0 calc(32px + env(safe-area-inset-bottom)); color: #ab8e99; font-size: .74rem; }
+
+    .rincon-mensajes { position: relative; z-index: 3; margin-top: 9px; margin-bottom: -8px; }
+    .boton-mensajes { appearance: none; border: 1px solid rgba(196,93,123,.22); border-radius: 99px; padding: 8px 13px; color: var(--rosa-oscuro); background: rgba(255,255,255,.72); box-shadow: 0 5px 16px rgba(108,52,76,.055); cursor: pointer; font-size: .82rem; transition: background .2s ease, transform .2s ease, box-shadow .2s ease; }
+    .boton-mensajes:hover { background: #fff; transform: translateY(-1px); box-shadow: 0 8px 20px rgba(108,52,76,.1); }
+    .panel-mensajes { max-width: 680px; margin: 13px 0 0; padding: 18px 21px; border: 1px solid var(--linea); border-radius: 16px; background: rgba(255,255,255,.8); box-shadow: 0 10px 30px rgba(108,52,76,.07); }
+    .panel-mensajes[hidden], .siguiente-mensajito[hidden] { display: none; }
+    .texto-mensajito { margin: 0 0 13px; color: #755766; font: italic clamp(1.05rem, 2.8vw, 1.28rem)/1.65 var(--serifa); white-space: pre-line; overflow-wrap: anywhere; }
+    .siguiente-mensajito { padding: 7px 12px; font-size: .78rem; }
+    @media (max-width: 560px) { .rincon-mensajes { margin-top: 6px; } .panel-mensajes { padding: 15px 16px; } }
     .boton-musica { position: fixed; z-index: 30; right: max(15px, env(safe-area-inset-right)); bottom: max(15px, env(safe-area-inset-bottom)); border: 1px solid rgba(196,93,123,.22); background: rgba(255,253,251,.94); color: var(--rosa-oscuro); border-radius: 99px; padding: 11px 15px; box-shadow: 0 8px 27px rgba(108,52,76,.16); cursor: pointer; backdrop-filter: blur(10px); font-size: .83rem; }
     .aviso-emergente { position: fixed; z-index: 50; left: 50%; bottom: calc(78px + env(safe-area-inset-bottom)); transform: translate(-50%, 12px); opacity: 0; pointer-events: none; background: #563443; color: white; padding: 11px 17px; border-radius: 99px; font-size: .86rem; text-align: center; width: max-content; max-width: calc(100% - 30px); transition: opacity .2s ease, transform .2s ease; box-shadow: 0 9px 28px rgba(50,20,35,.18); }
     .aviso-emergente.mostrar { opacity: 1; transform: translate(-50%,0); }
@@ -204,6 +213,13 @@
 </head>
 <body>
   <header class="barra-superior" aria-label="Dedicatoria"><span class="corazon" aria-hidden="true">♡</span><span>Un pequeño universo para ti</span><span class="corazon" aria-hidden="true">♡</span></header>
+  <section class="rincon-mensajes contenedor" aria-label="Mensajitos para Brisa">
+    <button class="boton-mensajes" id="boton-mensajes" type="button" aria-expanded="false" aria-controls="panel-mensajes">Cuando lo necesites ♡</button>
+    <div class="panel-mensajes" id="panel-mensajes" hidden>
+      <p class="texto-mensajito" id="texto-mensajito" aria-live="polite"></p>
+      <button class="boton-mensajes siguiente-mensajito" id="siguiente-mensajito" type="button" hidden>Otro mensajito ♡</button>
+    </div>
+  </section>
 
   <main>
     <section class="portada contenedor" id="inicio" aria-labelledby="titulo-portada">
@@ -419,19 +435,17 @@ Palabras de la Biblia que de alguna manera, me hacen pensar en ti y en lo bonito
 
           No olvides quién es Brisa para ti.
        ========================================================================================== */
-    // Personaliza aquí el nombre, los textos de portada y carta, la firma,
-    // la velocidad de escritura y la ruta del archivo de música.
     const AJUSTES = {
       nombreCumpleanera: "Brisa",
       nombreRemitente: "Daniel",
       subtituloPortada: "Hoy es un día muy especial porque naciste tú. Preparé este pequeño rincón para recordarte lo muchísimo que te amo, mi fresita hermosa.",
       saludoCarta: "Mi Brisa Hermosaaa,",
-      textoCarta: `Feliz cumpleaños mi vida.\n\nHoy quiero recordarte lo especial que eres para mí. Y aunque quizá no existan palabras suficientes para explicarte lo que siento por ti, quiero que sepas que conocerte es de esas cosas que agradezco con el corazón.\n\nDeseo que este nuevo año te regale días que te hagan feliz de verdad, que sane cualquier tristeza que guardes en silencio y que te recuerde, una y otra vez, lo maravillosa que eres. Quiero que sepas que estoy muy orgulloso de ti, de la persona que eres, de todo lo que has superado y de cómo sigues adelante incluso en los días que no son tan fáciles.\n\nGracias por existir tal como eres y por convertirte en alguien a quien amo tanto. No necesito que seas perfecta ni que tengas siempre días buenos; me basta con que seas tú, con todo lo que eres. Ojalá esta página te saque una sonrisa hoy y cada vez que vuelvas a ella.\n\nFeliz cumpleaños, mi niña chula. ♡ Ojalá la vida te regale toda la felicidad que mereces y nunca te falten razones para sonreír. Te amo muchísimo, mi fresita. Hoy y siempre, deseo verte feliz. ♡`,
+      textoCarta: `Feliz cumpleaños mi vida.\n\nHoy quiero recordarte lo especial que eres para mí porque aunque la vida haya decidido ponernos a kilómetros de distancia, coincidir contigo ha sido una de esas casualidades que agradezco de todo corazón.\n\nDeseo que este nuevo año te regale días que te hagan feliz de verdad, que sane cualquier tristeza que guardes en silencio y que te recuerde una y otra vez lo maravillosa que eres. Quiero que sepas que estoy muy orgulloso de ti, de la persona que eres, de todo lo que has superado y de cómo sigues adelante incluso en los días que no son tan fáciles.\n\nGracias por existir tal como eres y por convertirte en alguien a quien amo tanto. No tienes que ser perfecta ni esconder tus días difíciles quiero estar para ti tbm cuando las cosas no sean fáciles. Ojalá esta página te saque una sonrisa hoy y cada vez que vuelvas a ella.\n\nFeliz cumpleaños, mi niña chula. Ojalá la vida te regale toda la felicidad que mereces y nunca te falten razones para sonreír. Te amo muchísimo mi fresita. Hoy y siempre deseo verte feliz.`,
       firma: "Con todo mi amor, Daniel ♡",
-      // Velocidad natural de escritura: ajusta estos valores mínimo y máximo (caracteres por segundo).
+      
       velocidadEscrituraCartaMinima: 5,
       velocidadEscrituraCartaMaxima: 40,
-      archivoMusica: "musica/cancion.mp3" // Ruta relativa; respeta mayúsculas y minúsculas
+      archivoMusica: "musica/cancion.mp3" 
     };
 
     const buscar = (selector) => document.querySelector(selector);
@@ -443,7 +457,7 @@ Palabras de la Biblia que de alguna manera, me hacen pensar en ti y en lo bonito
       })[caracter]);
     }
 
-    // Sustituye el nombre, dedicatoria y carta desde AJUSTES.
+    
     document.title = `Feliz cumpleaños, ${AJUSTES.nombreCumpleanera} ♡`;
     buscar("#titulo-portada").innerHTML = `Feliz cumpleaños,<br><em>mi ${escaparHTML(AJUSTES.nombreCumpleanera)}.</em>`;
     buscar("#subtitulo-portada").textContent = AJUSTES.subtituloPortada;
@@ -456,7 +470,7 @@ Palabras de la Biblia que de alguna manera, me hacen pensar en ti y en lo bonito
     elementoFirmaCarta.textContent = "";
     buscar("footer").innerHTML = `Hecho con amor para ${escaparHTML(AJUSTES.nombreCumpleanera)} <span style="color:var(--rosa)">♥</span> · ${escaparHTML(AJUSTES.nombreRemitente)}`;
 
-    // Cada botón muestra su cita y descripción en una hojita dentro de esta misma página.
+    //poema
     const capaVersiculo = buscar("#capa-versiculo");
     const tituloVersiculo = buscar("#titulo-versiculo");
     const descripcionVersiculo = buscar("#descripcion-versiculo");
@@ -484,7 +498,7 @@ Palabras de la Biblia que de alguna manera, me hacen pensar en ti y en lo bonito
     document.addEventListener("keydown", (evento) => {
       if (evento.key === "Escape" && !capaVersiculo.hidden) cerrarHojaVersiculo();
     });
-    // Sobre: muestra la carta al tocarlo.
+    // carta se abre
     const sobre = buscar("#sobre");
     const tarjetaCarta = buscar("#tarjeta-carta");
     let escrituraIniciada = false;
@@ -521,6 +535,247 @@ Palabras de la Biblia que de alguna manera, me hacen pensar en ti y en lo bonito
       await escribirTexto(elementoTextoCarta, AJUSTES.textoCarta);
       await escribirTexto(elementoFirmaCarta, AJUSTES.firma);
     }
+const MENSAJES = {
+  "manana": [
+    "Buenos días mi amorrr espero que hayas descansado y que hoy tengas un día bonito te mando un besote en esas tetas, Diosss amor te las voy a apretar despacito… perdón amor.",
+    "Despierta mi niña chula que hay un día entero esperándote, te amooo.",
+    "Buenos días mi Brisa solo quiero recordarte que estoy orgulloso de ti mi amor.",
+    "Espero que hoy te pasen muchas cosas bonitas, unas ganas de comerte recién despertar amor.",
+    "Mami nunca olvides q te amo y estoy orgulloso de ti.",
+    "Ojalá pudiera estar ahí para darte un besito en la frente antes de que comiences tu día amor.",
+    "Hoy quiero que recuerdes que eres mi niña hermosa, y te voy a hacer mami.",
+    "Buenos días a mi esposa chula que me alegra hasta los días más complicados.",
+    "Amor no sé qué planes tengas hoy pero quiero que nunca te falten razones para sentirte orgullosa de ti.",
+    "Mi amor si hoy tienes muchas cosas que hacer ve con calma no tienes que poder con todo al mismo tiempo, es temprano mi amor no te estreses mucho, okay?",
+    "Qué bonito es saber que existes y que de alguna forma nos encontramos mi amor, cuídame yo te cuido amor.",
+    "Espero que hoy te mires al espejo y puedas ver aunque sea un poquito de todo lo hermoso que yo veo en ti mi amor.",
+    "Buenos días esposaaa, ya comiste? Si no come o nalgada.",
+    "Quiero que comiences tu día amor, sabiendo que eres importante para mí mucho más de lo que te imaginas.",
+    "Amor espero q hoy tengas un día tranquilo y que te salgan bien tus cositas y te amo, no lo olvides nunca porfavorrr.",
+    "Si hoy nadie te lo ha dicho todavía, eres hermosaa, inteligente y puedes conseguir todo lo que te propongas amor.",
+    "Buenos días mami espero que hayas descansado, qué haces en tu casa?? deberías de estar conmigo abrazándome besándome y lo que tú quieras mi amor.",
+    "Me encantaría poder prepararte el desayuno aunque no soy el chef, pero una avenita mía con canela mal espolvoreada te encantaría amor jajaj tú sabes q si.",
+    "No olvides desayunar tomar agua y cuidarte mucho mi amor quiero que estés bien.",
+    "Buenos días preciosaa nunca dudes cuánto te amo mi Brisa.",
+    "Qué suerte tengo de tenerte Brisa y que vayas a ser mi esposa, te amo mucho mucho.",
+    "Te amo mucho mi vida, ¿qué haces tan temprano por aquí mi amor? 👀.",
+    "Si hoy algo no te sale como esperabas no pasa nada mi amor siempre habrá otra oportunidad y yo seguiré apoyándote en todos tus planes amor.",
+    "Ojalá darte los buenos días con muchos besitos en esa carita hermosa.",
+    "Buenos días mi niña quisiera abrazarte por horass y no dejarte ni respirar.",
+    "A veces me pongo a pensar en todo lo que nos falta vivir y me encanta amor, pq siempre va a ser juntos.",
+    "Que Dios te acompañe hoy y que te cuide y que te dé fuerzas para lograr todo por lo que estás trabajando amor.",
+    "Mi amor no importa qué tan ocupado esté el día siempre habrá un momento en el que me acuerde de ti y sonría.",
+    "Un besote a mi chefcita hermosa espero que hayas dormido bien mi amor.",
+    "Buenos días mi amor ojalá despertar contigo y hacerte el amor así despacito."
+  ],
+  "dia": [
+    "Mi amor solo quiero recordarte que eres una de las cosas más bonitas que me han pasado.",
+    "Ya te dije lo hermosa que eres hoy? Bueno por si acaso te lo repito porque nunca me voy a cansar mami.",
+    "Amor espero que estés teniendo un día bonito y si no es así, DÍMELO sabes que puedes contarme cualquier cosa, LLÁMAMEEEE.",
+    "Me encanta tu forma de ser Brisa, me derriten esas pequeñas cosas tuyas que quizá tú ni siquiera notas.",
+    "Cómo estás mi amor? Almorzaste bien y tomaste agua? Si no ni me digas pq me enojo.",
+    "Amor no te compares con nadie cada persona tiene su propio camino y el tuyo tmb tiene cosas lindas esperándote.",
+    "Quiero que sepas que estoy orgulloso de ti mi amor, eres la mujer que más admiro.",
+    "Me haces muy feliz amor, de vrd amor mucho.",
+    "Mi amor si hoy te sientes cansada duérmete un ratito y dime que te llame para despertarte.",
+    "Que paz me da haberte encontrado e imaginar tantas cosas contigo amor.",
+    "Amor nunca pienses que tus esfuerzos pasan desapercibidos yo sé cuánto te esfuerzas amor y admiro mucho esa parte de ti.",
+    "Amor me haces querer ser una mejor persona no porque me lo pidas sino pq me nace darte lo mejor de mí.",
+    "Si hoy necesitas un motivo para sonreír recuerda que hay alguien que se derrite con esa carita hermosa y rojita.",
+    "Brisa Xenia Bustos… me gustas, te gusto? Te quieres casar conmigo y hacernos viejitos? Y tener nietos? Y una casita? Y mucho sexo?",
+    "Mami no dejes que comentarios feos o un mal momento te haga olvidar todo lo que vales.",
+    "Amor quiero que cumplas todos tus sueños conmigo a tu lado.",
+    "Si pudiera aparecer cinco minutos a tu lado los aprovecharía todos para abrazarte y llenarte de besitos.",
+    "Te extraño amor…  no sé qué esté haciendo pero siempre te extraño.",
+    "Mi niña hermosa recuerda que puedes avanzar despacio no tienes que hacer todo hoy.",
+    "Me encanta imaginar un futuro donde podamos recordar estos meses a distancia una madrugada tomando vino y te emborraches amor jajaj.",
+    "Amor no tienes que estar feliz todo el tiempo conmigo también puedes tener días difíciles y seguir siendo la persona que más amo.",
+    "Hay 8b de personas en el mundo y aun así mi corazón encontró algo especial en ti mi amor, cuidémonos mucho.",
+    "Si hoy estás haciendo algo importante confía en ti tanto como yo confío en ti amor.",
+    "Mándame mnjs amor, qué haces aquí? Bueno igual estoy dormido porque yo te contesto aunque esté ocupado y si estoy trabajando ya te contestaré cuando pueda amor.",
+    "Mi amor ya comiste? Ojo si no.",
+    "Quiero seguir conociéndote amor, cada versión de ti, la que ríe la que se emociona la que se enoja pero poquito y tmb la que necesita un poquito más de cariño.",
+    "Ojalá pudiera quitarte un poquito del cansancio mental que tienes y dármelo a mí amor, yo soy como un bichito amor aguanto demasiado mentalmente, me puedo estar muriendo mentalmente y tú me haces sentir mejor.",
+    "Amor estoy trabajando en mí y quiero seguir creciendo para que puedas sentirte cada día más querida y segura a mi lado.",
+    "Nunca dejes que tus sueños se hagan pequeños por miedo a intentarlo yo quiero verte llegar muy lejos amor.",
+    "Mi amor unas ganas de abrazarte pero tmb de darte unas nalgaditas y llenarte de besos en el cuello y luego lo que tú quieras mami."
+  ],
+  "noche": [
+    "Buenas noches mi amor espero que hoy hayas encontrado aunque sea un pequeño motivo para  sonreír.",
+    "Amor ya se está terminando el día, ojo con desvelarte😡.",
+    "Mi esposa MÍA descansa, mañana terminas de hacer lo que no terminaste hoy, descansa porfavor.",
+    "Antes de dormir quiero que recuerdes que eres muy importante para mí y que nunca debes dudar cuanto te amo.",
+    "Si hoy fue un día complicado deja que termine amor, mañana será un mejor día, descansa mami.",
+    "Me encantaría terminar el día haciéndote el amor, buenas noches mami.",
+    "Gracias por existir y por quedarte en mi vida amor, no sé qué haría sin ti no me imagino sin mi Brisa.",
+    "Que Diosito te cuide esta noche que te de tranquilidad y paz amor.",
+    "Me voy a dormir pensando en cómo seran algún día nuestras noches durmiendo juntos amor.",
+    "Mi amor no importa cómo haya sido tu día aquí tienes a alguien que te ama más de lo que crees.",
+    "Ojalá pudiera abrazarte y acariciar tu cabello hasta que te quedaras dormida mi amor.",
+    "Amor quiero que cierres tus ojitos sabiendo que eres amada por tu esposo, que me importas y que te voy a hacer mami.",
+    "Amor gracias por ser la mejor novia, por lo q me generas, por tu sonrisa y por todo lo que has despertado en mí.",
+    "Si mañana tienes un día difícil recuerda que no tienes que enfrentarlo todo sola amor, yo estoy para ti.",
+    "Te amo mi esposa hermosa preciosa chula,\nDios… si alguna vez hice algo bien, seguramente fue para merecerla a ella.",
+    "Me haces mucha falta en las noches amor, quisiera abrazarte hasta dormirme sin tener que decir nada.",
+    "No sé qué nos tenga preparado la vida amor, pero deseo de corazón que esta oportunidad que tenemos sea para unirnos toda la vida.",
+    "Descansa preciosa, que yo me enteré que hoy te desvelaste.",
+    "A veces me quedo pensando en ti antes de dormir amor, si estás aquí espero que estés bien y puedas descansar, si no puedes ver más mensajitos abajo.",
+    "Si hoy no fue tu mejor día no te castigues amor, mañana será un mejor día y yo seguiré admirándote.",
+    "Quiero aprender a quererte cada día más mi Brisa y demostrártelo cuidándote y recordándote lo mucho q te amo.",
+    "Buenas noches a mi esposaaa.. ay mi fresita😍",
+    "Unas ganas de hacerte el amor para que estés tranquila y luego te duermes en mi pecho mi amor.",
+    "Amor ya cenaste? Te lavaste los dientes? Estás acostada? Si si pq no estás durmiendo?.",
+    "Hazme papá amor."
+  ],
+  "madrugada": [
+    "Mi amor seguro no puedes dormir y entraste aquí buscando un poquito de cariño dale al botón de abajo que todavía tengo muchas cositas que decirte.",
+    "No sé qué estará pasando por esa cabecita ahora mismo, pero quiero que sepas que no tienes que resolverlo todo esta noche puedes descansar y permitirte estar tranquila, te amo mucho y lo sabes.",
+    "Mi amor si hoy te sientes triste no tienes que fingir que estás bien no tienes que esconder lo que sientes, cuéntame sabes que te voy a escuchar y hacer lo que pueda para verte feliz y sino puedo hacer nada te escucho.",
+    "A veces quisiera poder entrar en tus pensamientos y abrazarte justo en esos momentos en los que empiezas a dudar de ti misma amor.",
+    "Quiero que recuerdes algo mi amor no eres una carga para mí por tener días complicados y nunca tienes que sentirte mal por contarme cosas que no te dejan dormir.",
+    "Amor si pudiera pedirle algo a Dios esta noche sería que te ayude con todas esas cosas que nunca me has contado que te dé fuerzas para superar cualquier cosa y que nunca te falten motivos para seguir adelante.",
+    "Mi amor no sé qué te preocupa ahora mismo pero quiero que sepas que no tienes que encontrar todas las respuestas hoy a veces descansar también es una forma de seguir adelante y también sé que si no puedes dormir no es tan fácil de decir que te duermas, pero inténtalo amor.",
+    "Llegaste a mi vida sin hacer ruido y terminaste convirtiéndote en alguien que está presente en muchos de mis planes en el futuro hay algo en ti que me hace sentir que encontré a mi esposa y no hay nada que me cambie ese sentimiento.",
+    "Si alguna vez dudas de cuánto te amo quiero que recuerdes que no eres alguien que simplemente apareció en mi vida eres alguien con quien deseo formar una familia, dos bbs hermosos que van a crecer y verán lo mucho que se aman sus padres.",
+    "Mi amor no permitas que tus pensamientos de madrugada te hagan creer cosas malas sobre ti misma a veces la mente se vuelve demasiado ruidosa cuando estamos cansados y no todo lo que pensamos es verdad.",
+    "Quiero que algún día podamos recordar estos momentos en los que no es fácil estar tan lejos porque los dos nos necesitamos y los dos vamos a saber que superamos la distancia y que no hay nada que no podamos superar mi amor.",
+    "No quiero que sientas que debes ser fuerte todo el tiempo conmigo tmb puedes descansar, puedes llorar, puedes contarme lo que te duele y puedes simplemente quedarte en silencio quiero cuidarte toda la vida porque aunque seas mayor, 11 meses que, siempre vas a ser mi bb.",
+    "Mi amor si alguna vez sientes que nadie nota tus esfuerzos quiero que sepas que yo sí los veo y te admiro mucho.",
+    "Quiero que tengas la tranquilidad de saber que quiero cuidarte respetarte toda la vida y construir algo grande juntos.",
+    "Si esta noche te sientes triste quiero recordarte que no tienes que compararte con nadie, en mis ojos ninguna mugrosa está a tu nivel.",
+    "Mi amor no sé cuántas cosas nos falten por vivir ni cuántos planes tengamos que cambiar, pero me hace mucha ilusión imaginar un futuro en el que sigamos eligiéndonos.",
+    "Amor hay noches en las que quisiera poder acercarme a ti sin decir nada solo abrazarte acariciarte el cabello y hacerte sentir que por un ratito puedes olvidarte de todo.",
+    "Quiero que sepas que puedes contarme incluso esas cosas que no sabes cómo explicar yo te voy a escuchar e intentar hacer que te sientas un poquito mejor.",
+    "Dios.. ayúdala con cada obstáculo difícil que se le presente, nunca dejes que ella se rinda, que ningún pensamiento malo la consuma, hazle saber que no está sola, que no se desvíe del buen camino, porfavor déjala que cumpla todos sus sueños y logre su meta más grande porque se lo merece.",
+    "Mi amor si hoy cometiste algún error no significa que hayas fracasado todos cometemos errores somos personas y hay que aprender a perdonarnos a nosotros mismos, así que intenta descansar amor, mñn será otro día.",
+    "Mi Brisa nunca me voy a cansar de recordarte lo importante que eres para mí y lo mucho que te amo.",
+    "Quiero que algún día podamos despertar en el mismo lugar abrazados y esos más 6mil km solo queden en un recuerdo no bonito porque es muy feo extrañarte todos los días, pero es parte de nuestra historia amor.",
+    "Amor no dejes que esos malos pensamientos te impidan ser feliz y de imaginar todo lo bonito que estamos construyendo.",
+    "Si esta noche tienes demasiados pensamientos intenta respirar despacito, deja que las cosas esperen a mañana para verlas con más calma amor.",
+    "Mi esposa, no solo me enamoré de ti también te admiro por tu inteligencia por tus cualidades por tu manera de ser y por todas esas cosas que aveces no ves en ti misma.",
+    "Quiero que sepas que voy a seguir esforzándome por ser una mejor versión de mí no quiero que solamente escuches cuánto te amo quiero que también puedas verlo en mi manera de tratarte.",
+    "Mi amor si alguna vez sientes que el mundo está siendo demasiado difícil contigo recuerda que no tienes que soportar todo sola puedes pedirme ayuda.",
+    "Mi amorrr 🥺 no puedes dormir? Si aún estoy despierto llámame y si ya estoy dormido bueno dale al botón de abajo, hay más mensajitos pero también intenta dormir ya apaga el celu.",
+    "Mi esposa quisiera que pudieras verte desde mi perspectiva por un momento para que entendieras que eres mucho más hermosa, más inteligente y más especial de lo que a veces te permites creer.",
+    "Isaías‬ ‭54‬:‭10‬ ‭TLA‬‬\n“Las montañas podrán cambiar de lugar, los cerros podrán venirse abajo, pero mi amor por ti no cambiará. Siempre estaré a tu lado y juntos viviremos en paz… “",
+    "Si alguna vez tienes miedo de no lograr tus sueños quiero que recuerdes que tienes tiempo y también recuerda todas las veces que has logrado superar cosas que parecían difíciles, yo confío mucho en ti amor.",
+    "Le pido a Dios que cuide esas partes de ti que no siempre muestras amor que sane lo que todavía te duele y que te permita encontrar esa paz que tanto mereces.",
+    "Mi amor quiero que algún día tengamos una vida llena de cosas bonitas, cocinar algo juntos,reírnos por cualquier tontera llegar cansados a nuestra casita y dormir juntitos.",
+    "Si esta noche estás recordando cosas que te hicieron daño quiero pedirte que seas amable contigo, no te culpes a ti misma amor y abajo si los necesitas hay más mensajitos para ti.",
+    "Amor no sé qué planes tenga Dios para nosotros, pero deseo que nos cuidemos, crezcamos juntos y convertir todos esos sueños en recuerdos.",
+    "Siempre te lo digo pero quiero que recuerdes que eres la persona a la que más amo en este mundo, eres mi vida, mi esposa chula.",
+    "Mi amor si alguna vez te sientes sola recuerda que hay alguien que piensa en ti que se preocupa por cómo estás y que desea sinceramente pasar toda la vida contigo.",
+    "Quiero que tengas una vida de la que te sientas orgullosa, como yo estoy orgulloso de ti, quiero verte cumplir todas tus metas amor.",
+    "Si pudiera pedirle algo a Dios esta noche le pediría que te proteja incluso de aquello que yo no sé, que te acompañe donde quiera que vayas y que nunca permita que pierdas esa sonrisa que tanto amo.",
+    "Mi amor no quiero que tengas miedo de contarme cuando algo te duele no siempre voy a tener una solución para todo pero sí quiero escucharte, comprenderte y acompañarte de la manera que pueda.",
+    "Desde que llegaste he descubierto una versión de mí que tenía muchas ganas de conocer pero ni yo lo sabía, gracias por despertar eso en mí Brisa.",
+    "Amor yo no estoy para ti solamente para los momentos bonitos, vamos a tener diferencias y espero que ninguna nos aleje lo suficiente para no solucionarlo, no quiero pasar un día entero sin haber solucionado cualquier discusión que podríamos tener.",
+    "Mi amor recuerda que podemos tener muchos planes pero también debemos confiar en los tiempos de Dios, no dejes que pensar demasiado te robe la paz, hagamos nuestras cosas confiando y esperando a que llegue su momento.",
+    "Amor si alguna vez la vida nos pone a prueba quiero que recordemos por qué comenzamos que no olvidemos todas esas razones que nos hicieron elegirnos porque todavía tenemos muchísimas promesas por cumplir.",
+    "Y si alguna noche vuelves a entrar aquí buscando algo bonito quiero que encuentres siempre el mismo recordatorio llegaste a mi vida y te convertiste en alguien muy muy muy especial para mí amor, te amoooooo."
+  ],
+  "especial": [
+    "Amorrrrrrrr, es muy muy muyyyy difícil que te encuentres este mensaje y bueno si encuentras este mensajito toma captura y te mando flores estos días🤭"
+  ]
+};
+    // mensajes 
+    const botonMensajes = buscar("#boton-mensajes");
+    const panelMensajes = buscar("#panel-mensajes");
+    const textoMensajito = buscar("#texto-mensajito");
+    const botonSiguienteMensajito = buscar("#siguiente-mensajito");
+    const CLAVE_HISTORIAL_MENSAJES = "brisa-mensajitos-v1";
+    let estadoMensajes = {};
+    try {
+      const guardado = JSON.parse(localStorage.getItem(CLAVE_HISTORIAL_MENSAJES) || "{}");
+      if (guardado && typeof guardado === "object") estadoMensajes = guardado;
+    } catch (_) { estadoMensajes = {}; }
+
+    function categoriaPorHora(hora, minuto) {
+      const minutosDelDia = hora * 60 + minuto;
+      if (minutosDelDia >= 300 && minutosDelDia < 720) return "manana";
+      if (minutosDelDia >= 720 && minutosDelDia < 1140) return "dia";
+      if (minutosDelDia >= 1140 || minutosDelDia < 30) return "noche";
+      return "madrugada";
+    }
+    function horaArgentinaActual() {
+      const partes = new Intl.DateTimeFormat("es-AR", {
+        timeZone: "America/Argentina/La_Rioja", hour: "2-digit", minute: "2-digit", hourCycle: "h23"
+      }).formatToParts(new Date());
+      const obtener = (tipo) => Number(partes.find((parte) => parte.type === tipo)?.value || 0);
+      return { hora: obtener("hour"), minuto: obtener("minute") };
+    }
+    function mezclar(lista) {
+      const resultado = [...lista];
+      for (let indice = resultado.length - 1; indice > 0; indice -= 1) {
+        const destino = Math.floor(Math.random() * (indice + 1));
+        [resultado[indice], resultado[destino]] = [resultado[destino], resultado[indice]];
+      }
+      return resultado;
+    }
+    function guardarEstadoMensajes() {
+      try { localStorage.setItem(CLAVE_HISTORIAL_MENSAJES, JSON.stringify(estadoMensajes)); } catch (_) { /* El selector sigue funcionando sin almacenamiento. */ }
+    }
+    function sacarMensaje(categoria) {
+      const lista = MENSAJES[categoria];
+      let estado = estadoMensajes[categoria];
+      if (!estado || !Array.isArray(estado.pendientes) || !lista.includes(estado.ultimo ?? null)) {
+        estado = { pendientes: [], ultimo: null };
+      }
+      if (estado.pendientes.some((mensaje) => !lista.includes(mensaje))) estado.pendientes = [];
+      if (!estado.pendientes.length) {
+        estado.pendientes = mezclar(lista);
+        if (estado.pendientes.length > 1 && estado.pendientes[0] === estado.ultimo) {
+          const distinto = estado.pendientes.findIndex((mensaje) => mensaje !== estado.ultimo);
+          [estado.pendientes[0], estado.pendientes[distinto]] = [estado.pendientes[distinto], estado.pendientes[0]];
+        }
+      }
+      const mensaje = estado.pendientes.shift();
+      estado.ultimo = mensaje;
+      estadoMensajes[categoria] = estado;
+      guardarEstadoMensajes();
+      return mensaje;
+    }
+
+    let temporizadorEscrituraMensajito = 0;
+    let versionEscrituraMensajito = 0;
+    function escribirMensajito(texto) {
+      window.clearTimeout(temporizadorEscrituraMensajito);
+      const version = ++versionEscrituraMensajito;
+      textoMensajito.textContent = "";
+      textoMensajito.classList.add("escritura-activa");
+      const caracteres = Array.from(texto);
+      let indice = 0;
+      function escribirSiguiente() {
+        if (version !== versionEscrituraMensajito) return;
+        if (indice >= caracteres.length) {
+          textoMensajito.classList.remove("escritura-activa");
+          return;
+        }
+        const caracter = caracteres[indice++];
+        textoMensajito.textContent += caracter;
+        const cps = AJUSTES.velocidadEscrituraCartaMinima + Math.random() * (AJUSTES.velocidadEscrituraCartaMaxima - AJUSTES.velocidadEscrituraCartaMinima);
+        let demora = 1000 / cps;
+        if (/[.!?…]/u.test(caracter)) demora += 180 + Math.random() * 320;
+        else if (/[,;:]/u.test(caracter)) demora += 90 + Math.random() * 180;
+        else if (caracter === "\n") demora += 70 + Math.random() * 130;
+        temporizadorEscrituraMensajito = window.setTimeout(escribirSiguiente, demora);
+      }
+      escribirSiguiente();
+    }
+    function mostrarSiguienteMensajito() {
+      const { hora, minuto } = horaArgentinaActual();
+      const categoria = categoriaPorHora(hora, minuto);
+      const mensaje = Math.random() < 0.0001 ? MENSAJES.especial[0] : sacarMensaje(categoria);
+      escribirMensajito(mensaje);
+    }
+    botonMensajes.addEventListener("click", () => {
+      panelMensajes.hidden = false;
+      botonSiguienteMensajito.hidden = false;
+      botonMensajes.setAttribute("aria-expanded", "true");
+      mostrarSiguienteMensajito();
+    });
+    botonSiguienteMensajito.addEventListener("click", mostrarSiguienteMensajito);
+
     function abrirCarta() {
       sobre.classList.add("abierto");
       sobre.setAttribute("aria-expanded", "true");
@@ -730,7 +985,7 @@ Palabras de la Biblia que de alguna manera, me hacen pensar en ti y en lo bonito
     }
     actualizarTiempoTranscurrido();
 
-    // Juego de la pregunta: Brisa se hace más pequeña y Daniel más grande.
+    // Juego 
     const opcionBrisa = buscar("#opcion-brisa");
     const opcionDaniel = buscar("#opcion-daniel");
     const respuestaAmor = buscar("#respuesta-amor");
@@ -782,7 +1037,7 @@ Palabras de la Biblia que de alguna manera, me hacen pensar en ti y en lo bonito
       temporizadorAviso = window.setTimeout(() => aviso.classList.remove("mostrar"), 2700);
     }
 
-    // Reproductor de música: requiere tocar el botón por las reglas de los celulares.
+    // musica
     if (AJUSTES.archivoMusica && AJUSTES.archivoMusica.trim()) {
       const audio = buscar("#musica-fondo");
       const botonMusica = buscar("#boton-musica");
@@ -803,7 +1058,7 @@ Palabras de la Biblia que de alguna manera, me hacen pensar en ti y en lo bonito
       });
     }
 
-    // animación de entrada de secciones al desplazarse
+    // animación de desplazamiento
     if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       const observador = new IntersectionObserver((entradas) => {
         entradas.forEach((entrada) => {
